@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Shipment = require("./Shipment")
 
 const UserSchema = new Schema({
     businessOwner: {
@@ -29,6 +30,10 @@ const UserSchema = new Schema({
     date: {
       type: Date,
       default: Date.now
+    },
+    
+    shipment:{
+      type: Schema.Types.ObjectId, ref: "shipments"
     }
 
 });

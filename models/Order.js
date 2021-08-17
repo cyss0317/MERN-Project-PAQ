@@ -31,7 +31,9 @@ const OrderSchema = new Schema({
   },
   customerId: {
     type: String,
-    required: true
+    required: true,
+    // type: Schema.Types.ObjectId,
+    // ref: 'users'
   },
   shipmentId: {
     type: String,

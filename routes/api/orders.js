@@ -15,7 +15,7 @@ router.get("/test", (req, res) => {
 //might have to change the route
 router.get('/user/:user_id', (req, res) => {
   Order.find({ user: req.params.user_id })
-    .sort ({ date: -1 })
+    // .sort ({ date: -1 })
     .then(orders => res.json(orders))
     .catch(err =>
       res.status(404).json({ noordersfound: "No orders found from this user" }
@@ -39,7 +39,6 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-      debugger
 
     const newOrder = new Order({
       price: req.body.price,
@@ -55,5 +54,14 @@ router.post('/',
     newOrder.save().then(order => res.json(order));
   }
 );
+
+router.delete('/:id', (req, res) => {
+  Order.findOneAndRemove({_id: req.params.id}, (err) => {
+    if (err) {
+      return next(err)
+    };
+    res.json({ orderdeleted: "Order has been deleted!"})
+  })
+})
 
 module.exports = router;

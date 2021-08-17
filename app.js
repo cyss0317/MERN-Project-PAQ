@@ -7,7 +7,7 @@ const users = require("./routes/api/users");
 const User = require("./models/User");
 const bodyParser = require("body-parser");
 
-
+const messages = require('./routes/api/sms')
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 
 // if address starts with this, we want to render this
 app.use("/api/users", users)
+app.use('/api/messages', messages)
 
 const port = process.env.PORT || 5000; 
 

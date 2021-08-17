@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     businessOwner: {
       type: Boolean,
-      required: true
+      // required: true
     },
     // clients: {
     //   type: Integer,

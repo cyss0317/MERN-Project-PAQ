@@ -1,14 +1,14 @@
 const Validator = require("validator");
-const validText = require("./valid-text")
+const validText = require("../valid-text")
 
 
-module.exports = function validateRegister(data) {
+module.exports = function validateRegisterForShipment(data) {
     let errors = {};
 
     data.departure = validText(data.departure) ? data.departure : ""
-    data.weight = validText(data.weight) ? data.email : ""
+    // data.weight = validText(data.weight) ? data.email : ""
     data.full = validText(data.full) ? data.full : ""
-    data.userId = validText(data.userId) ? data.userId : ""
+    // data.userId = validText(data.userId) ? data.userId : ""
 
 
     if (Validator.isEmpty(data.departure)) {
@@ -18,9 +18,13 @@ module.exports = function validateRegister(data) {
     if (Validator.isEmpty(data.weight)) {
         errors.weight = "Weight field is required"
     }
-
+    
     if (Validator.isEmpty(data.full)) {
-        errors.full = "Full field is required"
+        errors.full = "full field is required"
+    }
+
+    if (!Validator.isBoolean(data.full)) {
+        errors.full = "Full field only can be true or false"
     }
 
     if (Validator.isEmpty(data.userId)) {

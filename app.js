@@ -10,7 +10,7 @@ const shipments = require("./routes/api/shipments")
 
 
 mongoose
-  .connect(db, { useNewUrlParser: true} )
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
 

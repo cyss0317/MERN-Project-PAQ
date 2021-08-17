@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const Shipment = require("./models/Shipment")
 const shipments = require("./routes/api/shipments")
 
-
+const messages = require('./routes/api/sms')
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
@@ -26,7 +26,11 @@ app.use(bodyParser.json());
 
 // if address starts with this, we want to render this
 app.use("/api/users", users)
+
+app.use('/api/messages', messages)
+
 app.use("/api/shipments", shipments)
+
 
 const port = process.env.PORT || 5000; 
 

@@ -25,7 +25,8 @@ router.post("/register", (req, res)=> {
           businessOwner: req.body.businessOwner,
           password: req.body.password,
           phoneNumber: req.body.phoneNumber,
-          address: req.body.address
+          address: req.body.address,
+          shipment: req.body.shipment
         })
       
         bcrypt.genSalt(10, (err, salt) => {
@@ -41,39 +42,32 @@ router.post("/register", (req, res)=> {
     })
 })
 
-// router.patch("/edit", (req, res) => {
-//   const { errors, isValid } = validateRegisterInput(req.body);
+router.patch("/:id", (req, res) => {
+  User.findOneAndUpdate({ id: req.body.id },
+    {
+      address: req.body.address,
+      phoneNumber: req.body.phoneNumber,
+      date: req.body.date,
+      shipment: req.body.shipment
+    },
+    { new: true }, (error, data) => {
+      if (error) {
+        res.json(error)
+      } else {
+        res.json(data)
+      }
+    })
+});
 
-//   if (!isValid) {
-//     return res.status(400).json(errors);
-//   }
+router.get("/:id", (req, res) => {
+  const user = User.findById(req.params.id)
+    .populate("shipment")
+    .exec()
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json(err))
 
-//   User.findOne({ email: req.body.email })
-//     .then(user => {
-//       if (user) {
-//         return res.status(400).json({ email: "A user is already registered with this email" })
-//       } else {
-//         const newUser = new User({
-//           email: req.body.email,
-//           name: req.body.name,
-//           businessOwner: req.body.businessOwner,
-//           password: req.body.password,
-//           phoneNumber: req.body.phoneNumber,
-//           address: req.body.address
-//         })
+})
 
-//         bcrypt.genSalt(10, (err, salt) => {
-//           bcrypt.hash(newUser.password, salt, (err, hash) => {
-//             if (err) throw err;
-//             newUser.password = hash;
-//             newUser.save()
-//               .then((user) => res.json(user))
-//               .catch(err => console.log(err))
-//           })
-//         })
-//       }
-//     })
-// })
 
 router.post('/login', (req, res)=> {
   const { errors, isValid } = validateLoginInput(req.body);

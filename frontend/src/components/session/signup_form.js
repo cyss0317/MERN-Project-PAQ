@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     return(
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li key={`error-${i}`} id="sign-err">
             {this.state.errors[error]}
           </li>
         ))}
@@ -125,7 +125,7 @@ class SignupForm extends React.Component {
                   onChange={this.update('businessOwner')}
                   id='true'
                 />
-                <label htmlFor='true'> True </label>                
+                <label htmlFor='true'> Yes </label>                
               </div>
               <div id='owner-false'>
                 <input type="checkbox"
@@ -133,7 +133,7 @@ class SignupForm extends React.Component {
                   onChange={this.update('businessOwner')}
                   id='false'
                 />
-                <label htmlFor='false'> False </label>                
+                <label htmlFor='false'> No </label>                
               </div>
             </div>
             <br />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import loginCss from './login.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -47,9 +48,9 @@ class LoginForm extends React.Component {
   // Render the session errors if there are any
   renderErrors() {
     return(
-      <ul>
+      <ul id='errors'>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li key={`error-${i}`} id='error'>
             {this.state.errors[error]}
           </li>
         ))}
@@ -59,22 +60,31 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-              <input type="text"
+      <div id="main-log">
+        <form onSubmit={this.handleSubmit} id="log-form">
+          
+          <div id="log-side-photo">
+            <img src="https://assets.airmail.news/static/images/BAh7CEkiCGdpZAY6BkVUSSIzZ2lkOi8vYWlyLW1haWwvQXJ0aWNsZTo6UGhvdG8vNDU2NjU_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--d8b07e76cf3d5be88b616c16e3d90e90872020aa/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2QzNKbGMybDZaVWtpQ1RneU1ENEdPd1pVT2hCaGRYUnZYMjl5YVdWdWRGUTZESEYxWVd4cGRIbHBhUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--9f1042b9c088c6ba97f7b06fd8c724bd4cf39745/photo-1619795015.jpeg" id="log-photo"/>
+          </div>
+          
+          <div id='log-inner'>
+            <h1 id='log-title'>Sign In</h1>
+            <br/>
+              <input type="email"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
+                id='log-inputs'
               />
             <br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
+                id='log-inputs'
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" id="log-submit"/>
             {this.renderErrors()}
           </div>
         </form>

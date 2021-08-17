@@ -5,6 +5,7 @@ const passport = require('passport');
 // const jwt = require('jsonwebtoken');
 require('../../config/passport')(passport);
 const validateOrderInput = require('../../validation/order');
+const {response} = require('express');
 
 const Order = require('../../models/Order');
 
@@ -14,8 +15,8 @@ router.get("/test", (req, res) => {
 
 //might have to change the route
 router.get('/user/:user_id', (req, res) => {
-  Order.find({ user: req.params.user_id })
-    // .sort ({ date: -1 })
+  Order.find({ customerId: req.params.user_id })
+    .sort ({ date: -1 })
     .then(orders => res.json(orders))
     .catch(err =>
       res.status(404).json({ noordersfound: "No orders found from this user" }
@@ -63,5 +64,32 @@ router.delete('/:id', (req, res) => {
     res.json({ orderdeleted: "Order has been deleted!"})
   })
 })
+
+router.patch('/:id',
+  (req, res) => {
+    // Order.findById(req.params.id)
+
+    Order.findOneAndUpdate({_id: req.params.id}), {
+        price: req.body.price,
+        weight: req.body.weight,
+        receiverName: req.body.receiverName,
+        description: req.body.description,
+        delivered: req.body.delivered,
+        businessOwnerId: req.body.businessOwnerId,
+        customerId: req.body.customerId,
+        shipmentId: req.body.shipmentId
+    },
+    {new: true}, 
+    (err, data) => {
+      if(err){
+        // console.log(err)
+        // return next(err)
+        return res.status(400).json({ error: "Order did not update!"})
+      } 
+      res.json({data})
+    }
+    // res.json({ orderupdated: "Still not updating the order!"}))
+
+});
 
 module.exports = router;

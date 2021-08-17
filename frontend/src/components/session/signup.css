@@ -1,0 +1,114 @@
+.signup-form-container{
+display: flex;
+    justify-content: center;
+    height: 800px;
+    width: 100%;
+    /* margin-left: 40%; */
+    background-image: url(https://live.staticflickr.com/2774/4251463319_c47642aac2_b.jpg);
+    background-size: 108% 102%;
+    background-position: -112px;
+    /* -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0, 0)); */
+    transition: 2s;
+}
+
+.signup-form{
+width: 46%;
+    height: 65%;
+    background-size: 100% 145%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(255, 255, 255, 0.75);
+    background-position: 1px -107px;
+    margin-top: 4%;
+    border-radius: 13px;
+    box-shadow: 1px 5px 20px 11px #d0d0d03b;
+    background: #0e1623;
+}
+
+#sign-inner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#sign-inputs{
+    width: 40%;
+    height: 30px;
+    border-radius: 30px;
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0.52);
+    border: solid white;
+    text-align: center;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#sign-inputs:focus{
+    width: 60%;
+    height: 30px;
+    transition: 1s;
+    background: white;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+#sign-title{
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: 1%;
+    margin-bottom: 15%;
+    color: white;
+}
+
+#sign-submit{
+    width: 25%;
+    height: 7%;
+    border-radius: 23px;
+    border-color: #ffffff00;
+    font-size: medium;
+    font-weight: bold;
+    background: white;
+}
+
+#sign-side-photo{
+    height: 100%;
+    width: 100%;
+    background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/2-minneapolis-minnesota-city-view-walter-bibikow.jpg);
+    border-radius: 10px;
+    background-size: 100% 143%;
+    background-position: 0px -131px;
+}
+#sign-side-photo1{
+    height: 100%;
+    width: 100%;
+    background-image: url(https://images.8tracks.com/imgix/i/010/252/995/la_sky-5433.gif?rect=210,0,538,538&q=65&fit=max&w=320&h=320);
+    border-radius: 10px;
+    background-size: 100% 143%;
+    background-position: 0px -131px;
+}
+
+#error{
+    color: white;
+    margin-left: -5%;
+}
+
+#owner-input{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+}
+
+#owner-title{
+    color: white;
+}
+
+#sign-err{
+    color: white;
+}

@@ -69,7 +69,7 @@ router.patch('/:id',
   (req, res) => {
     // Order.findById(req.params.id)
 
-    Order.findOneAndUpdate({_id: req.params.id}), {
+    Order.findOneAndUpdate({_id: req.params.id}, {
         price: req.body.price,
         weight: req.body.weight,
         receiverName: req.body.receiverName,
@@ -87,7 +87,7 @@ router.patch('/:id',
         return res.status(400).json({ error: "Order did not update!"})
       } 
       res.json({data})
-    }
+    })
     // res.json({ orderupdated: "Still not updating the order!"}))
 
 });

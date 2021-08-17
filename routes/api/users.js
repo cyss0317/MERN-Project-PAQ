@@ -24,7 +24,9 @@ router.post("/register", (req, res)=> {
           name: req.body.name,
           businessOwner: req.body.businessOwner,
           password: req.body.password,
-          phoneNumber: req.body.phoneNumber
+          phoneNumber: req.body.phoneNumber,
+          address: req.body.address,
+          shipment: req.body.shipment
         })
       
         bcrypt.genSalt(10, (err, salt) => {
@@ -39,6 +41,32 @@ router.post("/register", (req, res)=> {
       }
     })
 })
+
+router.patch("/:id", (req, res) => {
+  User.findOneAndUpdate({ id: req.body.id },
+    {
+      address: req.body.address,
+      phoneNumber: req.body.phoneNumber,
+      shipment: req.body.shipment
+    },
+    { new: true }, (error, data) => {
+      if (error) {
+        res.json(error)
+      } else {
+        res.json(data)
+      }
+    })
+});
+
+router.get("/:id", (req, res) => {
+  const user = User.findById(req.params.id)
+    .populate("shipment")
+    .exec()
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json(err))
+
+})
+
 
 router.post('/login', (req, res)=> {
   const { errors, isValid } = validateLoginInput(req.body);

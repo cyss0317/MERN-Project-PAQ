@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Shipment = require("./Shipment")
 
 const UserSchema = new Schema({
     businessOwner: {
       type: Boolean,
       // required: true
     },
-    // clients: {
-    //   type: Integer,
-    //   required: false
-    // },
+    address: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -29,6 +30,10 @@ const UserSchema = new Schema({
     date: {
       type: Date,
       default: Date.now
+    },
+    
+    shipment:{
+      type: Schema.Types.ObjectId, ref: "shipments"
     }
 
 });

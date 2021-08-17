@@ -8,10 +8,13 @@ const User = require("./models/User");
 
 
 const bodyParser = require("body-parser");
+const Shipment = require("./models/Shipment")
+const shipments = require("./routes/api/shipments")
 
 const orders = require("./routes/api/orders");
 const Order = require("./models/Order");
 
+const messages = require('./routes/api/sms')
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
@@ -25,20 +28,15 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  const user = new User({
-    name: "yun",
-    email: "cyss0317@gmail.com",
-    phoneNumber: "+1-254-449-4325",
-    password: "password"
-  })
-  user.save();
-  res.send("Hello Welcom to PAQ");
-})
 
 // if address starts with this, we want to render this
 app.use("/api/users", users)
 app.use("/api/orders", orders)
+
+app.use('/api/messages', messages)
+
+app.use("/api/shipments", shipments)
+
 
 const port = process.env.PORT || 5000; 
 

@@ -47,7 +47,6 @@ router.patch("/:id", (req, res) => {
     {
       address: req.body.address,
       phoneNumber: req.body.phoneNumber,
-      date: req.body.date,
       shipment: req.body.shipment
     },
     { new: true }, (error, data) => {

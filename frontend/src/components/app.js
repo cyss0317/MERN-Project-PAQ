@@ -12,12 +12,13 @@ import SignupFormContainer from './session/signup_form_container';
 const App = () => (
   <div>
     <NavBarContainer />
-    <MessageContainer />
-    <MassTextContainer/>
+
     <Switch>
         <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute exact path='/notify' component={MessageContainer} />
+        <ProtectedRoute exact path='/notify/all' component={MassTextContainer} />
     </Switch>
   </div>
 );

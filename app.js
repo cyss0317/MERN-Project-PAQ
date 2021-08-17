@@ -6,11 +6,11 @@ const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const User = require("./models/User");
 
-const orders = require("./routes/api/orders");
-const Order = require("./models/Order");
 
 const bodyParser = require("body-parser");
 
+const orders = require("./routes/api/orders");
+const Order = require("./models/Order");
 
 
 mongoose

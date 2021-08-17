@@ -6,10 +6,10 @@ const UserSchema = new Schema({
       type: Boolean,
       // required: true
     },
-    // clients: {
-    //   type: Integer,
-    //   required: false
-    // },
+    address: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true

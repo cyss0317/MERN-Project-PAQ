@@ -5,9 +5,14 @@ const db = require("./config/keys").mongoURI;
 
 const users = require("./routes/api/users");
 const User = require("./models/User");
+
+
 const bodyParser = require("body-parser");
 const Shipment = require("./models/Shipment")
 const shipments = require("./routes/api/shipments")
+
+const orders = require("./routes/api/orders");
+const Order = require("./models/Order");
 
 const messages = require('./routes/api/sms')
 
@@ -26,6 +31,7 @@ app.use(bodyParser.json());
 
 // if address starts with this, we want to render this
 app.use("/api/users", users)
+app.use("/api/orders", orders)
 
 app.use('/api/messages', messages)
 

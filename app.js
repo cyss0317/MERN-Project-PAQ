@@ -5,6 +5,10 @@ const db = require("./config/keys").mongoURI;
 
 const users = require("./routes/api/users");
 const User = require("./models/User");
+
+const orders = require("./routes/api/orders");
+const Order = require("./models/Order");
+
 const bodyParser = require("body-parser");
 
 
@@ -34,6 +38,7 @@ app.get("/", (req, res) => {
 
 // if address starts with this, we want to render this
 app.use("/api/users", users)
+app.use("/api/orders", orders)
 
 const port = process.env.PORT || 5000; 
 

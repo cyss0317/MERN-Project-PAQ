@@ -3,6 +3,9 @@ const router = express.Router();
 const validateRegisterForShipment = require("../../validation/shipments/shipment_register")
 const Shipment = require("../../models/Shipment");
 const { response } = require("express");
+const User = require("../../models/User");
+
+
 router.get("/test", (req, res) => {
   res.json({message: "This is the shipments route"})
 })
@@ -48,17 +51,18 @@ router.patch("/:id", (req, res)=> {
      { departure: req.body.departure, weight: req.body.weight, full: req.body.full, userId: req.body.userId },
          {new: true}, (error, data) => {
     if(error){
-      console.log(error)
+      res.json(error)
     }else{
-      console.log(data)
+      res.json(data)
     }
   })
-
 });
 
 
 router.get("/:id", (req, res) => {
   const shipment = Shipment.findById(req.params.id)
+    .populate("userId")
+    .exec()
     .then( shipment => res.json(shipment))
     .catch( err => res.status(404).json(err))
 

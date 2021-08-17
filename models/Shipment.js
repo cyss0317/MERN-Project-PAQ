@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const User = require("./User")
+
 
 const ShipmentSchema = new Schema({
     departure: {
@@ -15,13 +17,14 @@ const ShipmentSchema = new Schema({
         required: true
     },
     userId: {
-        type: String,
+        // type: String,
+        type: Schema.Types.ObjectId, ref: 'users',
         require: true
     },
     date: {
         type: Date,
         default: Date.now
-    }
+    },
 
 });
 

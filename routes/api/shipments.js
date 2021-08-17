@@ -48,7 +48,9 @@ router.delete("/:id", (req, res) => {
 
 router.patch("/:id", (req, res)=> {
   Shipment.findOneAndUpdate({ id: req.body.id },
-     { departure: req.body.departure, weight: req.body.weight, full: req.body.full, userId: req.body.userId },
+     { departure: req.body.departure,
+       weight: req.body.weight,
+       full: req.body.full, userId: req.body.userId },
          {new: true}, (error, data) => {
     if(error){
       res.json(error)

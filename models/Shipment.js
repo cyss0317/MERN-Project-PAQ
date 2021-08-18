@@ -17,11 +17,10 @@ const ShipmentSchema = new Schema({
         type: Boolean,
         required: true
     },
-    userId: {
-        // type: String,
+    userId:{
         type: Schema.Types.ObjectId, ref: 'users',
         require: true
-    },
+    }    ,
 
     // orders: {
     //     type: Schema.Types.ObjectId, ref: "orders"

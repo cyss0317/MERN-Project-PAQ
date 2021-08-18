@@ -73,14 +73,23 @@ router.get("/:id", (req, res) => {
 })
 
 
-// router.get("/user/:id", (req, res) => {
-//   const shipment = Shipment.find({ userId.id: ({id: req.params.userId})})
-//     .populate("userId")
-//     // .populate("orders")
-//     .exec()
+router.get("/user/:userId", (req, res) => {
+  const shipment = Shipment.find({ userId: req.params.userId})
+    // .populate("userId")
+    // .populate("orders")
+    // .exec()
+    .then(shipments => res.json(shipments))
+    .catch(err => res.status(404).json(err))
+
+})
+// router.get('/user/:id', (req, res) => {
+//   Shipment.findAll()
+//     .then( shipments => shipments.findBy({userId: req.params.userId }))
+//     .sort({ date: -1 })
 //     .then(shipments => res.json(shipments))
 //     .catch(err => res.status(404).json(err))
+// });
 
-// })
+
 
 module.exports = router;

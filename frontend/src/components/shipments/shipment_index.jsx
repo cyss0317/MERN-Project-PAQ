@@ -5,12 +5,12 @@ class ShipmentIndex extends React.Component{
         super(props)
     }
     componenetDidMount(){
-        this.props.fetchShipments
+        this.props.fetchShipment()
     }
 
     render(){
         return(
-            
+            <h1></h1>
         )
     }
 }

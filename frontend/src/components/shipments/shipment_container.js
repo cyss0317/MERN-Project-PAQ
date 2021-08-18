@@ -4,7 +4,7 @@ import { createNewShipment, fetchShipment, updateShipment } from "../../actions/
 
 
 const mSTP = (state, ownProps) => ({
-    shipments: state.shipment
+    shipment: state.shipment
 })
 
 const mDTP = dispatch => ({

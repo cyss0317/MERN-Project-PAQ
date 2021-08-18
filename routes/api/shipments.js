@@ -22,7 +22,8 @@ router.post("/", (req, res) => {
         weight: req.body.weight,
         full: req.body.full,
         userId: req.body.userId,
-        // orders: req.body.orders
+        delivered: req.body.delivered,
+        order: req.body.orders
     })
     newShipment.save()
     .then((newShipment) => res.json(newShipment))
@@ -51,7 +52,11 @@ router.patch("/:id", (req, res)=> {
   Shipment.findOneAndUpdate({ id: req.body.id },
      { departure: req.body.departure,
        weight: req.body.weight,
-       full: req.body.full, userId: req.body.userId },
+       full: req.body.full, 
+       userId: req.body.userId,
+       delivered: req.body.delivered,
+       order: req.body.order
+       },
          {new: true}, (error, data) => {
     if(error){
       res.json(error)
@@ -65,7 +70,7 @@ router.patch("/:id", (req, res)=> {
 router.get("/:id", (req, res) => {
   const shipment = Shipment.findById(req.params.id)
     .populate("userId")
-    // .populate("orders")
+    .populate("order")
     .exec()
     .then( shipment => res.json(shipment))
     .catch( err => res.status(404).json(err))
@@ -75,9 +80,9 @@ router.get("/:id", (req, res) => {
 
 router.get("/user/:userId", (req, res) => {
   const shipment = Shipment.find({ userId: req.params.userId})
-    // .populate("userId")
-    // .populate("orders")
-    // .exec()
+    .populate("userId")
+    .populate("order")
+    .exec()
     .then(shipments => res.json(shipments))
     .catch(err => res.status(404).json(err))
 

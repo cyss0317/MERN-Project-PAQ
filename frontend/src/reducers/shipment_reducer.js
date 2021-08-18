@@ -1,11 +1,11 @@
 import { RECEIVE_SHIPMENT,
     CREATE_SHIPMENT,
     EDIT_SHIPMENT,
-    RECEIVE_SHIPMENT_ERRORS} from "../actions/shipment_actions";
+    RECEIVE_ALL_SHIPMENTS} from "../actions/shipment_actions";
 
 
 // takes care of the action and oldstate
-const ShipmentReducer = (oldState = {}, action) => {
+const shipmentReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     const nextState = Object.assign({}, oldState);
 
@@ -14,6 +14,8 @@ const ShipmentReducer = (oldState = {}, action) => {
         return action.shipment  
       case CREATE_SHIPMENT:
         return Object.assign({}, oldState, {[action.shipment.id]: action.shipment})
+      case RECEIVE_ALL_SHIPMENTS:
+        return action.shipments
       case EDIT_SHIPMENT:
         nextState[action.shipment.id]= action.shipment
         return nextState
@@ -22,4 +24,4 @@ const ShipmentReducer = (oldState = {}, action) => {
     }
 }
 
-export default ShipmentReducer;
+export default shipmentReducer;

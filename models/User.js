@@ -35,7 +35,7 @@ const UserSchema = new Schema({
     shipments:[
       {
         shipment: {
-          type: Schema.Types.ObjectId, ref: "shipments"
+          type: Schema.Types.ObjectId, ref: "shipment"
         }
       }
     ]

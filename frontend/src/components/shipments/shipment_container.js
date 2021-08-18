@@ -1,16 +1,17 @@
 import {connect} from "react-redux";
 import ShipmentIndex from "./shipment_index";
-import { createNewShipment, fetchShipment, updateShipment } from "../../actions/shipment_actions";
+import { createNewShipment, fetchShipment, updateShipment, fetchAllShipments } from "../../actions/shipment_actions";
 
 
 const mSTP = (state, ownProps) => ({
-    shipment: state.shipment
+    shipments: state.shipment
 })
 
 const mDTP = dispatch => ({
     createNewShipment: shipment => dispatch(createNewShipment(shipment)),
     fetchShipment: shipmentId => dispatch(fetchShipment(shipmentId)),
-    updateShipment: shipment => dispatch(updateShipment(shipment))
+    updateShipment: shipment => dispatch(updateShipment(shipment)),
+    fetchAllShipments: userId => disptach(fetchAllShipments(userId))
 })
 
 export default connect(mSTP, mDTP)(ShipmentIndex)

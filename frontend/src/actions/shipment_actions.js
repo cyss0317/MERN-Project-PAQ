@@ -1,5 +1,6 @@
 import * as shipmentAPIUtil from "../util/shipment_api_util"
 export const RECEIVE_SHIPMENT = "RECEIVE_SHIPMENT"
+export const RECEIVE_ALL_SHIPMENTS = "RECEIVE_ALL_SHIPMENTS"
 export const CREATE_SHIPMENT = 'CREATE_SHIPMENT';
 export const EDIT_SHIPMENT = 'EDIT_SHIPMENT';
 export const RECEIVE_SHIPMENT_ERRORS = 'RECEIVE_SHIPMENT_ERRORS'; 
@@ -13,6 +14,12 @@ export const receiveShipment = (shipment) => ({
   type: RECEIVE_SHIPMENT,
   shipment
 });
+
+export const receiveAllShipments = (shipments) => ({
+  type: RECEIVE_ALL_SHIPMENTS,
+  shipments
+});
+
 
 export const editShipment = shipment => ({
   type: EDIT_SHIPMENT,
@@ -36,6 +43,13 @@ export const fetchShipment = shipmentId => dispatch =>
     .then( shipment => dispatch(editShipment(shipment)),
       err => dispatch(receiveErrors(err.responseJSON))
     )
+
+export const fetchAllShipments = userId => dispatch =>
+  shipmentAPIUtil.receiveAllShipments(userId)
+    .then(shipments => dispatch(receiveAllShipments(shipments)),
+      err => dispatch(receiveErrors(err.responseJSON))
+    )
+
 
 export const updateShipment = shipment => dispatch =>
   shipmentAPIUtil.editShipment(shipment)

@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { jwt } from 'twilio';
-import {createNewShipment, fetchShipment, updateShipment} from "./actions/shipment_actions"
+import {createNewShipment, fetchShipment, updateShipment, fetchAllShipments} from "./actions/shipment_actions"
 import axios from "axios"
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.createNewShipment = createNewShipment;
     window.fetchShipment = fetchShipment;
     window.updateShipment = updateShipment;
+    window.fetchAllShipments = fetchAllShipments;
+
     window.axios = axios
     
   ReactDOM.render(<Root store={store}/>, root); 

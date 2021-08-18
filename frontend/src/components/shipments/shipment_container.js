@@ -5,7 +5,8 @@ import { createNewShipment, fetchShipment, updateShipment, fetchAllShipments } f
 
 const mSTP = (state, ownProps) => ({
     shipments: state.shipments.data,
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    currentUserId: ownProps.match.params.userId
     // need to think about how to automatically add orders 
 })
 

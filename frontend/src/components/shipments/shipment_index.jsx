@@ -5,10 +5,10 @@ class ShipmentIndex extends React.Component{
         super(props)
     }
     componenetDidMount(){
-        this.props.fetchAllShipments(this.props.currentUser.id)
+        this.props.fetchAllShipments(this.props.currentUserId)
     }
-
     render(){
+        debugger
         const { shipments, currentUser } = this.props;
         if (shipments === undefined){
             return null;

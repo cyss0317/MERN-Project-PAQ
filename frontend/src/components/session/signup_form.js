@@ -13,7 +13,8 @@ class SignupForm extends React.Component {
       phoneNumber: '',
       businessOwner: null,
       errors: {},
-      switch: ''
+      switch: '',
+      address: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +23,7 @@ class SignupForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+      this.props.history.push('/dashboard');
     }
 
     this.setState({errors: nextProps.errors})
@@ -43,6 +44,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
       phoneNumber: this.state.phoneNumber,
       businessOwner: this.state.businessOwner,
+      address: this.state.address
     };
 
     this.props.signup(user, this.props.history); 
@@ -95,7 +97,6 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="signup-form">
           <div id="sign-inner">
             <h1 id="sign-title">Continued</h1>
-            <br />
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
@@ -113,34 +114,50 @@ class SignupForm extends React.Component {
             <input type="text"
               value={this.state.phoneNumber}
               onChange={this.update('phoneNumber')}
-              placeholder="Enter your phonenumber"
+              placeholder="Phonenumber"
               id="sign-inputs"
             />
             <br />
-            <h4 id='owner-title'>Are you a business owner?</h4>
-            <div id="owner-input">
-              <div id="owner-true">
+            <input type="text"
+              value={this.state.address}
+              onChange={this.update('address')}
+              placeholder="Address"
+              id="sign-inputs"
+            />
+            <br />
+            <div id='owner-select' >
+              <h4 id='owner-title'>Are you a business owner?</h4>
+              <select id='owner-selection'>
+                <option>Select</option>
+                <option value={false} onClick={this.update('businessOwner')}>False</option>
+                <option value={true} onClick={this.update('businessOwner')}>True</option>
+              </select>
+            </div>
+            {/* <div id="owner-input"> */}
+              {/* <div id="owner-true">
                 <input type="checkbox"
                   value={true}
                   onChange={this.update('businessOwner')}
                   id='true'
                 />
                 <label htmlFor='true'> Yes </label>                
-              </div>
-              <div id='owner-false'>
+              </div> */}
+              {/* <div id='owner-false'>
                 <input type="checkbox"
                   value={false}
                   onChange={this.update('businessOwner')}
                   id='false'
                 />
                 <label htmlFor='false'> No </label>                
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             <br />
             <input type="submit" value="Submit" id="sign-submit" />
             {this.renderErrors()}
           </div>
-          <div id="sign-side-photo1" />
+          <div id="sign-side-photo1">
+            <button value='' onClick={this.update('switch')} id='back-button'>Back</button>
+          </div>
         </form>
       </div>);
   }

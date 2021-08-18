@@ -5,12 +5,36 @@ class ShipmentIndex extends React.Component{
         super(props)
     }
     componenetDidMount(){
-        this.props.fetchShipment()
+        this.props.fetchAllShipments(this.props.currentUser.id)
     }
 
     render(){
+        const { shipments, currentUser } = this.props;
+        if (shipments === undefined){
+            return null;
+        }
+
         return(
-            <h1></h1>
+            <div>
+                <div>
+                    <h1>Welcome, {currentUser.name}</h1>
+                </div>
+
+                <div>
+                    <h1>List of shipments</h1>
+                    <ul>
+                        
+                            {/* {
+                                shipments.maps((shipment) => {
+                                   <li> 
+                                       shipment
+
+                                    </li>
+                                })
+                            } */}
+                    </ul>
+                </div>
+            </div>
         )
     }
 }

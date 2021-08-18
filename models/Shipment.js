@@ -29,11 +29,11 @@ const ShipmentSchema = new Schema({
         require: true
     },
 
-    orders: [{
+    orders: {
         order: {
             type: Schema.Types.ObjectId, ref: "order"
         }
-    }],
+    },
 
     // order: {
     //     type: Schema.Types.ObjectId, ref: "order"

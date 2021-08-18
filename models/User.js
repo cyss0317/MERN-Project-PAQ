@@ -32,9 +32,13 @@ const UserSchema = new Schema({
       default: Date.now
     },
     
-    shipment:{
-      type: Schema.Types.ObjectId, ref: "shipments"
-    }
+    shipments:[
+      {
+        shipment: {
+          type: Schema.Types.ObjectId, ref: "shipment"
+        }
+      }
+    ]
 
 });
 

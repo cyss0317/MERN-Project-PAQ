@@ -1,4 +1,5 @@
 import React from 'react'; 
+import SmsCss from './sms.css'
 
 class SMSForm extends React.Component {
   constructor(props){
@@ -21,9 +22,9 @@ class SMSForm extends React.Component {
     }else{
       return(
           <ul className='errors'>
-              {this.props.errors.map((error, i) => (
+              {Object.keys(this.props.errors).map((error, i) => (
                 <li key={`error-${i}`}>
-                  {error}
+                  {this.props.errors[error]}
                 </li>
               ))}
           </ul>
@@ -35,29 +36,38 @@ class SMSForm extends React.Component {
     e.preventDefault();
     const message = Object.assign({}, this.state)
     this.props.sendMessage(message)
+    .then(this.setState(
+     {
+        to: '',
+        body: ''
+      },
+    ))
   }
 
 
   render(){
     console.log(this.props)
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
-          <label htmlFor='to'> To:</label>
+      <div className='sms-container'>
+        <form onSubmit={this.handleSubmit} >
+          {/* <label htmlFor='to'> To:</label> */}
+          <div className='sms-form' >
             <input type='tel'
                     id='to'
                     name='to'
                     value={this.state.to}
                     onChange={this.update('to')}
-                    placeholder='612-555-5555'/>
-          <label htmlFor='body'>Body:</label>
+                    placeholder='612-555-5555'
+                    className='sms-input'/>
+          {/* <label htmlFor='body'>Body:</label> */}
             <textarea name='body'
                       id='body'
                       value={this.state.body}
                       onChange={this.update('body')}
                       placeholder='Enter your message here...'/> 
-          <button type='submit'>Send Message</button>
+          </div>
+          {this.renderErrors()}
+          <button type='submit' className='sms-button'>Send Message</button>
         </form>
       </div>
     )

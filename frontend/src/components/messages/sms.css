@@ -1,0 +1,54 @@
+.sms-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.sms-form{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: solid;
+  border-radius: 20px;
+  width: 450px;
+  height: 190px;
+}
+
+textarea{
+  resize: none; 
+  width: 400px;
+  height: 100px;
+  color: black; 
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none; 
+  outline: none;
+  border-radius: 3px;
+  padding: 15px 15px;
+  margin-left: 8px; 
+}
+
+.sms-button{
+  border-radius: 3px;
+  background-color: red;
+  padding: 10px auto;
+  width: 50%;
+  margin: 0 auto; 
+  padding: 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.sms-input{
+  border: none; 
+  font-size: 16px; 
+  outline: none;
+  padding: 15px 15px; 
+  width: 50%; 
+  margin-left: 10px;
+}

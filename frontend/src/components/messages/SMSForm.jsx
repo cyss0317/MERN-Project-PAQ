@@ -47,7 +47,6 @@ class SMSForm extends React.Component {
 
 
   render(){
-    console.log(this.props)
     return(
       <div className='sms-container'>
         <form onSubmit={this.handleSubmit} id="sms-form-container">

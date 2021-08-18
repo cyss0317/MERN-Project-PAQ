@@ -1,3 +1,4 @@
+
 module.exports = {
   mongoURI: process.env.MONGO_URI,
   secretOrKey: process.env.SECRET_OR_KEY,
@@ -6,4 +7,5 @@ module.exports = {
   phoneNumber: process.env.PHONE_NUMBER, 
   user: process.env.USER,
   pass: process.env.PASS 
+
 }

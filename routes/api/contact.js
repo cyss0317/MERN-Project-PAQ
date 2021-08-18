@@ -22,7 +22,7 @@ contactEmail.verify((error) => {
 })
 
 router.post('/', (req,res) => {
-  debugger 
+
   const name = req.body.name;
   const email = req.body.email;
   const message = req.body.message; 

@@ -1,9 +1,9 @@
 
-keys.js
+
 /node_modules
 /.pnp
 .pnp.js
-keys_dev.js
+config/keys_dev.js
 
 
 # testing
@@ -13,6 +13,7 @@ keys_dev.js
 /build
 
 # misc
+../.DS_Store
 .DS_Store
 .env.local
 .env.development.local

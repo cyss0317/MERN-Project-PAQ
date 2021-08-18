@@ -13,7 +13,6 @@ import SignupFormContainer from './session/signup_form_container';
 const App = () => (
   <div>
     <NavBarContainer />
-    <ContactFormContainer />
     <Switch>
         <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />

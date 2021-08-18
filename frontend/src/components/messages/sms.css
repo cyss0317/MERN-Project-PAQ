@@ -14,7 +14,7 @@
     box-sizing: border-box;
     border: solid white;
     border-radius: 10px;
-    background: linear-gradient(217deg, rgb(255, 255, 255, 0), rgb(0, 67, 255, 0.35) 70.71%),            linear-gradient(127deg, rgb(212, 212, 212, 0.80), rgba(0,255,0,0) 70.71%),            linear-gradient(336deg, #033d89d6, rgba(17, 17, 151, 0) 70.71%);
+    background: linear-gradient(217deg, rgb(255, 255, 255, 0), rgb(0, 67, 255, 0.35) 70.71%), linear-gradient(127deg, rgb(212, 212, 212, 0.80), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, #033d89d6, rgba(17, 17, 151, 0) 70.71%);
     /* background: linear-gradient(217deg, #033d89d6, #033d897d 70.71%),
             linear-gradient(127deg, #18b9c0, #18b8c076 70.71%),
             linear-gradient(336deg, #ccd1cde1, #ccd1cd3e 70.71%); */
@@ -71,12 +71,12 @@ textarea{
 }
 
 #text-form-title{
-  background: linear-gradient(217deg, rgb(255, 255, 255, 0), rgb(0, 67, 255, 0.35) 70.71%),            linear-gradient(127deg, rgb(212, 212, 212, 0.80), rgba(0,255,0,0) 70.71%),            linear-gradient(336deg, #033d89d6, rgba(17, 17, 151, 0) 70.71%);
+  background: linear-gradient(217deg, rgb(255, 255, 255, 0), rgb(0, 67, 255, 0.35) 70.71%), linear-gradient(127deg, rgb(212, 212, 212, 0.80), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, #033d89d6, rgba(17, 17, 151, 0) 70.71%);
   color: white;
   padding: 5px;
 }
 #text-form-title1{
-  background: linear-gradient(217deg, rgb(255, 255, 255, 0), rgb(0, 67, 255, 0.35) 70.71%),            linear-gradient(127deg, rgb(212, 212, 212, 0.80), rgba(0,255,0,0) 70.71%),            linear-gradient(336deg, #033d89d6, rgba(17, 17, 151, 0) 70.71%);
+  background: linear-gradient(217deg, rgb(255, 255, 255, 0), rgb(0, 67, 255, 0.35) 70.71%), linear-gradient(127deg, rgb(212, 212, 212, 0.80), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, #033d89d6, rgba(17, 17, 151, 0) 70.71%);
   color: white;
   padding: 5px;
   width: 39%;

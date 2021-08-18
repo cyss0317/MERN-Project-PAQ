@@ -10,9 +10,9 @@ class ShipmentIndex extends React.Component{
     render(){
         // debugger
         const { shipments, currentUser } = this.props;
-        if (shipments === undefined){
-            return null;
-        }
+        // if (shipments === undefined){
+        //     return null;
+        // }
 
         return(
             <div>

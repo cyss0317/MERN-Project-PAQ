@@ -1,4 +1,5 @@
 import React from 'react'; 
+import SmsCss from './sms.css'
 
 class SMSForm extends React.Component {
   constructor(props){
@@ -41,23 +42,24 @@ class SMSForm extends React.Component {
   render(){
     console.log(this.props)
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className='sms-container'>
+        <form onSubmit={this.handleSubmit} className='sms-form'>
           {this.renderErrors()}
-          <label htmlFor='to'> To:</label>
+          {/* <label htmlFor='to'> To:</label> */}
             <input type='tel'
                     id='to'
                     name='to'
                     value={this.state.to}
                     onChange={this.update('to')}
-                    placeholder='612-555-5555'/>
-          <label htmlFor='body'>Body:</label>
+                    placeholder='612-555-5555'
+                    className='sms-input'/>
+          {/* <label htmlFor='body'>Body:</label> */}
             <textarea name='body'
                       id='body'
                       value={this.state.body}
                       onChange={this.update('body')}
                       placeholder='Enter your message here...'/> 
-          <button type='submit'>Send Message</button>
+          <button type='submit' className='sms-button'>Send Message</button>
         </form>
       </div>
     )

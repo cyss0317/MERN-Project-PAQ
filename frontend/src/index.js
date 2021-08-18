@@ -5,12 +5,12 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-import { jwt } from 'twilio';
+// import { jwt } from 'twilio';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store; 
-  if(localStorage.jwt_token){
-    setAuthToken(localStorage.jwt_token); 
+  if(localStorage.jwtToken){
+    setAuthToken(localStorage.jwtToken); 
     const decodedUser = jwt_decode(localStorage.jwtToken);
     const preloadedState = {session: { isAuthenticated: true, user: decodedUser}};
 

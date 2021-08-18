@@ -14,7 +14,7 @@
   border: solid;
   border-radius: 20px;
   width: 450px;
-  height: 175px;
+  height: 190px;
 }
 
 textarea{
@@ -28,6 +28,7 @@ textarea{
   outline: none;
   border-radius: 3px;
   padding: 15px 15px;
+  margin-left: 8px; 
 }
 
 .sms-button{
@@ -40,6 +41,7 @@ textarea{
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
 }
 
 .sms-input{
@@ -47,4 +49,6 @@ textarea{
   font-size: 16px; 
   outline: none;
   padding: 15px 15px; 
+  width: 50%; 
+  margin-left: 10px;
 }

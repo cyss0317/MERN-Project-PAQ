@@ -22,9 +22,9 @@ class SMSForm extends React.Component {
     }else{
       return(
           <ul className='errors'>
-              {this.props.errors.map((error, i) => (
+              {Object.keys(this.props.errors).map((error, i) => (
                 <li key={`error-${i}`}>
-                  {error}
+                  {this.props.errors[error]}
                 </li>
               ))}
           </ul>
@@ -36,6 +36,12 @@ class SMSForm extends React.Component {
     e.preventDefault();
     const message = Object.assign({}, this.state)
     this.props.sendMessage(message)
+    .then(this.setState(
+     {
+        to: '',
+        body: ''
+      },
+    ))
   }
 
 

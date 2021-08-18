@@ -18,11 +18,11 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
+            <div id='log-div'>
                 {/* <Link to={'/tweets'}>All Tweets</Link>
                 <Link to={'/profile'}>Profile</Link>
                 <Link to={'/new_tweet'}>Write a Tweet</Link> */}
-                <button onClick={this.logoutUser}>Logout</button>
+                <button onClick={this.logoutUser} id='logout-button'>Logout</button>
             </div>
         );
       } else {

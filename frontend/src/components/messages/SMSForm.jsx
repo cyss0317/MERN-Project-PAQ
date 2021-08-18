@@ -1,5 +1,6 @@
 import React from 'react'; 
 import SmsCss from './sms.css'
+import { Link } from 'react-router-dom'
 
 class SMSForm extends React.Component {
   constructor(props){
@@ -49,8 +50,9 @@ class SMSForm extends React.Component {
     console.log(this.props)
     return(
       <div className='sms-container'>
-        <form onSubmit={this.handleSubmit} >
+        <form onSubmit={this.handleSubmit} id="sms-form-container">
           {/* <label htmlFor='to'> To:</label> */}
+          <h1 id='text-form-title'>Notify Customer</h1>
           <div className='sms-form' >
             <input type='tel'
                     id='to'
@@ -68,6 +70,8 @@ class SMSForm extends React.Component {
           </div>
           {this.renderErrors()}
           <button type='submit' className='sms-button'>Send Message</button>
+          <br />
+          <Link to='/notify/all' id="switch-form">Notify All</Link>
         </form>
       </div>
     )

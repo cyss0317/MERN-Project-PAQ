@@ -38,7 +38,7 @@ router.delete("/:id", (req, res) => {
   // const { id } = req.body.id;
   // res.send(req.body.id)
   // .then(res => console.log(res))
-  // // debugger
+
   // console.log(id);
   // if ( Shipment.findOne({id: id})){
   //   Shipment.findOneAndDelete({id: id})

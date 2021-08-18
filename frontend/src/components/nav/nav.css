@@ -1,4 +1,26 @@
 #nav{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
+    background: linear-gradient(to left, #033d89, #3869ae, #ccd1cd, #0f255c, #121e58);
+    margin-top: -8px;
+}
+
+#logo-photo{
+    width: 100px;
+    margin-left: 25px;
+}
+
+#auth-li{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+#auth-div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 169px;
+    padding-right: 15px;
 }

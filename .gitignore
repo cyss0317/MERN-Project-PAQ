@@ -1,5 +1,5 @@
 
-keys.js
+/config/keys_dev.js
 /node_modules
 /.pnp
 .pnp.js

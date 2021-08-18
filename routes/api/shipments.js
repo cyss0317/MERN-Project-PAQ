@@ -22,6 +22,7 @@ router.post("/", (req, res) => {
         weight: req.body.weight,
         full: req.body.full,
         userId: req.body.userId,
+        // orders: req.body.orders
     })
     newShipment.save()
     .then((newShipment) => res.json(newShipment))
@@ -64,6 +65,7 @@ router.patch("/:id", (req, res)=> {
 router.get("/:id", (req, res) => {
   const shipment = Shipment.findById(req.params.id)
     .populate("userId")
+    // .populate("orders")
     .exec()
     .then( shipment => res.json(shipment))
     .catch( err => res.status(404).json(err))

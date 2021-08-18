@@ -26,17 +26,17 @@ const OrderSchema = new Schema({
     required: true
   },
   businessOwnerId: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: "users",
     required: true
   },
   customerId: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: "users",
     required: true,
     // type: Schema.Types.ObjectId,
     // ref: 'users'
   },
   shipmentId: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: "shipments",
     required: true
   },
 },

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User")
+const Order = require("./Order")
 
 
 const ShipmentSchema = new Schema({
@@ -21,6 +22,11 @@ const ShipmentSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'users',
         require: true
     },
+
+    // orders: {
+    //     type: Schema.Types.ObjectId, ref: "orders"
+    // },
+
     date: {
         type: Date,
         default: Date.now

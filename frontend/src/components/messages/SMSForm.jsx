@@ -43,9 +43,9 @@ class SMSForm extends React.Component {
     console.log(this.props)
     return(
       <div className='sms-container'>
-        <form onSubmit={this.handleSubmit} className='sms-form'>
-          {this.renderErrors()}
+        <form onSubmit={this.handleSubmit} >
           {/* <label htmlFor='to'> To:</label> */}
+          <div className='sms-form' >
             <input type='tel'
                     id='to'
                     name='to'
@@ -59,6 +59,8 @@ class SMSForm extends React.Component {
                       value={this.state.body}
                       onChange={this.update('body')}
                       placeholder='Enter your message here...'/> 
+          </div>
+          {this.renderErrors()}
           <button type='submit' className='sms-button'>Send Message</button>
         </form>
       </div>

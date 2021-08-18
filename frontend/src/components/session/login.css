@@ -75,6 +75,17 @@ display: flex;
     font-weight: bold;
     background: white;
 }
+#log-submit:hover{
+    width: 25%;
+    height: 7%;
+    border-radius: 23px;
+    border-color: #ffffff;
+    font-size: medium;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.019);
+    color: white;
+    transition: 1s;
+}
 
 #log-photo{
     width: 100%;

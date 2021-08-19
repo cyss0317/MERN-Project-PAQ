@@ -1,0 +1,127 @@
+#main-dash{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 35px;
+}
+
+#weather{
+    padding: 25px;
+    height: 635px;
+    border: solid #b6d1fd00;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    border-radius: 35px;
+    background: #b6d1fd;
+}
+
+#action-divs{
+    width: 50%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+#msg-div{
+    height: 30%;
+    width: 100%;
+    border: 3px solid #5e7dd7;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    background: url(https://cdn3.notifyvisitors.com/blog/wp-content/uploads/2020/11/EMAIL-MARKETING-VS-SMS-MARKETING-WHERE-TO-INVEST_banner.jpg);
+    background-size: 140% 125%;
+    border-radius: 10px;
+    background-position: -81px -16px;
+}
+#msg-div2{
+    height: 30%;
+    width: 100%;
+    border: 3px solid #73dbff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    background: url(https://image.shutterstock.com/image-vector/transportation-air-cargo-services-banner-260nw-1838434885.jpg);
+    background-size: 101% 137%;
+    border-radius: 10px;
+    background-position: -8px -23px;
+}
+#msg-div3{
+    height: 30%;
+    width: 100%;
+    border: 3px solid #5e7dd7;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    background: url(https://cdn3.notifyvisitors.com/blog/wp-content/uploads/2020/11/EMAIL-MARKETING-VS-SMS-MARKETING-WHERE-TO-INVEST_banner.jpg);
+    background-size: 140% 125%;
+    border-radius: 10px;
+    background-position: -81px -16px;
+}
+
+#action-li{
+    text-decoration: none;
+    padding: 7px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    background: #617ad8;
+    border: solid;
+}
+#action-li2{
+    text-decoration: none;
+    padding: 7px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    background: #41a9cd;
+    border: solid;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#inner-dash{
+    display: flex;
+    width: 90%;
+    border: transparent solid;
+    border-radius: 25px;
+    padding: 22px;
+    box-shadow: 1px 5px 20px 11px #0000003b;
+}
+
+#inner-li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 70%;
+    margin-left: 96px;
+}
+
+#inner-li2{
+    border: solid transparent;
+    width: 35%;
+    height: 88%;
+    margin-right: 55px;
+    background: #73dbff;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

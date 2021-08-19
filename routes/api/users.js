@@ -114,4 +114,31 @@ router.get("/test", (req, res) => {
     res.json({ msg: "This is the user route"});
 });
 
+router.patch('/:id/settings', (req,res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+
+  User.findOneAndUpdate({_id: req.params.id}),
+  {
+    phoneNumber: req.body.phoneNumber,
+    email: req.body.email,
+    address: req.body.address,
+
+  },
+  {new: true}, 
+  (error, data) => {
+    if(error){
+      res.json(error)
+    } else {
+      res.json(data)
+    }
+  } 
+  
+})
+
+
+
+
+
+
 module.exports = router;

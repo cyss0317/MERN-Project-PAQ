@@ -6,7 +6,8 @@ module.exports = function validateRegisterInput(data){
 
   let errors = {};
 
-  data.handle = validText(data.name) ? data.name : '';
+  data.name = validText(data.name) ? data.name : '';
+  data.phoneNumber = validText(data.phoneNumber) ? data.phoneNumber : ''; 
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : ''
   data.password2 = validText(data.password2) ? data.password2 : '';
@@ -19,6 +20,9 @@ module.exports = function validateRegisterInput(data){
     errors.name = 'name Field is required';
   }
 
+  // if(!Validator.equals(data.phoneNumber.length, 10)) {
+  //   errors.phoneNumber = 'Phone number must include area code '
+  // }
 //   if(!Validator.isEmail(data.email)){
 //     errors.email = 'Email is invalid';
 //   }

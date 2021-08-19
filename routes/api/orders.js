@@ -35,6 +35,7 @@ router.get('/:id', (req, res) => {
 router.post('/',
 // passport.authenticate('jwt', { session: false }),
 (req, res) => {
+  debugger
   const { errors, isValid } = validateOrderInput(req.body);
   
     if (!isValid) {

@@ -9,7 +9,7 @@ import { jwt } from 'twilio';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store; 
-  if(localStorage.jwt_token){
+  if(localStorage.jwtToken){
     setAuthToken(localStorage.jwt_token); 
     const decodedUser = jwt_decode(localStorage.jwtToken);
     const preloadedState = {session: { isAuthenticated: true, user: decodedUser}};

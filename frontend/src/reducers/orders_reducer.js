@@ -8,17 +8,17 @@ const OrdersReducer = (state = {}, action) => {
     case RECEIVE_ORDERS:
       return action.orders;
     case RECEIVE_ORDER:
-      const newOrder = { [action.order.id]: action.order };
-      return Object.assign({}, state, newOrder)
+      // const newOrder = { [action.order.id]: action.order };
+      return nextState[action.order.id] = action.order
     case RECEIVE_USER_ORDERS:
-      const newOrder = { [action.order.id]: action.order };
-      return Object.assign({}, state, newOrder)
+      // const newOrder = { [action.order.id]: action.order };
+      return nextState[action.order.id] = action.order
     case REMOVE_ORDER:
       delete nextState[action.orderId];
-      return state;
+      return nextState;
     default:
       return state;
   }
 }
 
-export default ordersReducer;
+export default OrdersReducer;

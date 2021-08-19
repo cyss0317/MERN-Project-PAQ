@@ -1,3 +1,4 @@
+import e from 'express';
 import React from 'react';
 
 class OrderForm extends React.Component {
@@ -8,15 +9,24 @@ class OrderForm extends React.Component {
       weight: '',
       receiverName: '',
       description: '',
-      delivered: '',
-      businessOwnerId: '',
-      customerId: '',
-      shipmentId: ''
+      delivered: "false",
+      businessOwnerId: '1',
+      customerId: this.props.currentUserId,
+      shipmentId: '2'
     }
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field){
-    return e => thi.setState({
+
+    // if (field === 'weight') {
+    //   this.setState({
+    //     price: e.currentTarget.value * 3
+    //   })
+    // }
+
+    return e => this.setState({
       [field]: e.currentTarget.value
     })
   }
@@ -25,9 +35,31 @@ class OrderForm extends React.Component {
     e.preventDefault()
     let order = Object.assign({}, this.state)
 
-    this.props.createOrder(order)
+    // this.setState(prevState => {
+    //   return {
+    //     price: this.state.weight * 3
+    //   }
+    // })
+
+    this.props.createOrder(order);
     //not sure if we are going to have a modal for form
-    .then(() => this.props.closeModal())
+    // .then(() => this.props.closeModal())
+  }
+
+  renderErrors() {
+    if (!this.props.errors) {
+      return null
+    } else {
+      return (
+        <ul className='errors'>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -38,19 +70,38 @@ class OrderForm extends React.Component {
         </div>
         <div className="create-order-form-box">
           <form onSubmit={this.handleSubmit}>
+            {/* <div className="create-order-input">
+              <div className="create-order-label-box">
+                <label className="create-order-label">Price:</label>
+              </div>
+              <input type="number"
+                value={this.state.price}
+                onChange={this.update('weight')}
+                className="create-order-user-input"
+                readonly="readonly" />
+            </div> */}
             <div className="create-order-input">
+              <div className="create-order-label-box">
+                <label className="create-order-label">Weight:</label>
+              </div>
               <input type="number"
                 value={this.state.weight}
                 onChange={this.update('weight')}
                 className="create-order-user-input" />
             </div>
             <div className="create-order-input">
+              <div className="create-order-label-box">
+                <label className="create-order-label">Receiver Name:</label>
+              </div>
               <input type="text"
                 value={this.state.receiverName}
                 onChange={this.update('receiverName')}
                 className="create-order-user-input" />
             </div>
             <div className="create-order-input">
+              <div className="create-order-label-box">
+                <label className="create-order-label">Description:</label>
+              </div>
               <input type="textarea"
                 value={this.state.description}
                 onChange={this.update('description')}
@@ -65,3 +116,5 @@ class OrderForm extends React.Component {
     )
   }
 }
+
+export default OrderForm;

@@ -5,6 +5,8 @@ import NavBarContainer from './nav/navbar_container';
 import MessageContainer from './messages/sms_container';
 import MassTextContainer from './messages/mass_text_container';
 import OrderContainer from './orders/order_container';
+import EditOrderContainer from './orders/edit_order_container'
+import UserIndexContainer from './orders/user_index_container'
 
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
@@ -20,7 +22,9 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path='/notify' component={MessageContainer} />
         <ProtectedRoute exact path='/notify/all' component={MassTextContainer} />
+        <ProtectedRoute exact path='/order/update' component={EditOrderContainer} />
         <ProtectedRoute exact path='/order' component={OrderContainer} />
+        <ProtectedRoute exact path='/orders/user' component={UserIndexContainer} />
     </Switch>
   </div>
 );

@@ -65,3 +65,7 @@ export const deleteOrder = order => dispatch => (
       errors => dispatch(receiveErrors(errors.response.data))
     )
 )
+
+export const updateOrder = order => dispatch => (
+  APIUtilOrder.updateOrder()
+)

@@ -169,3 +169,11 @@ width: 46%;
     transition: 1s;
     font-weight: bold;
 }
+
+#already{
+    color: white;
+}
+#already a{
+    text-decoration: none;
+    color: #ef553e;
+}

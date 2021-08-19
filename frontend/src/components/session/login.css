@@ -102,3 +102,11 @@ display: flex;
     color: white;
     margin-left: -5%;
 }
+
+#already1{
+    color: white;
+}
+#already1 a{
+    text-decoration: none;
+    color: #f0ac11;
+}

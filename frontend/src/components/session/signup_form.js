@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import singupCss from './signup.css'
+import { Link } from 'react-router-dom'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class SignupForm extends React.Component {
             <br/>
             <input type="submit" value="Continue" id="sign-submit" onClick={this.update('switch')}/>
             {this.renderErrors()}
+          <h4 id='already'>Already have an account? <Link to='/login'>‣ Log In</Link></h4>
           </div>
         </div>
       </div>

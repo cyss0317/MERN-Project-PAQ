@@ -25,11 +25,12 @@ class NavBar extends React.Component {
             <div> 
                 <button onClick={ (e) => this.logoutUser()}>Logout</button>
 
-            <div id='log-div'>
-                <button onClick={this.logoutUser} id='logout-button'>Logout</button>
+              <div id='log-div'>
+                  <button onClick={this.logoutUser} id='logout-button'>Logout</button>
+              </div>
             </div>
         );
-      } else {
+      } else{
         return (
             <div id='auth-div'>
                 <Link to={'/signup'} id='auth-li'>Signup</Link>

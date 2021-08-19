@@ -96,6 +96,7 @@ class OrderForm extends React.Component {
               <input type="number"
                 value={this.state.price}
                 onChange={this.update('price')}
+                readOnly="readOnly"
                 className="create-order-user-input" />
             </div>
             <div className="create-order-input">

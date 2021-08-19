@@ -1,4 +1,4 @@
-import e from 'express';
+// import e from 'express';
 import React from 'react';
 
 class OrderForm extends React.Component {
@@ -9,27 +9,45 @@ class OrderForm extends React.Component {
       weight: '',
       receiverName: '',
       description: '',
-      delivered: "false",
+      delivered: 'false',
       businessOwnerId: '1',
       customerId: this.props.currentUserId,
-      shipmentId: '2'
+      shipmentId: '611d9947b20e38c3352eb419'
     }
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.updatePrice = this.updatePrice.bind(this);
+    // this.updateFields = this.updateFields.bind(this);
   }
 
-  update(field){
+  // updatePrice(field) {
+  //   if (field === 'weight') {
+  //     return e => this.setState({
+  //       price: (e.currentTarget.value * 3).toFixed(2)
+  //     })
+  //   }
+  // }
 
-    // if (field === 'weight') {
-    //   this.setState({
-    //     price: e.currentTarget.value * 3
-    //   })
-    // }
+  update(field){
+    // this.updatePrice(field)
+    
+    if (field === 'weight') {
+      return e => this.setState({
+        price: `${e.currentTarget.value * 3.0}`,
+        weight: e.currentTarget.value
+      })
+    }
 
     return e => this.setState({
       [field]: e.currentTarget.value
     })
+    
   }
+
+  // updateFields(field) {
+  //   this.updatePrice(field)
+  //   this.update(field)
+  // }
 
   handleSubmit(e) {
     e.preventDefault()
@@ -48,6 +66,7 @@ class OrderForm extends React.Component {
 
   renderErrors() {
     if (!this.props.errors) {
+      // console.log(this.props)
       return null
     } else {
       return (
@@ -70,16 +89,15 @@ class OrderForm extends React.Component {
         </div>
         <div className="create-order-form-box">
           <form onSubmit={this.handleSubmit}>
-            {/* <div className="create-order-input">
+            <div className="create-order-input">
               <div className="create-order-label-box">
                 <label className="create-order-label">Price:</label>
               </div>
               <input type="number"
                 value={this.state.price}
-                onChange={this.update('weight')}
-                className="create-order-user-input"
-                readonly="readonly" />
-            </div> */}
+                onChange={this.update('price')}
+                className="create-order-user-input" />
+            </div>
             <div className="create-order-input">
               <div className="create-order-label-box">
                 <label className="create-order-label">Weight:</label>

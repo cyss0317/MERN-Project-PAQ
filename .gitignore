@@ -5,7 +5,8 @@
 .pnp.js
 config/keys_dev.js
 
-
+config/keys.js
+config/keys_prod.js
 # testing
 /coverage
 

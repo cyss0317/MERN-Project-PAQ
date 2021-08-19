@@ -1,0 +1,19 @@
+#edit-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#info-container p {
+    margin-right: 20px;
+
+}
+#info-container a {
+    margin-right: 20px;
+    
+}
+#info-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

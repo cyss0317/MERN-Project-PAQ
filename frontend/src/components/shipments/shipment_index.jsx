@@ -8,8 +8,19 @@ import ShipmentCreate from "./shipment_create";
 class ShipmentIndex extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            departure:'',
+            weight:'',
+            full: false,
+            delivered: false,
+            userId: this.props.currentUserId,
+
+        }
 
         this.editable = this.editable.bind(this)
+        this.expandFunction = this.expandFunction.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.onChangeHandler = this.onChangeHandler.bind(this)
     }
     componentDidMount(){
         this.props.fetchAllShipments(this.props.currentUserId)
@@ -28,6 +39,31 @@ class ShipmentIndex extends React.Component{
     h1.setAttributeNode(att);
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        let shipment = {
+            depature: this.state.depature,
+            weight: this.state.weight,
+            delivered: this.state.delivered,
+            full: this.state.full,
+            userId: this.state.userId,
+        };
+
+        this.props.createNewShipment(shipment);
+    }
+
+    onChangeHandler(field, e){
+       this.setState({[field]: e.currentTarget.value});
+    }
+
+    expandFunction() {
+    var x = document.getElementById("create-shipment");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
     
     render(){
         const { shipments, currentUser } = this.props;
@@ -45,21 +81,35 @@ class ShipmentIndex extends React.Component{
 
                 <div>
                     <h1>List of shipments</h1>
-
-                    <div id="table-columns-container">
-                        <div id="table-columns">
-                            <p>Detdarture</p>
-                            <p>Weight</p>
-                            <p>Full</p>
-                            <p>Delivered</p>
-                            <p>Orders</p>
-                            <Link to="/shipment/create">Create a shipment</Link>
-                            <Route path="/shipment/create" component={ShipmentCreate}></Route>
+                    <div>
+                        <button  onClick={this.expandFunction}>Create a new shipment</button>
+                        <div  id="create-shipment">
+                            <form onSubmit={this.handleSubmit} >
+                                <label >Departure : 
+                                    <input type="text" value={this.state.departure} onChange={(e)=> this.onChangeHandler("departure", e)} />
+                                </label>
+                                <label >Weight : 
+                                    <input type="text" value={this.state.weight} onChange={(e) =>this.onChangeHandler("weight", e)} />
+                                </label>
+                                <input type="submit" />
+                            </form>
                         </div>
                     </div>
-                    <div>
-                        
+                    <div id="table-columns">
+                        <p>Shipment number</p>
+                        <p>Detdarture</p>
+                        <p>Weight</p>
+                        <p>Full</p>
+                        <p>Delivered</p>
+                        <p></p>
+                        <p>Orders</p>
+                
+                        {/* <Link to="/shipment/create">Create a shipment</Link>
+                        <Route path="/shipment/create" component={ShipmentCreate}></Route> */}
                     </div>
+                    {/* <div>
+                        
+                    </div> */}
 
                     <div>
                         {

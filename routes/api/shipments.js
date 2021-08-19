@@ -79,9 +79,10 @@ router.get("/:id", (req, res) => {
 
 router.get("/user/:userId", (req, res) => {
   const shipment = Shipment.find({ userId: req.params.userId})
-    .populate("userId")
-    .populate("order")
-    .exec()
+  .sort({delivered: false})
+  .populate("userId")
+  .populate("order")
+  .exec()
     .then(shipments => res.json(shipments))
     .catch(err => res.status(404).json(err))
 

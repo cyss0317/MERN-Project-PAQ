@@ -35,26 +35,26 @@ export const receiveErrors = errors => ({
 export const createNewShipment = shipment => dispatch => 
   shipmentAPIUtil.createShipment(shipment)
     .then( shipment => dispatch(createShipment(shipment)),
-      err => dispatch(receiveErrors(err.responseJSON))
+      err => dispatch(receiveErrors(err.response.data))
     )
 
 export const fetchShipment = shipmentId => dispatch =>
   shipmentAPIUtil.receiveShipment(shipmentId)
     .then( shipment => dispatch(editShipment(shipment)),
-      err => dispatch(receiveErrors(err.responseJSON))
+      err => dispatch(receiveErrors(err.response.data))
     )
 
 export const fetchAllShipments = userId => dispatch =>
   shipmentAPIUtil.receiveAllShipments(userId)
     .then(shipments => dispatch(receiveAllShipments(shipments)),
-      err => dispatch(receiveErrors(err.responseJSON))
+      err => dispatch(receiveErrors(err.response.data))
     )
 
 
 export const updateShipment = shipment => dispatch =>
   shipmentAPIUtil.editShipment(shipment)
     .then( updatedShipment => dispatch(editShipment(updatedShipment)),
-      err => dispatch(receiveErrors(err.responseJSON))
+      err => dispatch(receiveErrors(err.response.data))
     )
 
 

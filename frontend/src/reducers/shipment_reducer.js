@@ -17,7 +17,7 @@ const shipmentReducer = (oldState = {}, action) => {
       case RECEIVE_ALL_SHIPMENTS:
         return action.shipments
       case EDIT_SHIPMENT:
-        nextState[action.shipment._id]= action.shipment
+        nextState[action.shipment.id]= action.shipment
         return nextState
       default:
           return oldState;

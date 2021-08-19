@@ -44,7 +44,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
       phoneNumber: this.state.phoneNumber,
       businessOwner: this.state.businessOwner,
-      address: this.state.address
+      address: this.state.address,
     };
 
     this.props.signup(user, this.props.history); 
@@ -66,7 +66,7 @@ class SignupForm extends React.Component {
     return this.state.switch === '' ?
     (
        <div className="signup-form-container">
-        <form onSubmit={this.update('switch')} className="signup-form">
+        <div className="signup-form">
           <div id="sign-side-photo">
           </div>
           <div id="sign-inner">
@@ -86,10 +86,10 @@ class SignupForm extends React.Component {
                 id="sign-inputs"
                 />
             <br/>
-            <input type="submit" value="Continue" id="sign-submit"/>
+            <input type="submit" value="Continue" id="sign-submit" onClick={this.update('switch')}/>
             {this.renderErrors()}
           </div>
-        </form>
+        </div>
       </div>
     )
     :

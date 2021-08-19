@@ -128,6 +128,7 @@ background-image: url(https://images.hdqwalls.com/download/flying-plane-in-cloud
 #three-div{
     background: #12214a;
     width: 100%;
+    height: 93px;
 }
 
 #about-us{
@@ -143,4 +144,15 @@ background-image: url(https://images.hdqwalls.com/download/flying-plane-in-cloud
     padding-bottom: 5%;
     height: fit-content;
     color: white;
+}
+
+#div-head{
+    text-decoration: none;
+    color: white;
+    height: 50px;
+}
+#div-head:hover{
+    text-decoration: none;
+    color: #12214a;
+    background: rgba(255, 255, 255, 0.807);
 }

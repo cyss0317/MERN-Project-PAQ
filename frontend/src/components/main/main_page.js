@@ -17,15 +17,15 @@ class MainPage extends React.Component {
 
             <div id="three-div-containers">
               <div id='div1'>
-                  <div id='three-div'><h1 div='div-head'>📆  Calendar</h1></div>
+                  <div id='three-div'><h1 id='div-head'>📆  Calendar</h1></div>
               </div>
               
               <div id='div2'>
-              <div id='three-div'><h1 div='div-head'>📇  Contact Us</h1></div>
+              <div id='three-div'><Link to='/contacts/page' id='div-head'><h1 id="div-head">📇  Contact Us</h1></Link></div>
               </div>
 
               <div id='div3'>
-              <div id='three-div'><h1 div='div-head'>👤  Sign Up</h1></div>
+              <div id='three-div'><Link to="/signup" id="div-head"><h1 id='div-head'>👤  Sign Up</h1></Link></div>
               </div>
             </div>
 

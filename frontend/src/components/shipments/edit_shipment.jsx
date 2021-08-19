@@ -13,7 +13,7 @@ class EditShipment extends React.Component{
             orders: this.props.shipment.orders
         }
         this.onClickSubmit = this.onClickSubmit.bind(this)
-        this.onChangeHandler = this.onChangeHandler.bind(this)
+        // this.onChangeHandler = this.onChangeHandler.bind(this)
     }
 
     onClickSubmit(){
@@ -21,18 +21,22 @@ class EditShipment extends React.Component{
     }
 
     onChangeHandler(field){
-        return e => this.setState({[field]: e.currenTarget.value })
+        return e => this.setState({[field]: e.currentTarget.value })
     }
-
     render(){
+
         return(
             <div id="edit-container">
                 <div id="info-container">
-                    <p id={`${this.props.index}`} contentEditable="true" onChange={this.onChangeHandler("departure")} value={this.state.departure} >{this.state.departure}</p>
-                    <p id={`${this.props.index}`} contentEditable="true" onChange={this.onChangeHandler("weight")} value={this.state.weight}>{this.state.weight}</p>
-                    <p id={`${this.props.index}`} contentEditable="true" onChange={this.onChangeHandler("full")} value={this.state.full}>{JSON.stringify(this.state.full)}</p>
-                    <p id={`${this.props.index}`} contentEditable="true" onChange={this.onChangeHandler("delivered")} value={this.state.delivered}>{JSON.stringify(this.state.delivered)}</p>
-                    <Link>Check</Link>
+                    <p id={`${this.props.index}`} contentEditable="true" onChange={() => this.onChangeHandler("departure")}
+                     value={this.state.departure} >{this.state.departure}</p>
+                    <p id={`${this.props.index}`} contentEditable="true" onChange={() => this.onChangeHandler("weight")}
+                     value={this.state.weight}>{this.state.weight}</p>
+                    <p id={`${this.props.index}`} contentEditable="true" onChange={() => this.onChangeHandler("full")}
+                     value={this.state.full}>{JSON.stringify(this.state.full)}</p>
+                    <p id={`${this.props.index}`} contentEditable="true" onChange={() => this.onChangeHandler("delivered")}
+                    value={this.state.delivered}>{JSON.stringify(this.state.delivered)}</p>
+                    <Link to="/">Check</Link>
                 </div>
                     <input type="submit" value="Submit changes" onClick={this.onClickSubmit} />
             </div>

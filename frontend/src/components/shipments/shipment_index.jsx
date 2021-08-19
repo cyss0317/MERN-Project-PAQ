@@ -1,6 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import EditShipment from "./edit_shipment";
+import shipmentCSS from "./shipment.css"
+import {Route} from "react-router";
+import ShipmentCreate from "./shipment_create";
 
 class ShipmentIndex extends React.Component{
     constructor(props){
@@ -42,22 +45,30 @@ class ShipmentIndex extends React.Component{
 
                 <div>
                     <h1>List of shipments</h1>
-                    <table>
-                            <tr> 
-                                <td>Detdarture</td>
-                                <td>Weight</td>
-                                <td>Full</td>
-                                <td>Delivered</td>
-                                <td>Orders</td>
 
-                            </tr>
-                    </table>
-                            {
-                                shipments.map((shipment,index) => 
-                                    <EditShipment key={index} shipment={shipment} index={index}
-                                        updateShipment={this.props.updateShipment}/>
-                                )
-                            }
+                    <div id="table-columns-container">
+                        <div id="table-columns">
+                            <p>Detdarture</p>
+                            <p>Weight</p>
+                            <p>Full</p>
+                            <p>Delivered</p>
+                            <p>Orders</p>
+                            <Link to="/shipment/create">Create a shipment</Link>
+                            <Route path="/shipment/create" component={ShipmentCreate}></Route>
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+
+                    <div>
+                        {
+                            shipments.map((shipment,index) => 
+                                <EditShipment key={index} shipment={shipment} index={index}
+                                    updateShipment={this.props.updateShipment}/>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         )

@@ -23,6 +23,7 @@ class NavBar extends React.Component {
                 <Link to={'/profile'}>Profile</Link>
                 <Link to={'/new_tweet'}>Write a Tweet</Link> */}
                 <button onClick={this.logoutUser}>Logout</button>
+                <Link id="shipments" to={`/shipments/user/${this.props.currentUserId}`} >Shipments</Link>
             </div>
         );
       } else {

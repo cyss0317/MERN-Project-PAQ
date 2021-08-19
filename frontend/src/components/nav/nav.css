@@ -6,6 +6,12 @@
     margin-top: -8px;
 }
 
+#shipments{
+    color: white;
+    text-decoration: none;
+    padding: 3px 7px 3px 7px;
+}
+
 #logo-photo{
     width: 100px;
     margin-left: 25px;

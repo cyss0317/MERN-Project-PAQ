@@ -1,19 +1,41 @@
 #edit-container{
     display: flex;
     flex-direction: row;
+    align-items: center;
 
 }
 
 #info-container p {
-    margin-right: 20px;
+    width: 120px;
 
 }
 #info-container a {
-    margin-right: 20px;
-    
+    width: 120px;
 }
+
+#table-columns a{
+    width: 120px;
+    align-self: center;
+}
+
 #info-container{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#table-columns-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#table-columns{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+#table-columns p{
+    width: 120px;
 }

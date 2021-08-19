@@ -49,11 +49,10 @@ router.delete("/:id", (req, res) => {
 })
 
 router.patch("/:id", (req, res)=> {
-  Shipment.findOneAndUpdate({ id: req.body.id },
+  Shipment.findOneAndUpdate({ _id: req.params.id },
      { departure: req.body.departure,
        weight: req.body.weight,
        full: req.body.full, 
-       userId: req.body.userId,
        delivered: req.body.delivered,
        order: req.body.order
        },

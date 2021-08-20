@@ -66,9 +66,10 @@
     align-content: center;
     align-items: center;
     background: url(https://thumbs.dreamstime.com/b/call-center-hotline-technical-support-customer-service-staff-headset-working-operator-client-communication-specialist-218965981.jpg);
-    background-size: 100% 100%;
+    background-size: contain;
     border-radius: 10px;
-    background-position: 0px 0px;
+    background-position: 330px 0px;
+    background-repeat: no-repeat;
 }
 
 #action-li{
@@ -101,9 +102,9 @@
     font-size: 22px;
     font-weight: bold;
     border-radius: 15px;
-    color: white;
-    background: #3da894;
-    border: solid;
+    color: #3da894;
+    background: white;
+    border: solid #3da894;
 }
 
 #inner-dash{

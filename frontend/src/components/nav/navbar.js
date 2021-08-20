@@ -23,9 +23,9 @@ class NavBar extends React.Component {
 
         return (         
             <div id='log-div'>
-                <Link to={`/users/${this.props.user._id}`}> Settings </Link>
-                <Link to={`/shipments/user/${this.props.user._id}`}>Shipments</Link>
+                <Link to={`/shipments/user/${this.props.user._id}`} id='ship-li'>Shipments</Link>
                 <button onClick={this.logoutUser} id='logout-button'>Logout</button>
+                <Link to={`/users/${this.props.user._id}`} id='settings'> ⚙ </Link>
             </div>
         );
       } else{

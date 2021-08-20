@@ -4,70 +4,65 @@
     align-items: center;
 
 }
-#edit-container * {
-    text-align: center;
-    margin-left: 5px;
-}
-
-#info-container p {
-    width: 200px;
-
-}
-#info-container a {
-    width: 200px;
+#edit-container a {
+    width: 130px;
     text-align: center;
 }
+/* #not-delivered-info-container */
 
-
-
-#table-columns a{
-    width: 200px;
-    align-self: center;
-}
-#create-shipment {
-    display: none;
-}
-#not-delivered{
+#edit-container input{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    margin-right: 2px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: lighter;
+    margin-bottom: 15px;
     background-color: #22222210;
 }
 
+#edit-container{
+    font-size: 17px;
+}
+
+#create-shipment {
+    display: none;
+}
+
+#table-columns{
+    display: flex;
+    justify-content: space-between;
+}
+
 #info-container{
+
     display: flex;
     flex-direction: row;
     align-items: center;
 
 }
 
-#submit-buttons {
-        text-align: center;
+#not-delivered-id, #delivered-id{
     width: 200px;
-    text-decoration: none;
-    border-radius: 10px;
-    border: 1px solid #22222260;
-
-    padding: 0px 3px 0px 3px;
 }
 
-#edit-container a{
+#delivered, #not-delivered {
+    width: 130px;
     text-align: center;
-    width: 200px;
-    text-decoration: none;
-    border-radius: 10px;
-    border: 1px solid #22222260;
 
-    padding: 0px 3px 0px 3px;
 }
-#info-container input{
-    width: 200px;
-    font-size: 15px;
+#not-delivered-info-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
 
 }
+/* #not-delivered-info-container{
+     margin-left: 15px;
+} */
 
-#delivered, #not-delivered{
-        padding: 0;
-    border: 0;
-}
 
 /* #table-columns-container{
     display: flex;
@@ -82,7 +77,25 @@
 }
 
 
-#table-columns p{
-    width: 207px;
-    text-align: center;
+#expand-button:focus{
+    outline: 0 !important;
 }
+
+#create-form{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+
+}
+.all-buttons:hover{
+    cursor: pointer;
+    background-color: #22222210;
+    transform: scale(1.1);
+    transition: .1s;
+}
+#all-buttons:active{
+    transform: scale(0.8);
+    transition:.1s
+}
+
+

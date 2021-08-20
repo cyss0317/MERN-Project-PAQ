@@ -55,6 +55,6 @@ export const updateShipment = shipment => dispatch =>
   shipmentAPIUtil.editShipment(shipment)
     .then( updatedShipment => dispatch(editShipment(updatedShipment)),
       err => dispatch(receiveErrors(err.response.data))
-    )
+  )
 
 

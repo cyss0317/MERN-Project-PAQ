@@ -10,7 +10,7 @@ export const receiveShipment = (shipmentId) => {
 }
 
 export const editShipment = shipment => {
-    return axios.patch(`/api/shipments/${shipment._id}`,
+    return axios.patch(`/api/shipments/${shipment.id}`,
     shipment
     //  {
     //   departure: shipment.departure, 

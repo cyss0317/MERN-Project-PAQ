@@ -10,7 +10,7 @@ router.get("/test", (req, res) => {
   res.json({message: "This is the shipments route"})
 })
 
-router.post("/", (req, res) => {
+router.post("/create", (req, res) => {
     const { errors, isValid } = validateRegisterForShipment(req.body);
 
     if (!isValid) {
@@ -48,8 +48,9 @@ router.delete("/:id", (req, res) => {
   // }
 })
 
-router.patch("/:id", (req, res)=> {
-  Shipment.findOneAndUpdate({ _id: req.params.id },
+router.patch("/:_id", (req, res)=> {
+  Shipment.findOneAndUpdate({ _id: req.params._id },
+  // Shipment.findByIdAndUpdate( req.params._id ,
      { departure: req.body.departure,
        weight: req.body.weight,
        full: req.body.full, 

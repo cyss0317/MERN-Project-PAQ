@@ -24,6 +24,21 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
+// find by shipmentId
+router.get('/shipment/:id', (req, res) => {
+  Order.findById(req.params.shipmentId)
+    .sort({delivered: false})  
+    .populate("customerId")
+    .populate("businessOwnerId")
+    .populate("shipmentId")
+    .exec()
+    .then(orders => res.json(orders))
+    .catch(err =>
+      res.status(404).json({ noorderfound: 'No order found with that ID' })
+    );
+});
+
+
 router.get('/:id', (req, res) => {
   Order.findById(req.params.id)
     .populate("customerId")

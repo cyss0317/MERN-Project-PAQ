@@ -32,7 +32,7 @@ class EditShipment extends React.Component{
             return(
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
-                        <p id="delivered">{this.state.id} </p>   
+                        <p id="delivered-id">{this.state.id} </p>   
                         <p id="delivered">{this.state.departure}</p>    
                         <p id="delivered">{JSON.stringify(this.state.weight)}</p>   
                         <p id="delivered">{JSON.stringify(this.state.full)}</p>   
@@ -45,13 +45,13 @@ class EditShipment extends React.Component{
         }   else {
             return(
                 <div id="edit-container">
-                    <form onSubmit={this.onClickSubmit} id="info-container">
-                        <input id="not-delivered" type="text" value={this.state.id} />
+                    <form onSubmit={this.onClickSubmit} id="not-delivered-info-container">
+                        <input id="not-delivered-id" type="text" value={this.state.id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.departure} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered} />
-                        <input id="submit-buttons" type="submit" value="Submit changes" />
+                        <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
                     </form>
                     <Link to="/">Check</Link>
                 </div>

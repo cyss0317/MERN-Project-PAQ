@@ -56,7 +56,8 @@ class ShipmentIndex extends React.Component{
        this.setState({[field]: e.currentTarget.value});
     }
 
-    expandFunction() {
+    expandFunction(e) {
+        e.preventDefault();
     var x = document.getElementById("create-shipment");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -73,7 +74,7 @@ class ShipmentIndex extends React.Component{
         
         
         return(
-            <div>
+            <div id="main-container">
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                 <div>
                     <h1>Welcome, {currentUser.name}</h1>
@@ -82,9 +83,9 @@ class ShipmentIndex extends React.Component{
                 <div>
                     <h1>List of shipments</h1>
                     <div>
-                        <button  onClick={this.expandFunction}>Create a new shipment</button>
+                        <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new shipment</button>
                         <div  id="create-shipment">
-                            <form onSubmit={this.handleSubmit} >
+                            <form id="create-form" onSubmit={this.handleSubmit} >
                                 <label >Departure : 
                                     <input type="text" value={this.state.departure} onChange={(e)=> this.onChangeHandler("departure", e)} />
                                 </label>

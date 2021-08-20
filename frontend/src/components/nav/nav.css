@@ -20,34 +20,6 @@
     background: white;
 }
 
-#log-div a{
-    text-decoration: none;
-    text-align: center;
-    width: 98px;
-    height: 36px;
-    font-size: 20px;
-    font-weight: bold;
-    background: #ffffff00;
-    color: white;
-    border: solid white;
-    border-radius: 8px;
-    text-transform: capitalize;
-}
-
-#log-div a:hover{
-    width: 98px;
-    height: 36px;
-    font-size: 20px;
-    font-weight: bold;
-    background: white;
-    color: #121e58;
-    border: solid #121e58;
-    border-radius: 8px;
-    text-transform: capitalize;
-    transition: 1s;
-}
-
-
 #auth-li{
     text-decoration: none;
     color: white;
@@ -63,12 +35,13 @@
 }
 
 #log-div{
-    display: flex;
+display: flex;
     flex-direction: row;
     align-content: center;
-    justify-content: center;
+    /* justify-content: space-between; */
     align-items: center;
     padding-right: 10px;
+    width: 15%;
 }
 
 #logout-button{
@@ -93,5 +66,58 @@
     border: solid #121e58;
     border-radius: 8px;
     text-transform: capitalize;
+    transition: 1s;
+}
+
+#settings{
+    width: 40px;
+    font-size: 35px;
+    border-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+#settings:hover{
+    width: 40px;
+    font-size: 35px;
+    border-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    color: #112159;
+    background: white;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+#ship-li{
+    text-decoration: none;
+    width: 121px;
+    height: 30px;
+    font-size: 23px;
+    font-weight: bold;
+    background: #ffffff00;
+    color: white;
+    border: solid white;
+    border-radius: 8px;
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 1px;
+    margin-right: 21px; 
+}
+#ship-li:hover{
+    text-decoration: none;
+    width: 121px;
+    height: 30px;
+    font-size: 23px;
+    font-weight: bold;
+    background: white;
+    color: #112159;
+    border: solid #112159;
+    border-radius: 8px;
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 1px;
     transition: 1s;
 }

@@ -5,6 +5,9 @@ import { Route } from "react-router"
 import NavBarContainer from './nav/navbar_container';
 import MessageContainer from './messages/sms_container';
 import MassTextContainer from './messages/mass_text_container';
+import OrderContainer from './orders/order_container';
+import EditOrderContainer from './orders/edit_order_container'
+import UserIndexContainer from './orders/user_index_container'
 import ContactFormContainer from './contact/contact_form_container';
 
 import DashboardContainer from './dashboard/dashboard_container';
@@ -23,6 +26,9 @@ const App = () => (
         <Route exact path='/contacts/page' component={ContactsPage} />
         <ProtectedRoute exact path='/notify' component={MessageContainer} />
         <ProtectedRoute exact path='/notify/all' component={MassTextContainer} />
+        <ProtectedRoute exact path='/order/update' component={EditOrderContainer} />
+        <ProtectedRoute exact path='/orders' component={OrderContainer} />
+        <ProtectedRoute exact path='/orders/user' component={UserIndexContainer} />
         <Route exact path='/shipments/user/:userId' component={ShipmentContainer} />
         <Route exact path='/dashboard' component={DashboardContainer}/>
         <AuthRoute exact path="/" component={MainPage} />

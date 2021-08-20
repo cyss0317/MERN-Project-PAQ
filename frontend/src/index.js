@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore(preloadedState);
 
     const currentTime = Date.now() / 1000; 
-
+    
     if( decodedUser.exp < currentTime){
       store.dispatch(logout());
       window.location.href = '/login';
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({}); 
   }
   const root = document.getElementById('root');
+  window.axios = axios;
 
   // testing
     window.store = store;

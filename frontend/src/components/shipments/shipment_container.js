@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import ShipmentIndex from "./shipment_index";
 import { createNewShipment, fetchShipment, updateShipment, fetchAllShipments } from "../../actions/shipment_actions";
-
+import { fetchOrdersByShipmentId } from "../../actions/order_actions";
 
 const mSTP = (state, ownProps) => ({
     shipments: Object.values(state.shipments)[0],
@@ -14,7 +14,8 @@ const mDTP = dispatch => ({
     createNewShipment: shipment => dispatch(createNewShipment(shipment)),
     fetchShipment: shipmentId => dispatch(fetchShipment(shipmentId)),
     updateShipment: shipment => dispatch(updateShipment(shipment)),
-    fetchAllShipments: userId => dispatch(fetchAllShipments(userId))
+    fetchAllShipments: userId => dispatch(fetchAllShipments(userId)),
+    fetchOrdersByShipmentId: shipmentId => dispatch(fetchOrdersByShipmentId(shipmentId))
     // need order's thunk actions 
 })
 

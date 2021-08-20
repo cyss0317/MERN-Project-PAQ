@@ -10,8 +10,8 @@ const mSTP = (state) => {
   })
 }
 
-const mDTP = dispatch => ({
-  fetchUserOrders: userOrders => dispatch(fetchUserOrders(userOrders))
+const mDTP = (dispatch, ownProps) => ({
+  fetchUserOrders: () => dispatch(fetchUserOrders(ownProps.match.params.id))
 })
 
 export default connect(mSTP, mDTP)(UserIndex);

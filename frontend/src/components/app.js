@@ -7,6 +7,7 @@ import MessageContainer from './messages/sms_container';
 import MassTextContainer from './messages/mass_text_container';
 import ContactFormContainer from './contact/contact_form_container';
 
+import DashboardContainer from './dashboard/dashboard_container';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -23,6 +24,7 @@ const App = () => (
         <ProtectedRoute exact path='/notify' component={MessageContainer} />
         <ProtectedRoute exact path='/notify/all' component={MassTextContainer} />
         <Route exact path='/shipments/user/:userId' component={ShipmentContainer} />
+        <Route exact path='/dashboard' component={DashboardContainer}/>
         <AuthRoute exact path="/" component={MainPage} />
     </Switch>
   </div>

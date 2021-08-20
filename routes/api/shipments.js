@@ -10,7 +10,7 @@ router.get("/test", (req, res) => {
   res.json({message: "This is the shipments route"})
 })
 
-router.post("/", (req, res) => {
+router.post("/create", (req, res) => {
     const { errors, isValid } = validateRegisterForShipment(req.body);
 
     if (!isValid) {
@@ -48,12 +48,12 @@ router.delete("/:id", (req, res) => {
   // }
 })
 
-router.patch("/:id", (req, res)=> {
-  Shipment.findOneAndUpdate({ id: req.body.id },
+router.patch("/:_id", (req, res)=> {
+  Shipment.findOneAndUpdate({ _id: req.params._id },
+  // Shipment.findByIdAndUpdate( req.params._id ,
      { departure: req.body.departure,
        weight: req.body.weight,
        full: req.body.full, 
-       userId: req.body.userId,
        delivered: req.body.delivered,
        order: req.body.order
        },
@@ -80,9 +80,10 @@ router.get("/:id", (req, res) => {
 
 router.get("/user/:userId", (req, res) => {
   const shipment = Shipment.find({ userId: req.params.userId})
-    .populate("userId")
-    .populate("order")
-    .exec()
+  .sort({delivered: false})
+  .populate("userId")
+  .populate("order")
+  .exec()
     .then(shipments => res.json(shipments))
     .catch(err => res.status(404).json(err))
 

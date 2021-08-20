@@ -59,16 +59,16 @@
 #msg-div3{
     height: 30%;
     width: 100%;
-    border: 3px solid #5e7dd7;
+    border: 3px solid #3da894;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-content: center;
     align-items: center;
-    background: url(https://cdn3.notifyvisitors.com/blog/wp-content/uploads/2020/11/EMAIL-MARKETING-VS-SMS-MARKETING-WHERE-TO-INVEST_banner.jpg);
-    background-size: 140% 125%;
+    background: url(https://thumbs.dreamstime.com/b/call-center-hotline-technical-support-customer-service-staff-headset-working-operator-client-communication-specialist-218965981.jpg);
+    background-size: 100% 100%;
     border-radius: 10px;
-    background-position: -81px -16px;
+    background-position: 0px 0px;
 }
 
 #action-li{
@@ -92,6 +92,18 @@
     border: solid;
     padding-left: 15px;
     padding-right: 15px;
+}
+#action-li3{
+    text-decoration: none;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    background: #3da894;
+    border: solid;
 }
 
 #inner-dash{
@@ -125,4 +137,6 @@
     justify-content: center;
     align-items: center;
 }
+
+
 

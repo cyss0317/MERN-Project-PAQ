@@ -11,7 +11,7 @@ import OrderForm from './order_form';
 const mSTP = (state) => ({
   errors:  state.errors.orders,
   orders: state.orders,
-  currentUserId: state.session.user.id
+  currentUserId: state.session.user._id
 })
 
 const mDTP = dispatch => ({

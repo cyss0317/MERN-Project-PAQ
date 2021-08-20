@@ -157,3 +157,11 @@ background-image: url(https://images.hdqwalls.com/download/flying-plane-in-cloud
     background: rgba(255, 255, 255, 0.807);
     transition: 1s;
 }
+
+#about-description{
+        width: 786px;
+}
+
+#about-us-photo{
+    height: 480px;
+}

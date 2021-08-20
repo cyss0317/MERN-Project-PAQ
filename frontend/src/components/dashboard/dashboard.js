@@ -54,6 +54,7 @@ class Dashboard extends React.Component{
 
         </div >
           <Link to={`/orders/user/${this.props.user._id}`}>User Order</Link>
+          <Link to={`/orders`}> Create Order</Link>
         </div>
       </div>
     )

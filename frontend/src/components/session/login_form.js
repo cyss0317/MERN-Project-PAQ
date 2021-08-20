@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
   //   this.props.fetchAllShipments(this.state.userId)
   // }
 
-  // Once the user has been authenticated, redirect to the Tweets page
+  
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push('/dashboard');

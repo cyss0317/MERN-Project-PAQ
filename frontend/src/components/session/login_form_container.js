@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: user => dispatch(login(user)),
-    fetchAllShipments: userId => dispatch(fetchAllShipments(userId))
+    // fetchAllShipments: userId => dispatch(fetchAllShipments(userId))
   }
 }
 

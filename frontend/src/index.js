@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { jwt } from 'twilio';
+import axios from 'axios'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store; 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore(preloadedState);
 
     const currentTime = Date.now() / 1000; 
-
+    
     if( decodedUser.exp < currentTime){
       store.dispatch(logout());
       window.location.href = '/login';
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({}); 
   }
   const root = document.getElementById('root');
+  window.axios = axios;
 
   ReactDOM.render(<Root store={store}/>, root); 
 

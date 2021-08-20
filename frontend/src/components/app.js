@@ -23,7 +23,7 @@ const App = () => (
         <ProtectedRoute exact path='/notify' component={MessageContainer} />
         <ProtectedRoute exact path='/notify/all' component={MassTextContainer} />
         <ProtectedRoute exact path='/order/update' component={EditOrderContainer} />
-        <ProtectedRoute exact path='/order' component={OrderContainer} />
+        <ProtectedRoute exact path='/orders' component={OrderContainer} />
         <ProtectedRoute exact path='/orders/user' component={UserIndexContainer} />
     </Switch>
   </div>

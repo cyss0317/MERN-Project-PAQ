@@ -12,7 +12,9 @@ class UserIndex extends React.Component {
     // this.fetchUserOrders = this.fetchUserOrders.bind(this);
   }
 
-  componentDidMount() { this.props.fetchUserOrders() }
+  componentDidMount() { 
+    this.props.fetchUserOrders() 
+  }
 
   update(field) {
     return e => this.setState({
@@ -22,10 +24,11 @@ class UserIndex extends React.Component {
 
   render() {
     let orders = this.props.orders ? this.props.orders : [];
-    debugger
+
     if (orders.length != 0){
       return (
         <div className="user-index-container">
+          <h1>Hello</h1>
           {
             orders.map ((order, index) => {
               return (
@@ -35,10 +38,10 @@ class UserIndex extends React.Component {
                   </div>
                   <div className="button-container">
                     <div className="edit-button-container">
-
+                      <button className="edit-button">Edit Order</button>
                     </div>
                     <div className="delete-button-container">
-
+                      <button className="delete-button">Delete Order</button>
                     </div>
                   </div>
                 </div>
@@ -46,6 +49,10 @@ class UserIndex extends React.Component {
             })
           }
         </div>
+      )
+    } else {
+      return (
+        <h2>There are no orders for this user!</h2>
       )
     }
   }

@@ -1,6 +1,7 @@
 import { RECEIVE_ORDERS, RECEIVE_ORDER, RECEIVE_USER_ORDERS, REMOVE_ORDER } from '../actions/order_actions';
 
 const OrdersReducer = (state = {}, action) => {
+  // debugger
   Object.freeze(state)
   let nextState = Object.assign({}, state)
 
@@ -12,7 +13,8 @@ const OrdersReducer = (state = {}, action) => {
       return nextState[action.order.id] = action.order
     case RECEIVE_USER_ORDERS:
       // const newOrder = { [action.order.id]: action.order };
-      return nextState[action.order.id] = action.order
+      // return nextState[action.orders.id] = action.orders
+      return action.orders;
     case REMOVE_ORDER:
       delete nextState[action.orderId];
       return nextState;

@@ -33,7 +33,7 @@ const OrderSchema = new Schema({
     type: String,
     required: true,
     // type: Schema.Types.ObjectId,
-    // ref: 'users'
+    // ref: 'user'
   },
   shipmentId: {
     type: String,

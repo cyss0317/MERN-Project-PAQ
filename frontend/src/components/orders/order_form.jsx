@@ -10,7 +10,7 @@ class OrderForm extends React.Component {
       receiverName: '',
       description: '',
       delivered: 'false',
-      businessOwnerId: '1',
+      businessOwnerId: '611d498163cb3e32313888c4',
       customerId: this.props.currentUserId,
       shipmentId: '611d9947b20e38c3352eb419'
     }

@@ -40,7 +40,10 @@ export const receiveOrdersByShipmentId = orders => ({
 export const fetchUserOrders = id => dispatch => (
   APIUtilOrder.getUserOrders(id)
     .then(
-      userOrders => dispatch(receiveUserOrders(userOrders)),
+      userOrders => {
+        console.log(userOrders.data)
+        dispatch(receiveUserOrders(userOrders.data))
+      },
       errors => dispatch(receiveErrors(errors.response.data))
     )
     // .catch(err => console.log(err))

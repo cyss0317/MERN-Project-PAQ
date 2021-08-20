@@ -7,13 +7,15 @@ const OrdersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ORDERS:
-      return action.orders;
+     
+      return action.orders.data;
     case RECEIVE_ORDER:
       // const newOrder = { [action.order.id]: action.order };
-      return nextState[action.order.id] = action.order
+      return nextState[action.order.data._id] = action.order.data; 
     case RECEIVE_USER_ORDERS:
       // const newOrder = { [action.order.id]: action.order };
       // return nextState[action.orders.id] = action.orders
+  
       return action.orders;
     case REMOVE_ORDER:
       delete nextState[action.orderId];

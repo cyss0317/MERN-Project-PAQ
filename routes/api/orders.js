@@ -14,15 +14,23 @@ router.get("/test", (req, res) => {
 })
 
 //might have to change the route
-router.get('/user/:user_id', (req, res) => {
-  // debugger
-  Order.find({ customerId: req.params.user_id })
-    .sort ({ date: -1 })
+router.get('/user/:userId', (req, res) => {
+
+  // Order.find({ customerId: req.params.user_id })
+  //   .sort ({ date: -1 })
+  //   .then(orders => res.json(orders))
+  //   .catch(err =>
+  //     res.status(404).json({ noordersfound: "No orders found from this user" }
+  //     )
+  //   );
+
+  const order = Order.find({ customerId: req.params.userId})
+  .sort({delivered: false})
+  .populate("customerId")
+  .populate("order")
+  .exec()
     .then(orders => res.json(orders))
-    .catch(err =>
-      res.status(404).json({ noordersfound: "No orders found from this user" }
-      )
-    );
+    .catch(err => res.status(404).json(err))
 });
 
 // find by shipmentId
@@ -54,11 +62,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/',
 (req, res) => {
-  const { errors, isValid } = validateOrderInput(req.body);
+  // const { errors, isValid } = validateOrderInput(req.body);
   
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+  //   if (!isValid) {
+  //     return res.status(400).json(errors);
+  //   }
 
     const newOrder = new Order({
       price: req.body.price,

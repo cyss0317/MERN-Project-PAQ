@@ -15,6 +15,7 @@ router.get("/test", (req, res) => {
 
 //might have to change the route
 router.get('/user/:user_id', (req, res) => {
+  // debugger
   Order.find({ customerId: req.params.user_id })
     .sort ({ date: -1 })
     .then(orders => res.json(orders))
@@ -23,6 +24,21 @@ router.get('/user/:user_id', (req, res) => {
       )
     );
 });
+
+// find by shipmentId
+router.get('/shipment/:id', (req, res) => {
+  Order.findById(req.params.shipmentId)
+    .sort({delivered: false})  
+    .populate("customerId")
+    .populate("businessOwnerId")
+    .populate("shipmentId")
+    .exec()
+    .then(orders => res.json(orders))
+    .catch(err =>
+      res.status(404).json({ noorderfound: 'No order found with that ID' })
+    );
+});
+
 
 router.get('/:id', (req, res) => {
   Order.findById(req.params.id)
@@ -37,7 +53,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/',
-// passport.authenticate('jwt', { session: false }),
 (req, res) => {
   const { errors, isValid } = validateOrderInput(req.body);
   
@@ -72,7 +87,6 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id',
   (req, res) => {
-    // Order.findById(req.params.id)
 
     Order.findOneAndUpdate({_id: req.params.id}, {
         price: req.body.price,
@@ -87,14 +101,17 @@ router.patch('/:id',
     {new: true}, 
     (err, data) => {
       if(err){
-        // console.log(err)
-        // return next(err)
         return res.status(400).json({ error: "Order did not update!"})
       } 
       res.json({data})
     })
-    // res.json({ orderupdated: "Still not updating the order!"}))
-
 });
+
+router.get('/', (req, res) => {
+  Order.find()
+    .sort({ date: -1 })
+    .then(orders => res.json(orders)
+    .catch(err = res.status(400).json({ notordersfound: 'No orders found!'})))
+})
 
 module.exports = router;

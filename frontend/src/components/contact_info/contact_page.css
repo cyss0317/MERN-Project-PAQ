@@ -1,0 +1,66 @@
+#contact-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#dev-pannel{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    height: 600px;
+    background: #505f7f;
+    width: 100%;
+}
+
+#contact-photo{
+    width: 285px;
+    height: 305px;
+}
+#contact-photo1{
+    width: 285px;
+    height: 305px;
+    border: 5px solid rgb(255 255 255 / 18%);
+    border-radius: 10px;
+    border: 5px solid rgb(116 127 153);
+    background-image: url(https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/006/485/medium/image_%281%29.png?1621974355);
+    background-size: cover;
+    background-position: -25px 1px;
+    box-shadow: 0px 0px 30px 5px #c3cdd888;
+}
+
+#media-icon{
+    width: 50px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 0px 30px 5px #c3cdd8;
+}
+
+#dev-info{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#contact-photo{
+    border: 5px solid rgba(255, 255, 255, 0.19);
+    border-radius: 10px;
+    box-shadow: 1px 5px 20px 11px #fbfbfb3b;
+}
+
+#dev-profile{
+    color: white;
+}
+
+#meet-dev{
+    background: linear-gradient(to left, #033d89, #3869ae, #ccd1cd, #0f255c, #121e58);
+    color: white;
+    padding: 10px;
+    width: 95%;
+}

@@ -1,20 +1,30 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import loginCss from './login.css';
+import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      // phoneNumber: '',
+      // address: '',
+      // businessOwner: null,
+      errors: {},
+      // userId: this.props.currentUser
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
+
+  // componentDidMount(){
+
+  //   this.props.fetchAllShipments(this.state.userId)
+  // }
 
   // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
@@ -42,7 +52,9 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user)
+      // .then( () => this.props.fetchAllShipments(this.state.userId)) 
+      // .then(console.log(this.props.currentUser))
   }
 
   // Render the  if there are any
@@ -86,6 +98,7 @@ class LoginForm extends React.Component {
             <br/>
             <input type="submit" value="Submit" id="log-submit"/>
             {this.renderErrors()}
+            <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
           </div>
         </form>
       </div>

@@ -127,7 +127,7 @@ router.patch('/:_id/settings', (req,res) => {
   //   return res.status(500).json(errors); 
   // }
 
-
+  
     User.findByIdAndUpdate(req.params._id,
     {
       phoneNumber: req.body.phoneNumber,

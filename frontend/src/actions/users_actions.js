@@ -1,7 +1,7 @@
 import * as APIUtilUsers from '../util/user_api_util';
  
 
-export const UPDATE_USER = 'UPDATE_USER'; 
+
 export const RECEIVE_USER = 'RECEIVE_USER'; 
 export const RECEIVE_USER_ERROR = 'RECEIVE_USER_ERROR'; 
 export const FETCH_USER = 'FETCH_USER';
@@ -18,17 +18,20 @@ export const receiveErrors = err => ({
   err 
 })
 
-
-
-export const updateUser = (data) => dispatch => APIUtilUsers.updateSettings(data)
+export const updateUser = user =>  dispatch => APIUtilUsers.updateUser(user)
   .then(
-    user => dispatch(receiveUser(user)),
-    errors => dispatch(receiveErrors(errors.response.data)) 
+    
+      user => {
+        console.log(user) 
+        dispatch(receiveUser(user.data))
+      },
+    
+    error => dispatch(receiveErrors(error))
   )
 
 
 export const fetchUser = userId => dispatch => APIUtilUsers.fetchUser(userId)
     .then(
-      user => dispatch(receiveUser(user)),
+      user => dispatch(receiveUser(user.data)),
       err => dispatch(receiveErrors(err.response.data))
     )

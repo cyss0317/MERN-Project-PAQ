@@ -1,4 +1,4 @@
-import {RECEIVE_USER_ERROR  } from '../actions/users_actions'; 
+import {RECEIVE_USER_ERROR, RECEIVE_USER } from '../actions/users_actions'; 
 
 const _nullErrors = []; 
 
@@ -7,7 +7,9 @@ const usersErrorReducer = (state = _nullErrors, action) => {
 
   switch (action.type) {
     case RECEIVE_USER_ERROR:
-      return action.errors 
+      return action.errors;
+    case RECEIVE_USER:
+      return _nullErrors; 
     default:
       return state; 
   }

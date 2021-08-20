@@ -26,6 +26,7 @@ class NavBar extends React.Component {
                 <button onClick={ (e) => this.logoutUser()}>Logout</button>
 
               <div id='log-div'>
+                  <Link to={`/users/${this.props.user._id}`}> Settings </Link>
                   <button onClick={this.logoutUser} id='logout-button'>Logout</button>
               </div>
             </div>

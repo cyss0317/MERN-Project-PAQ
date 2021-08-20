@@ -6,7 +6,9 @@ const keys = require('../../config/keys')
 const jwt = require("jsonwebtoken");
 const validateRegisterInput = require("../../validation/register")
 const validateLoginInput = require("../../validation/login")
+const bodyParser = require("body-parser");
 
+router.use(bodyParser.json())
 router.post("/register", (req, res)=> {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -43,7 +45,7 @@ router.post("/register", (req, res)=> {
 })
 
 router.patch("/:id", (req, res) => {
-  User.findOneAndUpdate({ id: req.body.id },
+  User.findOneAndUpdate({ _id: req.body._id },
     {
       address: req.body.address,
       phoneNumber: req.body.phoneNumber,
@@ -59,7 +61,7 @@ router.patch("/:id", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  const user = User.findById(req.params.id)
+  const user = User.findOne({_id: req.params.id})
     .populate("shipments")
     .exec()
     .then(user => res.json(user))
@@ -88,9 +90,11 @@ router.post('/login', (req, res)=> {
       .then(isMatch => {
         if(isMatch){
           const payload = {
-            id: user.id,
+            _id: user._id,
             name: user.name,
             email: user.email,
+            phoneNumber: user.phoneNumber,
+            address: user.address
           }
           jwt.sign(
             payload,
@@ -114,25 +118,33 @@ router.get("/test", (req, res) => {
     res.json({ msg: "This is the user route"});
 });
 
+
+
 router.patch('/:id/settings', (req,res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  // const { errors, isValid } = validateLoginInput(req.body);
 
+  // if(!isValid) {
+  //   return res.status(500).json(errors); 
+  // }
 
-  User.findOneAndUpdate({_id: req.params.id}),
-  {
-    phoneNumber: req.body.phoneNumber,
-    email: req.body.email,
-    address: req.body.address,
+  // User.updateOne({_id: req.params.id},
+    User.findByIdAndUpdate({_id: req.params._id},
+    {
+      phoneNumber: req.body.phoneNumber,
+      email: req.body.email,
+      address: req.body.address,
 
-  },
-  {new: true}, 
-  (error, data) => {
-    if(error){
-      res.json(error)
-    } else {
-      res.json(data)
-    }
-  } 
+    },
+    {new: true}, 
+    
+    (error, data) => {
+      if(error){
+        res.json(error)
+      } else {
+        console.log(data)
+        res.json(data)
+      }
+    }) 
   
 })
 

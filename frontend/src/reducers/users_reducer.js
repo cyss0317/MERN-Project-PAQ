@@ -3,10 +3,11 @@ import {
 } from '../actions/users_actions'; 
 
 const usersReducer = (state = {}, action) => {
-  Object.freeze(state);   
+  Object.freeze(state);
+     
   switch(action.type){
     case RECEIVE_USER:
-      return action.user 
+      return Object.assign({}, state, {[action.user._id]: action.user })
     default: 
       return state; 
   }

@@ -8,7 +8,7 @@ class ShipmentIndex extends React.Component{
         this.props.fetchAllShipments(this.props.currentUserId)
     }
     render(){
-        // debugger
+     
         const { shipments, currentUser } = this.props;
         if (shipments === undefined){
             return null;

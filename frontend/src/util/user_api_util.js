@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const updateSettings = (data) => (
-  axios.patch(`/api/users/${data.id}/settings`, data)
+export const updateUser = (user) => (
+  axios.patch(`/api/users/${user.id}/settings`, user)
 )
 
 export const fetchUser = userId => (
-  axios.get(`/${userId}`)
-)
+  axios.get(`/api/users/${userId}`)
+) 

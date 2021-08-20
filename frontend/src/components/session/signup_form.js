@@ -23,7 +23,7 @@ class SignupForm extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchUser(this.props.user._id); 
+    // this.props.fetchUser(this.props.user._id); 
   }
   
 
@@ -70,7 +70,7 @@ class SignupForm extends React.Component {
 
   render() {
 
-    if(!this.props.user) return null; 
+    // if(!this.props.user) return null; 
     return this.state.switch === '' ?
     (
        <div className="signup-form-container">

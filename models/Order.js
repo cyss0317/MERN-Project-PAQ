@@ -36,7 +36,7 @@ const OrderSchema = new Schema({
     // ref: 'user'
   },
   shipmentId: {
-    type: Schema.Types.ObjectId, ref: "shipments",
+    type: Schema.Types.ObjectId, ref: "shipment",
     required: true
   },
 },

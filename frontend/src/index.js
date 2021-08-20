@@ -9,6 +9,7 @@ import { jwt } from 'twilio';
 import {createNewShipment, fetchShipment, updateShipment, fetchAllShipments} from "./actions/shipment_actions"
 import { fetchOrdersByShipmentId } from './actions/order_actions';
 import axios from "axios"
+import { fetchUserOrders} from './actions/order_actions'
 // import { jwt } from 'twilio';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,7 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = {session: { isAuthenticated: true, user: decodedUser},
     users: {
       
-    }};
+    },
+    orders: {
+
+    } 
+  };
 
     store = configureStore(preloadedState);
 
@@ -44,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchAllShipments = fetchAllShipments;
     window.fetchOrdersByShipmentId = fetchOrdersByShipmentId;
 
+    window.fetchUserOrders = fetchUserOrders; 
     window.axios = axios
     
   ReactDOM.render(<Root store={store}/>, root); 

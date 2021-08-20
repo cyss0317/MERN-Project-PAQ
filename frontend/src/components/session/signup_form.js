@@ -22,6 +22,11 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  componentDidMount(){
+    this.props.fetchUser(this.props.user._id); 
+  }
+  
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push('/login');
@@ -64,6 +69,8 @@ class SignupForm extends React.Component {
   }
 
   render() {
+
+    if(!this.props.user) return null; 
     return this.state.switch === '' ?
     (
        <div className="signup-form-container">

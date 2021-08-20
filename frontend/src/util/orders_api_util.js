@@ -19,3 +19,7 @@ export const updateOrder = data => {
 export const deleteOrder = data => {
   return axios.delete(`/api/orders/${data.id}`)
 }
+
+export const receiveOrdersByShipmentId = shipmentId => {
+  return axios.get(`/api/orders/shipment/${shipmentId}`)
+}

@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom"
-import shipmentCSS from './shipment.css'
+import {Link, withRouter} from "react-router-dom";
+import shipmentCSS from './shipment.css';
 
 class EditShipment extends React.Component{
     constructor(props){
@@ -44,7 +44,12 @@ class EditShipment extends React.Component{
                         <p id="delivered">{JSON.stringify(this.state.delivered)}</p>   
                         <p id="delivered"></p>    */}
                     </form>
-                    <Link to="/" id='check-li'>Check</Link>
+
+//                     <Link to="/" id='check-li'>Check</Link>
+
+                    {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
+                    <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check</a>
+
                 </div>
             )
         }   else {
@@ -58,7 +63,11 @@ class EditShipment extends React.Component{
                         <input id="not-deliveredR" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered} />
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
                     </form>
+
                     <Link to="/" id='check-li'>Check</Link>
+
+                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check</Link>
+
                 </div>
             )
         }
@@ -67,4 +76,5 @@ class EditShipment extends React.Component{
 }
 
 
-export default EditShipment;
+
+export default withRouter(EditShipment);

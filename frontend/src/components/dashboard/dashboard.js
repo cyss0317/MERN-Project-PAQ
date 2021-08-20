@@ -46,10 +46,15 @@ class Dashboard extends React.Component{
               </div>
           </div>
 
-          <div id='msg-div3'></div>
+          <div id='msg-div3'>
+              <div id='inner-li'>
+                <Link to='/notify' id='action-li'>Send a Customer a message</Link>
+                <Link to='/notify/all' id='action-li'>Notify All Clients</Link>
+              </div>
+          </div>
 
-        </div>
-
+        </div >
+          
         </div>
       </div>
     )

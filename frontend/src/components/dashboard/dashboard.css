@@ -117,7 +117,7 @@
     border: solid transparent;
     width: 35%;
     height: 88%;
-    margin-right: 55px;
+    margin-right: 38px;
     background: #73dbff;
     display: flex;
     flex-direction: column;
@@ -125,3 +125,4 @@
     justify-content: center;
     align-items: center;
 }
+

@@ -45,7 +45,7 @@ class EditShipment extends React.Component{
                         <p id="delivered"></p>    */}
                     </form>
 
-//                     <Link to="/" id='check-li'>Check</Link>
+{/* //                     <Link to="/" id='check-li'>Check</Link> */}
 
                     {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
                     <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check</a>
@@ -64,7 +64,7 @@ class EditShipment extends React.Component{
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
                     </form>
 
-                    <Link to="/" id='check-li'>Check</Link>
+                    {/* <Link to="/" id='check-li'>Check</Link> */}
 
                     <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check</Link>
 

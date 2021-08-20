@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import updateCss from "./update.css"
 
 class userUpdateForm extends React.Component {
   constructor(props){
@@ -8,7 +9,9 @@ class userUpdateForm extends React.Component {
       _id: '',
       phoneNumber: '',
       address: '',
-      email: ''
+      email: '',
+      businessOwner: false
+
     }
     this.handleSubmit = this.handleSubmit.bind(this); 
   }
@@ -23,7 +26,8 @@ class userUpdateForm extends React.Component {
         _id: this.props.user._id,
         phoneNumber: this.props.user.phoneNumber,
         address: this.props.user.address,
-        email: this.props.user.email 
+        email: this.props.user.email,
+        businessOwner: true 
       }
       ) 
       // this.forceUpdate()
@@ -81,21 +85,30 @@ class userUpdateForm extends React.Component {
     
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type='email'
-                 value={this.state.email}
-                 onChange={this.update('email')}/>
+        <form id="update-forms" onSubmit={this.handleSubmit}>
+          <div id="update-input">
+            <label>Email : 
+                <input type='email'
+                      value={this.state.email}
+                      onChange={this.update('email')}/>
+            </label>
+            <label>Phone number :
+                <input type='text'
+                      value={this.state.phoneNumber}
+                      onChange={this.update('phoneNumber')}/>
+            </label>
+            <label>Address : 
+                <input type='text'
+                        value={this.state.address}
+                        onChange={this.update('address')}/>
+            </label>
+        </div>
+          {/* <input type='text'
+            value={this.state.busienssOwner}
+            onChange={this.update('busienssOwner')} /> */}
 
-          <input type='text'
-                 value={this.state.phoneNumber}
-                 onChange={this.update('phoneNumber')}/>
-
-          <input type='text'
-                 value={this.state.address}
-                 onChange={this.update('address')}/>
-      
           {this.renderErrors()}
-       <input type='submit' value="Update Settings"/>
+       <input id="update-button"type='submit' value="Update Settings"/>
         </form>
       </div>
     )

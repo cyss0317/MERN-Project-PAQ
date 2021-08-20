@@ -42,14 +42,15 @@ class ShipmentIndex extends React.Component{
     handleSubmit(e) {
         e.preventDefault();
         let shipment = {
-            depature: this.state.depature,
+            departure: this.state.departure,
             weight: this.state.weight,
             delivered: this.state.delivered,
             full: this.state.full,
             userId: this.state.userId,
         };
 
-        this.props.createNewShipment(shipment);
+        this.props.createNewShipment(shipment)
+        .then(this.props.fetchAllShipments(this.props.currentUserId))
     }
 
     onChangeHandler(field, e){
@@ -97,13 +98,13 @@ class ShipmentIndex extends React.Component{
                         </div>
                     </div>
                     <div id="table-columns">
-                        <p>Shipment number</p>
-                        <p>Detdarture</p>
-                        <p>Weight</p>
-                        <p>Full</p>
-                        <p>Delivered</p>
-                        <p></p>
-                        <p>Orders</p>
+                        <p id="p1">Shipment number</p>
+                        <p id="p">Detdarture</p>
+                        <p id="p">Weight</p>
+                        <p id="p">Full</p>
+                        <p id="p">Delivered</p>
+                        <p id="p"></p>
+                        <p id="p">Orders</p>
                 
                         {/* <Link to="/shipment/create">Create a shipment</Link>
                         <Route path="/shipment/create" component={ShipmentCreate}></Route> */}

@@ -16,6 +16,9 @@
     width: 100px;
     margin-left: 25px;
 }
+#logo-photo:hover{
+    background: white;
+}
 
 #auth-li{
     text-decoration: none;
@@ -29,4 +32,38 @@
     align-items: center;
     width: 169px;
     padding-right: 15px;
+}
+
+#log-div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+
+#logout-button{
+    width: 98px;
+    height: 36px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #ffffff00;
+    color: white;
+    border: solid white;
+    border-radius: 8px;
+    text-transform: capitalize;
+}
+
+#logout-button:hover{
+    width: 98px;
+    height: 36px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: #121e58;
+    border: solid #121e58;
+    border-radius: 8px;
+    text-transform: capitalize;
+    transition: 1s;
 }

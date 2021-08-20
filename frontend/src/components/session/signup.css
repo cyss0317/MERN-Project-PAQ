@@ -98,10 +98,10 @@ width: 46%;
 #sign-side-photo1{
     height: 100%;
     width: 100%;
-    background-image: url(https://images.8tracks.com/imgix/i/010/252/995/la_sky-5433.gif?rect=210,0,538,538&q=65&fit=max&w=320&h=320);
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5afdd6d5cef3721071778fc0/1567727449262-0DQ2QH0GLKAHWUIO8BZO/a2683ff8df373051fac5b592fad87b30.gif?format=2500w);
     border-radius: 10px;
-    background-size: 100% 143%;
-    background-position: 0px -131px;
+    background-size: 212% 104%;
+    background-position: -407px 0px;
     display: flex;
     justify-content: center;
 }
@@ -168,4 +168,12 @@ width: 46%;
     margin-left: 74%;
     transition: 1s;
     font-weight: bold;
+}
+
+#already{
+    color: white;
+}
+#already a{
+    text-decoration: none;
+    color: #ef553e;
 }

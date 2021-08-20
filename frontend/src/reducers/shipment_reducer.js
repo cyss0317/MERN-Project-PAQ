@@ -13,11 +13,12 @@ const shipmentReducer = (oldState = {}, action) => {
       case RECEIVE_SHIPMENT:
         return action.shipment  
       case CREATE_SHIPMENT:
-        return Object.assign({}, oldState, {[action.shipment.id]: action.shipment})
+        return Object.assign({}, oldState, {[action.shipment.data._id]: action.shipment.data})
+
       case RECEIVE_ALL_SHIPMENTS:
         return action.shipments
       case EDIT_SHIPMENT:
-        nextState[action.shipment.id]= action.shipment
+        nextState[action.shipment.data._id]= action.shipment.data
         return nextState
       default:
           return oldState;

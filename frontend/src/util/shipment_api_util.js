@@ -11,11 +11,15 @@ export const receiveShipment = (shipmentId) => {
 
 export const editShipment = shipment => {
     return axios.patch(`/api/shipments/${shipment.id}`,
-    { departure: shipment.departure, 
-      weight: shipment.weight,
-      full: shipment.full,
-      delivered: shipment.delivered,
-      order: shipment.order   })
+    shipment
+    //  {
+    //   departure: shipment.departure, 
+    //   weight: shipment.weight,
+    //   full: shipment.full,
+    //   delivered: shipment.delivered,
+    //   order: shipment.order
+    //  }
+      )
 }
 
 export const receiveAllShipments = (userId) => {

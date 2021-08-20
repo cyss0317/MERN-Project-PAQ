@@ -17,13 +17,13 @@ class ShipmentOrders extends React.Component{
         // }
         // debugger
         return (
-            // <h1>Please visit later, our web-developers are working on it!!</h1>
-            <div>
-                <ul>
-                    {/* {this.} */}
+            <h1>Please visit later, our web-developers are working on it!!</h1>
+            // <div>
+            //     <ul>
+            //         {/* {this.} */}
 
-                </ul>
-            </div>
+            //     </ul>
+            // </div>
         )
     }
 }

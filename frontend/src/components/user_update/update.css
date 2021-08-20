@@ -1,0 +1,13 @@
+#update-forms{
+    display: flex;
+
+}
+
+#update-input{
+    display: flex;
+    flex-direction: column;
+}
+
+#update-button:hover{
+    cursor: pointer;
+}

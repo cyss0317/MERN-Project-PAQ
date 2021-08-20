@@ -49,7 +49,8 @@ router.patch("/:id", (req, res) => {
     {
       address: req.body.address,
       phoneNumber: req.body.phoneNumber,
-      shipment: req.body.shipment
+      shipment: req.body.shipment,
+      businessOwner: req.body.businessOwner
     },
     { new: true }, (error, data) => {
       if (error) {
@@ -94,7 +95,8 @@ router.post('/login', (req, res)=> {
             name: user.name,
             email: user.email,
             phoneNumber: user.phoneNumber,
-            address: user.address
+            address: user.address,
+            businessOwner: user.businessOwner
           }
           jwt.sign(
             payload,

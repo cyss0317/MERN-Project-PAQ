@@ -1,4 +1,4 @@
-#edit-container{
+/* #edit-container{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -8,7 +8,7 @@
     width: 130px;
     text-align: center;
 }
-/* #not-delivered-info-container */
+#not-delivered-info-container
 
 #edit-container input{
     padding: 0;
@@ -61,16 +61,16 @@
 #main-container{
     margin: 8px 36px 8px 36px;
 }
-/* #not-delivered-info-container{
+#not-delivered-info-container{
      margin-left: 15px;
-} */
+}
 
 
-/* #table-columns-container{
+#table-columns-container{
     display: flex;
     flex-direction: column;
 
-} */
+}
 #table-columns p{
     text-align: center;
 }
@@ -109,6 +109,140 @@
 #all-buttons:active{
     transform: scale(0.8);
     transition:.1s
+} */
+
+
+#not-delivered{
+    width: 13%;
+    height: 40px;
+    text-align: center;
+    font-size: medium;
+}
+#not-deliveredR{
+    width: 13%;
+    height: 40px;
+    text-align: center;
+    font-size: medium;
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#not-deliveredG{
+    width: 13%;
+    height: 40px;
+    text-align: center;
+    font-size: medium;
+    color: green;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
+#delivered{
+    width: 13%;
+    height: 40px;
+    text-align: center;
+    font-size: medium; 
+}
 
+#edit-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#info-container{
+    /* display: flex; */
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px;
+    gap: 5px;
+    padding-bottom: 5px;
+}
+
+#not-delivered-info-container{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px;
+    gap: 5px;
+    padding-bottom: 5px;
+}
+
+#check-li{
+    width: 130px;
+    margin-left: 53px;
+    border: solid;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#table-columns{
+    display: flex;
+    gap: 5px;
+}
+
+#p{
+    font-weight: bold;
+    text-size-adjust: 100px;
+    font-size: 25px;
+    border: solid;
+    width: 12%;
+    text-align: center;
+}
+#p1{
+    font-weight: bold;
+    font-size: 25px;
+    border: solid;
+    width: 226px;
+    text-align: center;
+}
+
+#table-main{
+    background: #88a0be;
+    color: white;   
+}
+
+#table-title{
+    text-align: center;
+    padding-top: 15px;
+}
+
+#expand-button{
+    width: 236px;
+    height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    background: transparent;
+    border-color: white;
+    border: solid;
+}
+
+#create-form{
+    display: flex;
+    gap: 3px;
+}
+
+#create-shipment{
+    display: flex;
+    justify-content: center;
+}
+
+#create-div{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#c-input{
+    width: 225px;
+    height: 26px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}

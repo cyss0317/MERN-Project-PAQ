@@ -20,6 +20,34 @@
     background: white;
 }
 
+#log-div a{
+    text-decoration: none;
+    text-align: center;
+    width: 98px;
+    height: 36px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #ffffff00;
+    color: white;
+    border: solid white;
+    border-radius: 8px;
+    text-transform: capitalize;
+}
+
+#log-div a:hover{
+    width: 98px;
+    height: 36px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: #121e58;
+    border: solid #121e58;
+    border-radius: 8px;
+    text-transform: capitalize;
+    transition: 1s;
+}
+
+
 #auth-li{
     text-decoration: none;
     color: white;
@@ -36,7 +64,7 @@
 
 #log-div{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-content: center;
     justify-content: center;
     align-items: center;

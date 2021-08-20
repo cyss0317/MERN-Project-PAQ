@@ -30,7 +30,7 @@ const App = () => (
         <ProtectedRoute exact path='/notify/all' component={MassTextContainer} />
         <ProtectedRoute exact path='/order/update' component={EditOrderContainer} />
         <ProtectedRoute exact path='/orders' component={OrderContainer} />
-        <ProtectedRoute exact path='/orders/user' component={UserIndexContainer} />
+        <ProtectedRoute exact path='/orders/user/:_id' component={UserIndexContainer} />
         <ProtectedRoute exact path='/shipments/user/:userId' component={ShipmentContainer} />
         <Route exact path='/dashboard' component={DashboardContainer}/>
         <AuthRoute exact path="/" component={MainPage} />

@@ -5,7 +5,8 @@ import NavBar from './navbar';
 
 const mapStateToProps = ({session,history}) => ({
   loggedIn: session.isAuthenticated,
-  history: history
+  history: history,
+  user: session.user 
 });
 
 const mDTP = dispatch => ({

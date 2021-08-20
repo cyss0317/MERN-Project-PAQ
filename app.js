@@ -1,3 +1,4 @@
+const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -6,7 +7,6 @@ const users = require("./routes/api/users");
 const User = require("./models/User");
 
 
-const bodyParser = require("body-parser");
 const Shipment = require("./models/Shipment")
 const shipments = require("./routes/api/shipments")
 
@@ -27,13 +27,10 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-
-
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
-
 
 app.use(bodyParser.urlencoded({
   extended: false

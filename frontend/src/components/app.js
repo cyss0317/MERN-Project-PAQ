@@ -16,11 +16,13 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ShipmentContainer from './shipments/shipment_container'
 import ContactsPage from './contact_info/contacts_page';
+import UserUpdateContainer from './user_update/user_update_container'
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+        <ProtectedRoute exact path='/users/:_id' component={UserUpdateContainer}/>
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <Route exact path='/contacts/page' component={ContactsPage} />
@@ -29,7 +31,7 @@ const App = () => (
         <ProtectedRoute exact path='/order/update' component={EditOrderContainer} />
         <ProtectedRoute exact path='/orders' component={OrderContainer} />
         <ProtectedRoute exact path='/orders/user' component={UserIndexContainer} />
-        <Route exact path='/shipments/user/:userId' component={ShipmentContainer} />
+        <ProtectedRoute exact path='/shipments/user/:userId' component={ShipmentContainer} />
         <Route exact path='/dashboard' component={DashboardContainer}/>
         <AuthRoute exact path="/" component={MainPage} />
     </Switch>

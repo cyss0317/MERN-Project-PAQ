@@ -20,12 +20,14 @@ class NavBar extends React.Component {
 
   getLinks() {
       if (this.props.loggedIn) {
+
         return (         
             <div id='log-div'>
+                <Link to={`/users/${this.props.user._id}`}> Settings </Link>
                 <button onClick={this.logoutUser} id='logout-button'>Logout</button>
             </div>
         );
-      } else {
+      } else{
         return (
             <div id='auth-div'>
                 <Link to={'/signup'} id='auth-li'>Signup</Link>

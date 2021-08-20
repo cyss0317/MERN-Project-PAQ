@@ -7,6 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { jwt } from 'twilio';
 import {createNewShipment, fetchShipment, updateShipment, fetchAllShipments} from "./actions/shipment_actions"
+import { fetchOrdersByShipmentId } from './actions/order_actions';
 import axios from "axios"
 // import { jwt } from 'twilio';
 
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchShipment = fetchShipment;
     window.updateShipment = updateShipment;
     window.fetchAllShipments = fetchAllShipments;
+    window.fetchOrdersByShipmentId = fetchOrdersByShipmentId;
 
     window.axios = axios
     

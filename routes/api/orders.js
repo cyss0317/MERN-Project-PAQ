@@ -26,12 +26,12 @@ router.get('/user/:user_id', (req, res) => {
 });
 
 // find by shipmentId
-router.get('/shipment/:id', (req, res) => {
-  Order.findById(req.params.shipmentId)
+router.get('/shipment/:shipmentId', (req, res) => {
+  const orders = Order.find({ shipmentId: req.params.shipmentId})
     .sort({delivered: false})  
     .populate("customerId")
     .populate("businessOwnerId")
-    .populate("shipmentId")
+    // .populate("shipmentId")
     .exec()
     .then(orders => res.json(orders))
     .catch(err =>

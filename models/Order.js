@@ -31,7 +31,7 @@ const OrderSchema = new Schema({
   },
   customerId: {
     type: Schema.Types.ObjectId, ref: "users",
-    required: true,
+    // required: true,
     // type: Schema.Types.ObjectId,
     // ref: 'user'
   },

@@ -22,7 +22,6 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-        <ProtectedRoute exact path='/shipments/orders/:shipmentId' component={ShipmentOrdersContainer} />
         <ProtectedRoute exact path='/users/:_id' component={UserUpdateContainer}/>
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -33,6 +32,7 @@ const App = () => (
         <ProtectedRoute exact path='/orders' component={OrderContainer} />
         <ProtectedRoute exact path='/orders/user/:_id' component={UserIndexContainer} />
         <ProtectedRoute exact path='/shipments/user/:userId' component={ShipmentContainer} />
+        <ProtectedRoute exact path='/shipments/orders/:shipmentId' component={ShipmentOrdersContainer} />
 
         <Route exact path='/dashboard' component={DashboardContainer}/>
         <AuthRoute exact path="/" component={MainPage} />

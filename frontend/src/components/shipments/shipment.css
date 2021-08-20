@@ -30,10 +30,7 @@
     display: none;
 }
 
-#table-columns{
-    display: flex;
-    justify-content: space-between;
-}
+
 
 #info-container{
 
@@ -57,7 +54,12 @@
     flex-direction: row;
     align-items: center;
 
+}
 
+
+
+#main-container{
+    margin: 8px 36px 8px 36px;
 }
 /* #not-delivered-info-container{
      margin-left: 15px;
@@ -69,21 +71,32 @@
     flex-direction: column;
 
 } */
+#table-columns p{
+    text-align: center;
+}
 
 #table-columns{
     display: flex;
     flex-direction: row;
 
 }
+#p{
+    width: 130px;
+}
 
+#p1{
+    width: 200px;
+}
 
 #expand-button:focus{
     outline: 0 !important;
 }
+#create-form label{
+    margin-right: 20px;
+}
 
 #create-form{
     display: flex;
-    justify-content: space-evenly;
     padding: 15px;
 
 }

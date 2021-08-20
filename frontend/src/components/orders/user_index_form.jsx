@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'; 
 
 class UserIndex extends React.Component {
   constructor(props) {
@@ -58,4 +59,4 @@ class UserIndex extends React.Component {
   }
 }
 
-export default UserIndex;
+export default withRouter(UserIndex);

@@ -120,15 +120,15 @@ router.get("/test", (req, res) => {
 
 
 
-router.patch('/:id/settings', (req,res) => {
+router.patch('/:_id/settings', (req,res) => {
   // const { errors, isValid } = validateLoginInput(req.body);
 
   // if(!isValid) {
   //   return res.status(500).json(errors); 
   // }
 
-  // User.updateOne({_id: req.params.id},
-    User.findByIdAndUpdate({_id: req.params._id},
+
+    User.findByIdAndUpdate(req.params._id,
     {
       phoneNumber: req.body.phoneNumber,
       email: req.body.email,

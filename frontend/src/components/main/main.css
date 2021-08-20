@@ -1,0 +1,159 @@
+#main-div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+#main-div-contents{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+#home-banner{
+    width: 90%;
+}
+
+#reserve-now-banner{
+background-image: url(https://images.hdqwalls.com/download/flying-plane-in-clouds-artwork-ux-2560x1440.jpg);
+    background-size: 110% 135%;
+    width: 100%;
+    height: 600px;
+    background-position: -125px -95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#banner-quote{
+    font-size: 55px;
+    color: white;
+    padding-left: 15px;
+    background: #142b61e8;
+    padding-right: 15px;
+    border: solid;
+    padding-bottom: 6px;
+}
+#banner-quote1{
+    font-size: 25px;
+    color: white;
+    padding-left: 15px;
+    background: #142b61e8;
+    padding-right: 15px;
+    border: 3px solid;
+    padding-bottom: 4px;
+    text-decoration: none;
+}
+#banner-quote1:hover{
+    font-size: 25px;
+    color: #142b61;
+    padding-left: 15px;
+    background: rgba(255, 255, 255, 0.759);
+    padding-right: 15px;
+    border: 3px solid #142b61;
+    padding-bottom: 4px;
+    text-decoration: none;
+    transition: 1s;
+}
+
+#plane-text{
+    font-size: 67px;
+}
+
+#three-div-containers{
+    margin-top: 3%;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+}
+
+#div1{
+    width: 28%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #12214a;
+    justify-content: flex-end;
+    color: white;
+    background-image: url('https://www.lifewire.com/thmb/492nUPL0nBnsjvdoX7R47ocvXFs=/1347x1347/smart/filters:no_upscale()/agenda-calendar-data-1020323-f18e6d3963314e75b3f10d33f76ff1d7.jpg');
+    background-size: 100% 114%;
+    border: 10px solid #12214a;
+}
+#div2{
+    width: 28%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #12214a;
+    justify-content: flex-end;
+    color: white;
+    background-image: url('https://image.shutterstock.com/image-illustration/hanging-contact-us-symbols-front-260nw-1037046826.jpg');
+    background-size: 100% 80%;
+    border: 10px solid #12214a;
+}
+#div3{
+    width: 28%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #2b63b8;
+    justify-content: flex-end;
+    color: white;
+    background-image: url('https://octopod.co.in/slink/images/signup.svg');
+    background-size: 100% 100%;
+    border: 10px solid #12214a;
+    background-position: 0px -21px;
+}
+
+#three-div{
+    background: #12214a;
+    width: 100%;
+    height: 93px;
+}
+
+#about-us{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background: #12214a;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: fit-content;
+    color: white;
+}
+
+#div-head{
+    text-decoration: none;
+    color: white;
+    height: 50px;
+}
+#div-head:hover{
+    text-decoration: none;
+    color: #12214a;
+    background: rgba(255, 255, 255, 0.807);
+    transition: 1s;
+}

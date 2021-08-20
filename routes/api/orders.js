@@ -27,6 +27,10 @@ router.get('/user/:user_id', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Order.findById(req.params.id)
+    .populate("customerId")
+    .populate("businessOwnerId")
+    .populate("shipmentId")
+    .exec()
     .then(order => res.json(order))
     .catch(err =>
       res.status(404).json({ noorderfound: 'No order found with that ID' })
@@ -51,6 +55,7 @@ router.post('/',
       customerId: req.body.customerId,
       shipmentId: req.body.shipmentId
     });
+    
 
     newOrder.save().then(order => res.json(order));
   }

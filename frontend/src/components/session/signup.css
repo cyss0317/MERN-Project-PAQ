@@ -75,6 +75,17 @@ width: 46%;
     font-weight: bold;
     background: white;
 }
+#sign-submit:hover{
+    width: 25%;
+    height: 7%;
+    border-radius: 23px;
+    border-color: #ffffff;
+    font-size: medium;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.019);
+    color: white;
+    transition: 1s;
+}
 
 #sign-side-photo{
     height: 100%;
@@ -87,10 +98,12 @@ width: 46%;
 #sign-side-photo1{
     height: 100%;
     width: 100%;
-    background-image: url(https://images.8tracks.com/imgix/i/010/252/995/la_sky-5433.gif?rect=210,0,538,538&q=65&fit=max&w=320&h=320);
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5afdd6d5cef3721071778fc0/1567727449262-0DQ2QH0GLKAHWUIO8BZO/a2683ff8df373051fac5b592fad87b30.gif?format=2500w);
     border-radius: 10px;
-    background-size: 100% 143%;
-    background-position: 0px -131px;
+    background-size: 212% 104%;
+    background-position: -407px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 #error{
@@ -111,4 +124,56 @@ width: 46%;
 
 #sign-err{
     color: white;
+}
+
+#owner-select{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin-top: -5%;
+}
+
+#owner-selection{
+    width: 100px;
+    border-radius: 23px;
+    height: 28px;
+    background: #ffffffa3;
+    border-color: white;
+    border: solid white;
+}
+
+#back-button{
+    width: 100px;
+    height: 31px;
+    background: #ffffffba;
+    border: solid white;
+    border-radius: 5px;
+    font-size: large;
+    color: gray;
+    margin-top: 110%;
+    margin-left: 74%;
+    font-weight: bold;
+}
+#back-button:hover{
+    width: 100px;
+    height: 31px;
+    background: #ffffff;
+    border: solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    font-size: large;
+    color: rgb(0, 0, 0);
+    margin-top: 110%;
+    margin-left: 74%;
+    transition: 1s;
+    font-weight: bold;
+}
+
+#already{
+    color: white;
+}
+#already a{
+    text-decoration: none;
+    color: #ef553e;
 }

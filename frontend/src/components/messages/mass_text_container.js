@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { massText } from '../../actions/message_actions'
-import MassSMSForm from './mass_sms_form' 
+import { massText } from '../../actions/message_actions';
+import MassSMSForm from './mass_sms_form';  
 
 //assuming we have clients as a slice of state then we can deconstruct it
 const mSTP = ({errors}) =>{

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import loginCss from './login.css';
+import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class LoginForm extends React.Component {
     this.props.login(user); 
   }
 
-  // Render the session errors if there are any
+  // Render the  if there are any
   renderErrors() {
     return(
       <ul id='errors'>
@@ -86,6 +87,7 @@ class LoginForm extends React.Component {
             <br/>
             <input type="submit" value="Submit" id="log-submit"/>
             {this.renderErrors()}
+            <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
           </div>
         </form>
       </div>

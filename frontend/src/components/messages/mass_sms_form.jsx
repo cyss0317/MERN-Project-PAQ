@@ -1,5 +1,6 @@
 import React from 'react'; 
-
+import SmsCss from './sms.css'
+import { Link } from 'react-router-dom'
 class MassSMSForm extends React.Component {
   constructor(props){
     super(props);
@@ -30,9 +31,9 @@ class MassSMSForm extends React.Component {
     }else{
       return(
           <ul className='errors'>
-              {this.props.errors.map((error, i) => (
+              {Object.keys(this.props.errors).map((error, i) => (
                 <li key={`error-${i}`}>
-                  {error}
+                  {this.props.errors[error]}
                 </li>
               ))}
           </ul>
@@ -45,22 +46,30 @@ class MassSMSForm extends React.Component {
     
     const messages = Object.assign({}, this.state)
     this.props.massText(messages)
+      .then(this.setState({
+        body: ''
+      }))
   }
 
 
   render(){
     console.log(this.props)
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
-          <label htmlFor='body'>Body:</label>
-            <textarea name='body'
+      <div className='sms-container'>
+        <h1 id='text-form-title1'>Notify All Customer</h1>
+        <form onSubmit={this.handleSubmit} id="sms-form-container">
+        
+          <div className='sms-form'>
+             <textarea name='body'
                       id='body'
                       value={this.state.body}
                       onChange={this.update('body')}
                       placeholder='Enter your message here...'/> 
-          <button type='submit'>Send Message</button>
+          </div>
+             {this.renderErrors()}
+          <button type='submit' className='sms-button'>Send Message</button>
+          <br />
+          <Link to='/notify' id='switch-form'>Notify One</Link>
         </form>
       </div>
     )

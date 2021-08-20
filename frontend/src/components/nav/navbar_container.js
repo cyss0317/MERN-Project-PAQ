@@ -3,11 +3,13 @@ import { logout } from '../../actions/session_actions';
 
 import NavBar from './navbar';
 
-const mapStateToProps = state => ({
-  loggedIn: state.session.isAuthenticated
+const mapStateToProps = ({session,history}) => ({
+  loggedIn: session.isAuthenticated,
+  history: history
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(NavBar);
+const mDTP = dispatch => ({
+  logout: () => dispatch(logout())
+})
+
+export default connect(mapStateToProps,mDTP)(NavBar);

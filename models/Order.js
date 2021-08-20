@@ -26,17 +26,17 @@ const OrderSchema = new Schema({
     required: true
   },
   businessOwnerId: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: "users",
     required: true
   },
   customerId: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: "users",
     required: true,
     // type: Schema.Types.ObjectId,
     // ref: 'user'
   },
   shipmentId: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: "shipments",
     required: true
   },
 },
@@ -44,5 +44,5 @@ const OrderSchema = new Schema({
 );
 
 
-const Order = mongoose.model('orders', OrderSchema);
+const Order = mongoose.model('order', OrderSchema);
 module.exports = Order;

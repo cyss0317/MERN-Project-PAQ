@@ -81,30 +81,25 @@ class ShipmentIndex extends React.Component{
                     <h1>Welcome, {currentUser.name}</h1>
                 </div>
 
-                <div>
-                    <h1>List of shipments</h1>
-                    <div>
+                <div id='table-main'>
+                    <h1 id='table-title'>List of shipments</h1>
+                    <div id='create-div'>
                         <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new shipment</button>
                         <div  id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
-                                <label >Departure : 
-                                    <input type="text" value={this.state.departure} onChange={(e)=> this.onChangeHandler("departure", e)} />
-                                </label>
-                                <label >Weight : 
-                                    <input type="text" value={this.state.weight} onChange={(e) =>this.onChangeHandler("weight", e)} />
-                                </label>
+                                    <input type="text" value={this.state.departure} placeholder="Departure" onChange={(e)=> this.onChangeHandler("departure", e)} id='c-input'/>
+                                <input type="text" value={this.state.weight} placeholder="Weight" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
                                 <input type="submit" />
                             </form>
                         </div>
                     </div>
                     <div id="table-columns">
-                        <p id="p1">Shipment number</p>
-                        <p id="p">Detdarture</p>
-                        <p id="p">Weight</p>
-                        <p id="p">Full</p>
-                        <p id="p">Delivered</p>
-                        <p id="p"></p>
-                        <p id="p">Orders</p>
+                        <p id="p">Shipment number</p>
+                        <p id="p1">Departure</p>
+                        <p id="p1">Weight</p>
+                        <p id="p1">Full</p>
+                        <p id="p1">Delivered</p>
+
                 
                         {/* <Link to="/shipment/create">Create a shipment</Link>
                         <Route path="/shipment/create" component={ShipmentCreate}></Route> */}

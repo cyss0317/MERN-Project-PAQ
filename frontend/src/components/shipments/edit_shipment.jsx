@@ -32,29 +32,42 @@ class EditShipment extends React.Component{
             return(
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
-                        <p id="delivered-id">{this.state.id} </p>   
+                        <input id="not-delivered" type='text' value={this.state.id}/>
+                        <input id="not-delivered" type='text' value={this.state.departure}/>
+                        <input id="not-delivered" type='text' value={JSON.stringify(this.state.weight)}/>
+                        <input id="not-delivered" type='text' value={JSON.stringify(this.state.full)}/>
+                        <input id="not-deliveredG" type='text' value={JSON.stringify(this.state.delivered)}/>
+                        {/* <p id="delivered">{this.state.id} </p>   
                         <p id="delivered">{this.state.departure}</p>    
                         <p id="delivered">{JSON.stringify(this.state.weight)}</p>   
                         <p id="delivered">{JSON.stringify(this.state.full)}</p>   
                         <p id="delivered">{JSON.stringify(this.state.delivered)}</p>   
-                        <p id="delivered"></p>   
+                        <p id="delivered"></p>    */}
                     </form>
+
+//                     <Link to="/" id='check-li'>Check</Link>
+
                     {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
-                    <a href={`/shipments/orders/${this.state.id}`} ></a>
+                    <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check</a>
+
                 </div>
             )
         }   else {
             return(
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered-id" type="text" value={this.state.id} />
+                        <input id="not-delivered" type="text" value={this.state.id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.departure} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered} />
+                        <input id="not-deliveredR" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered} />
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
                     </form>
-                    <Link to={`/shipments/orders/${this.state.id}`} >Check</Link>
+
+                    <Link to="/" id='check-li'>Check</Link>
+
+                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check</Link>
+
                 </div>
             )
         }

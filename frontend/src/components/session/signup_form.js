@@ -136,10 +136,10 @@ class SignupForm extends React.Component {
             <br />
             <div id='owner-select' >
               <h4 id='owner-title'>Are you a business owner?</h4>
-              <select id='owner-selection'>
+              <select id='owner-selection' onChange={this.update('businessOwner')}>
                 <option>Select</option>
-                <option value={false} onClick={this.update('businessOwner')}>False</option>
-                <option value={true} onClick={this.update('businessOwner')}>True</option>
+                <option value={false} >No</option>
+                <option value={true} >Yes</option>
               </select>
             </div>
             <br />

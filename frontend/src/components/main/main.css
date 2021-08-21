@@ -28,7 +28,7 @@ footer{
 }
 
 #reserve-now-banner{
-background-image: url(https://images.hdqwalls.com/download/flying-plane-in-clouds-artwork-ux-2560x1440.jpg);
+    background-image: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/ocean_plane.jpeg?raw=true);
     background-size: 110% 135%;
     width: 100%;
     height: 600px;

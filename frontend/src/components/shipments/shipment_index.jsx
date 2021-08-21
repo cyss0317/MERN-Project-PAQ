@@ -51,6 +51,7 @@ class ShipmentIndex extends React.Component{
 
         this.props.createNewShipment(shipment)
         .then(this.props.fetchAllShipments(this.props.currentUserId))
+       
     }
 
     onChangeHandler(field, e){

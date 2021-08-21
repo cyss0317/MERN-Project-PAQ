@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} id="log-form">
           
           <div id="log-side-photo">
-            <img src="https://assets.airmail.news/static/images/BAh7CEkiCGdpZAY6BkVUSSIzZ2lkOi8vYWlyLW1haWwvQXJ0aWNsZTo6UGhvdG8vNDU2NjU_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--d8b07e76cf3d5be88b616c16e3d90e90872020aa/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2QzNKbGMybDZaVWtpQ1RneU1ENEdPd1pVT2hCaGRYUnZYMjl5YVdWdWRGUTZESEYxWVd4cGRIbHBhUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--9f1042b9c088c6ba97f7b06fd8c724bd4cf39745/photo-1619795015.jpeg" id="log-photo"/>
+            <img src="https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/mexico_day.jpeg?raw=true" id="log-photo"/>
           </div>
           
           <div id='log-inner'>

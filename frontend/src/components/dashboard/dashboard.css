@@ -37,7 +37,7 @@
     justify-content: flex-start;
     align-content: center;
     align-items: center;
-    background: url(https://cdn3.notifyvisitors.com/blog/wp-content/uploads/2020/11/EMAIL-MARKETING-VS-SMS-MARKETING-WHERE-TO-INVEST_banner.jpg);
+    background: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/sms_banner.jpeg?raw=true);
     background-size: 140% 125%;
     border-radius: 10px;
     background-position: -81px -16px;
@@ -51,7 +51,7 @@
     justify-content: flex-end;
     align-content: center;
     align-items: center;
-    background: url(https://image.shutterstock.com/image-vector/transportation-air-cargo-services-banner-260nw-1838434885.jpg);
+    background: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/air-cargo.jpeg?raw=true);
     background-size: 101% 137%;
     border-radius: 10px;
     background-position: -8px -23px;
@@ -65,7 +65,7 @@
     justify-content: flex-start;
     align-content: center;
     align-items: center;
-    background: url(https://thumbs.dreamstime.com/b/call-center-hotline-technical-support-customer-service-staff-headset-working-operator-client-communication-specialist-218965981.jpg);
+    background: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/contacting_info.jpeg?raw=true);
     background-size: contain;
     border-radius: 10px;
     background-position: 330px 0px;
@@ -161,7 +161,7 @@
     justify-content: flex-start;
     align-content: center;
     align-items: center;
-    background: url(https://www.x-cart.com/wp-content/uploads/2019/05/how_2_choose_shipping_carrier-1-768x278.jpg);
+    background: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/ship.jpeg?raw=true);
     background-size: 79% 120%;
     border-radius: 10px;
     background-position: 254px -32px;
@@ -199,7 +199,7 @@
     justify-content: flex-end;
     align-content: center;
     align-items: center;
-    background: url(https://www.brihaspatitech.com/blog/wp-content/uploads/ecommerce-label-implementation.jpg);
+    background: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/deliver.jpeg?raw=true);
     background-size: 101% 137%;
     border-radius: 10px;
     background-position: -145px -52px;

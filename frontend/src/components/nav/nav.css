@@ -92,10 +92,11 @@ display: flex;
 }
 
 #ship-li{
+    font: 400 13.3333px Arial;
     text-decoration: none;
     width: 121px;
     height: 30px;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: bold;
     background: #ffffff00;
     color: white;
@@ -104,20 +105,15 @@ display: flex;
     text-transform: capitalize;
     text-align: center;
     padding-top: 1px;
-    margin-right: 21px; 
+    margin-right: 21px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 #ship-li:hover{
-    text-decoration: none;
-    width: 121px;
-    height: 30px;
-    font-size: 23px;
-    font-weight: bold;
     background: white;
     color: #112159;
     border: solid #112159;
-    border-radius: 8px;
-    text-transform: capitalize;
-    text-align: center;
-    padding-top: 1px;
     transition: 1s;
 }

@@ -6,6 +6,7 @@ export const RECEIVE_USER_ORDERS = "RECEIVE_USER_ORDERS";
 export const REMOVE_ORDER = "REMOVE_ORDER";
 export const RECEIVE_ORDER_ERRORS = "RECEIVE_ORDER_ERRORS";
 export const RECEIVE_ORDERS_BY_SHIPMENTID = "RECEIVE_ORDERS_BY_SHIPMENTID";
+export const UPDATE_ORDER = "UPDATE_ORDER";
 
 export const receiveOrders = orders => ({
   type: RECEIVE_ORDERS,
@@ -30,6 +31,11 @@ export const removeOrder = orderId => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ORDER_ERRORS,
   errors
+})
+
+export const editOrder = order => ({
+  type: UPDATE_ORDER,
+  order
 })
 
 export const receiveOrdersByShipmentId = orders => ({
@@ -85,5 +91,8 @@ export const deleteOrder = order => dispatch => (
 )
 
 export const updateOrder = order => dispatch => (
-  APIUtilOrder.updateOrder()
+  APIUtilOrder.updateOrder(order)
+    .then((updatedOrder) => dispatch(editOrder(updatedOrder)),
+        errors => dispatch(receiveErrors(errors.response.data))
+    )
 )

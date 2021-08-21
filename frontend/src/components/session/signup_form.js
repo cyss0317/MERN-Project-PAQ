@@ -23,7 +23,7 @@ class SignupForm extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchUser(this.props.user._id); 
+    // this.props.fetchUser(this.props.user._id); 
   }
   
 
@@ -70,7 +70,7 @@ class SignupForm extends React.Component {
 
   render() {
 
-    if(!this.props.user) return null; 
+    // if(!this.props.user) return null; 
     return this.state.switch === '' ?
     (
        <div className="signup-form-container">
@@ -136,10 +136,10 @@ class SignupForm extends React.Component {
             <br />
             <div id='owner-select' >
               <h4 id='owner-title'>Are you a business owner?</h4>
-              <select id='owner-selection'>
+              <select id='owner-selection' onChange={this.update('businessOwner')}>
                 <option>Select</option>
-                <option value={false} onClick={this.update('businessOwner')}>False</option>
-                <option value={true} onClick={this.update('businessOwner')}>True</option>
+                <option value={false} >No</option>
+                <option value={true} >Yes</option>
               </select>
             </div>
             <br />

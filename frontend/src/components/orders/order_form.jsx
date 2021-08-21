@@ -59,9 +59,18 @@ class OrderForm extends React.Component {
     //   }
     // })
 
-    this.props.createOrder(order);
-    //not sure if we are going to have a modal for form
-    // .then(() => this.props.closeModal())
+    this.props.createOrder(order)
+    this.setState({
+      price: '',
+      weight: '',
+      receiverName: '',
+      description: '',
+      delivered: 'false',
+      businessOwnerId: '611d498163cb3e32313888c4',
+      customerId: this.props.currentUserId,
+      shipmentId: '611d9947b20e38c3352eb419'
+    })
+    
   }
 
   renderErrors() {

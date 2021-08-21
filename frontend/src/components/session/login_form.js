@@ -53,6 +53,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user)
+    // .catch(err => this.renderErrors(err))
       // .then( () => this.props.fetchAllShipments(this.state.userId)) 
       // .then(console.log(this.props.currentUser))
   }

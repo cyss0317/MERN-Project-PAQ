@@ -1,4 +1,4 @@
-import { RECEIVE_ORDERS, RECEIVE_ORDER, RECEIVE_USER_ORDERS, REMOVE_ORDER } from '../actions/order_actions';
+import { RECEIVE_ORDERS, RECEIVE_ORDER, RECEIVE_USER_ORDERS, RECEIVE_ORDERS_BY_SHIPMENTID, REMOVE_ORDER } from '../actions/order_actions';
 
 const OrdersReducer = (state = {}, action) => {
   // debugger
@@ -17,6 +17,13 @@ const OrdersReducer = (state = {}, action) => {
       // return nextState[action.orders.id] = action.orders
   
       return action.orders;
+    case RECEIVE_ORDERS_BY_SHIPMENTID:
+      let orders = action.orders.data
+      let newState= {}
+      orders.forEach((order) => {
+        newState[order._id] = order
+      })
+      return newState;
     case REMOVE_ORDER:
       delete nextState[action.orderId];
       return nextState;

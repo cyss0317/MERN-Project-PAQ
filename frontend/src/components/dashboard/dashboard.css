@@ -106,6 +106,19 @@
     background: white;
     border: solid #3da894;
 }
+#action-li3:hover{
+    text-decoration: none;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    background: #3da894;
+    border: solid white;
+    transition: 1s;
+}
 
 #inner-dash{
     display: flex;
@@ -139,5 +152,95 @@
     align-items: center;
 }
 
+#user-div1{
+    height: 30%;
+    width: 100%;
+    border: 3px solid #c9edff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    background: url(https://www.x-cart.com/wp-content/uploads/2019/05/how_2_choose_shipping_carrier-1-768x278.jpg);
+    background-size: 79% 120%;
+    border-radius: 10px;
+    background-position: 254px -32px;
+    background-repeat: no-repeat;
+    background-color: #c9edff;
+}
 
+#user-li1{
+    text-decoration: none;
+    padding: 7px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    background: #e9675f;
+    border: solid;
+}
+#user-li1:hover{
+    text-decoration: none;
+    padding: 7px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: #e9675f;
+    background: white;
+    border: solid;
+    transition: 1s;
+}
+#user-div2{
+    height: 30%;
+    width: 100%;
+    border: 3px solid #92d7e7;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    background: url(https://www.brihaspatitech.com/blog/wp-content/uploads/ecommerce-label-implementation.jpg);
+    background-size: 101% 137%;
+    border-radius: 10px;
+    background-position: -145px -52px;
+}
+
+#user-li2{
+    border: solid transparent;
+    width: 35%;
+    height: 88%;
+    margin-right: 38px;
+    background: #73dbff00;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#u-action-li2{
+    text-decoration: none;
+    padding: 7px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    background: #6aaebf;
+    border: solid;
+    padding-left: 15px;
+    padding-right: 15px;  
+}
+#u-action-li2:hover{
+    text-decoration: none;
+    padding: 7px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: #6aaebf;
+    background: white;
+    border: solid;
+    padding-left: 15px;
+    padding-right: 15px;  
+    transition: 1s;
+}
 

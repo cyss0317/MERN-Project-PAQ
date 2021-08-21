@@ -17,7 +17,7 @@ class ShipmentIndex extends React.Component{
 
         }
 
-        this.editable = this.editable.bind(this)
+
         this.expandFunction = this.expandFunction.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.onChangeHandler = this.onChangeHandler.bind(this)
@@ -26,18 +26,8 @@ class ShipmentIndex extends React.Component{
         this.props.fetchAllShipments(this.props.currentUserId)
     }
 
-    editable(e) {
-        let input = e.currentTarget.value;
-        let att = document.createAttribute("contentEditable");
-        att.value = "true";
-        input.setAttributeNode(att);
-    }
-    noteditable() {
-    var h1 = document.getElementsByTagName("H1")[0];
-    var att = document.createAttribute("contenteditable");
-    att.value = "flase";
-    h1.setAttributeNode(att);
-    }
+
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -48,9 +38,11 @@ class ShipmentIndex extends React.Component{
             full: this.state.full,
             userId: this.state.userId,
         };
-
         this.props.createNewShipment(shipment)
         .then(this.props.fetchAllShipments(this.props.currentUserId))
+        .then(this.setState({departure: "", weight: ""}))
+        // .then( shipment =>  alert("Successfully Added"), 
+        // err => alert(`${err}`))
     }
 
     onChangeHandler(field, e){
@@ -87,7 +79,7 @@ class ShipmentIndex extends React.Component{
                         <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new shipment</button>
                         <div  id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
-                                    <input type="text" value={this.state.departure} placeholder="Departure" onChange={(e)=> this.onChangeHandler("departure", e)} id='c-input'/>
+                                <input type="text" value={this.state.departure} placeholder="Departure" onChange={(e)=> this.onChangeHandler("departure", e)} id='c-input'/>
                                 <input type="text" value={this.state.weight} placeholder="Weight" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
                                 <input type="submit" />
                             </form>

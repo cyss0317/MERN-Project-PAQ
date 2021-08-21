@@ -8,11 +8,14 @@ import {
   from '../../actions/order_actions';
 import OrderForm from './order_form';
 
-const mSTP = (state) => ({
-  errors:  state.errors.orders,
-  orders: state.orders,
-  currentUserId: state.session.user._id
-})
+const mSTP = (state) => {
+  return{
+    errors:  state.errors.orders,
+    orders: state.orders,
+    currentUserId: state.session.user._id
+  }
+  
+}
 
 const mDTP = dispatch => ({
   receiveOrders: orders => dispatch(receiveOrders(orders)),
@@ -22,4 +25,4 @@ const mDTP = dispatch => ({
   createOrder: createdOrder => dispatch(createOrder(createdOrder))
 })
 
-export default connect (mSTP, mDTP)(OrderForm);
+export default connect (mSTP, mDTP)(OrderForm); 

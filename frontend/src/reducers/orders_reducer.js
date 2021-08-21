@@ -1,7 +1,7 @@
 import { RECEIVE_ORDERS, RECEIVE_ORDER, RECEIVE_USER_ORDERS, RECEIVE_ORDERS_BY_SHIPMENTID, REMOVE_ORDER } from '../actions/order_actions';
 
 const OrdersReducer = (state = {}, action) => {
-  // debugger
+
   Object.freeze(state)
   let nextState = Object.assign({}, state)
 
@@ -10,13 +10,16 @@ const OrdersReducer = (state = {}, action) => {
      
       return action.orders.data;
     case RECEIVE_ORDER:
-      // const newOrder = { [action.order.id]: action.order };
       return nextState[action.order.data._id] = action.order.data; 
+
     case RECEIVE_USER_ORDERS:
-      // const newOrder = { [action.order.id]: action.order };
-      // return nextState[action.orders.id] = action.orders
-  
-      return action.orders;
+    
+      let userOrders = action.orders
+      userOrders.forEach((order) => {
+        nextState[order._id] = order
+      })
+      return nextState;
+
     case RECEIVE_ORDERS_BY_SHIPMENTID:
       let orders = action.orders.data
       let newState= {}
@@ -24,6 +27,7 @@ const OrdersReducer = (state = {}, action) => {
         newState[order._id] = order
       })
       return newState;
+
     case REMOVE_ORDER:
       delete nextState[action.orderId];
       return nextState;

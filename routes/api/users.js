@@ -9,6 +9,7 @@ const validateLoginInput = require("../../validation/login")
 const bodyParser = require("body-parser");
 
 router.use(bodyParser.json())
+
 router.post("/register", (req, res)=> {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -36,7 +37,26 @@ router.post("/register", (req, res)=> {
             if (err) throw err;
             newUser.password = hash;
             newUser.save()
-              .then((user) => res.json(user))
+              .then((user) => {
+                const payload = {
+                  _id: user._id,
+                  name: user.name,
+                  email: user.email,
+                  phoneNumber: user.phoneNumber,
+                  address: user.address
+                }
+                jwt.sign(
+                  payload,
+                  keys.secretOrKey,
+                  { expiresIn: 3600},
+                  (err, token) => {
+                    res.json({
+                      success: true,
+                      token: "Bearer " + token
+                    });
+                  }
+                )
+              })
               .catch(err => console.log(err))
           })
         })
@@ -49,8 +69,7 @@ router.patch("/:id", (req, res) => {
     {
       address: req.body.address,
       phoneNumber: req.body.phoneNumber,
-      shipment: req.body.shipment,
-      businessOwner: req.body.businessOwner
+      shipment: req.body.shipment
     },
     { new: true }, (error, data) => {
       if (error) {
@@ -95,8 +114,7 @@ router.post('/login', (req, res)=> {
             name: user.name,
             email: user.email,
             phoneNumber: user.phoneNumber,
-            address: user.address,
-            businessOwner: user.businessOwner
+            address: user.address
           }
           jwt.sign(
             payload,
@@ -150,6 +168,17 @@ router.patch('/:_id/settings', (req,res) => {
   
 })
 
+
+
+router.get('/businessOwners', (req,res) => {
+  User.find({businessOwner: true}), (err, businessOwners) =>{
+    if(err){
+      res.json(err)
+    }else{
+      res.json(businessOwners)
+    }
+  }
+})
 
 
 

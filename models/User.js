@@ -37,7 +37,10 @@ const UserSchema = new Schema({
           type: Schema.Types.ObjectId, ref: "shipment"
         }
       }
-    ]
+    ],
+    deliveryMan:{
+      type: Schema.Types.ObjectId, ref: 'users'
+    }
 
 });
 

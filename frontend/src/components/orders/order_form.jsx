@@ -10,23 +10,15 @@ class OrderForm extends React.Component {
       receiverName: '',
       description: '',
       delivered: 'false',
-      businessOwnerId: '611d498163cb3e32313888c4',
+      businessOwnerId: '',
       customerId: this.props.currentUserId,
-      shipmentId: '611d9947b20e38c3352eb419'
+      shipmentId: ''
     }
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.updatePrice = this.updatePrice.bind(this);
-    // this.updateFields = this.updateFields.bind(this);
+
   }
 
-  // updatePrice(field) {
-  //   if (field === 'weight') {
-  //     return e => this.setState({
-  //       price: (e.currentTarget.value * 3).toFixed(2)
-  //     })
-  //   }
-  // }
 
   update(field){
     // this.updatePrice(field)
@@ -44,20 +36,10 @@ class OrderForm extends React.Component {
     
   }
 
-  // updateFields(field) {
-  //   this.updatePrice(field)
-  //   this.update(field)
-  // }
-
   handleSubmit(e) {
     e.preventDefault()
     let order = Object.assign({}, this.state)
 
-    // this.setState(prevState => {
-    //   return {
-    //     price: this.state.weight * 3
-    //   }
-    // })
 
     this.props.createOrder(order)
     this.setState({

@@ -36,7 +36,6 @@ export const logout = () => dispatch => {
     // Remove the token from the common axios header
     APIUtil.setAuthToken(false)
     // Dispatch a logout action
-
     dispatch(logoutUser())
 };
 

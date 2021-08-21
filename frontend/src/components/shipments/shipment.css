@@ -26,9 +26,6 @@
     font-size: 17px;
 }
 
-#create-shipment {
-    display: none;
-}
 
 
 
@@ -119,11 +116,10 @@
     font-size: medium;
 }
 #not-deliveredR{
-    width: 13%;
-    height: 40px;
+    width: 13.5%;
+    height: 46px;
     text-align: center;
     font-size: medium;
-    color: red;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -135,6 +131,9 @@
     color: green;
     font-weight: bold;
     text-transform: uppercase;
+}
+option{
+    left: 50%;
 }
 
 #delivered{
@@ -196,7 +195,8 @@
     font-weight: bold;
     font-size: 25px;
     border: solid;
-    width: 226px;
+    /* width: 226px; */
+    width: 11.7%;
     text-align: center;
 }
 
@@ -245,4 +245,13 @@
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+}
+
+#create-shipment {
+    display: none;
+}
+
+
+select{
+    text-align-last:center;
 }

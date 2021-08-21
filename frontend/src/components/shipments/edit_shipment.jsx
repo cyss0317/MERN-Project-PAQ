@@ -21,7 +21,7 @@ class EditShipment extends React.Component{
         e.preventDefault()
         const shipment = Object.assign({}, this.state)
         this.props.updateShipment(shipment)
-        // this.props.updateShipment(this.state)
+        .then(this.props.fetchAllShipments(this.props.shipments))
     }
 
 

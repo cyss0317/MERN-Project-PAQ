@@ -105,7 +105,11 @@ class ShipmentIndex extends React.Component{
                             shipments.map((shipment,index) => 
                                 <EditShipment key={index} shipment={shipment} index={index}
                                     updateShipment={this.props.updateShipment} 
-                                    fetchOrdersByShipmentId={this.props.fetchOrdersByShipmentId}/>
+                                    fetchOrdersByShipmentId={this.props.fetchOrdersByShipmentId}
+                                    fetchAllShipments={this.props.fetchAllShipments}
+                                    shipments={shipments}
+                                    
+                                    />
                             )
                         }
                     </div>

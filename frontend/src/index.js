@@ -9,7 +9,7 @@ import { jwt } from 'twilio';
 import {createNewShipment, fetchShipment, updateShipment, fetchAllShipments} from "./actions/shipment_actions"
 import { fetchOrdersByShipmentId } from './actions/order_actions';
 import axios from "axios"
-import { fetchUserOrders} from './actions/order_actions'
+import { fetchUserOrders, createOrder} from './actions/order_actions'
 // import { jwt } from 'twilio';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.updateShipment = updateShipment;
     window.fetchAllShipments = fetchAllShipments;
     window.fetchOrdersByShipmentId = fetchOrdersByShipmentId;
+    window.createOrder = createOrder;
 
     window.fetchUserOrders = fetchUserOrders; 
     window.axios = axios

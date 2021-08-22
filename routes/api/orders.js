@@ -43,7 +43,7 @@ router.get('/shipment/:shipmentId', (req, res) => {
     .exec()
     .then(orders => res.json(orders))
     .catch(err =>
-      res.status(404).json({ noorderfound: 'No order found with that ID' })
+      res.status(404).json({ noshipmentfound: 'No shipment found with that ID' })
     );
 });
 

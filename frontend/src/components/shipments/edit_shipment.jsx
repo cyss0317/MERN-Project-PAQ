@@ -19,9 +19,18 @@ class EditShipment extends React.Component{
 
     onClickSubmit(e){
         e.preventDefault()
-        const shipment = Object.assign({}, this.state)
-        this.props.updateShipment(shipment)
-        .then(this.props.fetchAllShipments(this.props.shipments))
+        
+        const answer = window.confirm('Are you sure you want to make this changes to the database?')
+        if (answer) {
+            // Save it!
+            console.log('Successfully edited');
+            const shipment = Object.assign({}, this.state)
+            this.props.updateShipment(shipment)
+            .then(this.props.fetchAllShipments(this.props.shipments))
+        } else {
+            // Do nothing!
+            console.log('Something went wrong, try again');
+        }
     }
 
 

@@ -72,9 +72,9 @@ export const fetchOrdersByShipmentId = shipmentId => dispatch => (
 
 export const createOrder = order => dispatch => (
   APIUtilOrder.createOrder(order)
-    .then(
-      createdOrder => dispatch(receiveOrder(createdOrder)),
-      errors => dispatch(receiveErrors(errors.response.data))
+    .then(createdOrder => dispatch(receiveOrder(createdOrder)),
+        // err => dispatch(receiveErrors(err.response.data))
+      // errors => dispatch(receiveErrors(errors.response.data))
     )
     // .catch(err => console.log(err))
 )

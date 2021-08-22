@@ -1,13 +1,118 @@
+#update-div{
+    display: flex;
+    justify-content: center;
+}
+
 #update-forms{
     display: flex;
-
+    justify-content: space-around;
+    align-items: stretch;
+    border: solid;
+    align-content: center;
+    width: 40%;
+    height: 600px;
 }
 
 #update-input{
     display: flex;
+    align-items: center;
+    justify-content: space-around;
     flex-direction: column;
+    width: 42%;
+}
+
+#update-submit{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    flex-direction: column;
+}
+#update-button{
+    width: 100%;
+    height: 50%;
 }
 
 #update-button:hover{
     cursor: pointer;
+}
+
+#update-titles{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#update-email{
+    width: 100%;
+    border: #112159 solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #112159;
+    color: white;
+    box-shadow: 8px 14px 20px 0px #112159;
+}
+
+#update-e-input{
+    width: 55%;
+    height: 30px;
+    border-color: transparent;
+    border-radius: 6px;
+    color: #0f225a;
+    text-align: center;
+    font-weight: bold;
+}
+#update-number{
+width: 100%;
+    border: #8f98a6 solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #8f98a6;
+    color: white;
+    box-shadow: 8px 14px 20px 0px #8f98a6;
+}
+
+#update-n-input{
+    width: 55%;
+    height: 30px;
+    border-color: transparent;
+    border-radius: 6px;
+    color: #8f98a6;
+    text-align: center;
+    font-weight: bold;
+}
+#update-address{
+    width: 100%;
+    border: #6487b7 solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #6487b7;
+    color: white;
+    box-shadow: 8px 14px 20px 0px #6487b7;
+}
+
+#update-a-input{
+    width: 55%;
+    height: 30px;
+    border-color: transparent;
+    border-radius: 6px;
+    color: #6487b7;
+    text-align: center;
+    font-weight: bold;
 }

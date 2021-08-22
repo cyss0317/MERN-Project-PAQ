@@ -84,31 +84,46 @@ class userUpdateForm extends React.Component {
     if(!this.state._id) return null; 
     
     return(
-      <div>
+      <div id='update-div'>
         <form id="update-forms" onSubmit={this.handleSubmit}>
           <div id="update-input">
-            <label>Email : 
+
+              <div id='update-email'>
+                <p id='update-titles'>Email</p>
                 <input type='email'
                       value={this.state.email}
-                      onChange={this.update('email')}/>
-            </label>
-            <label>Phone number :
-                <input type='text'
-                      value={this.state.phoneNumber}
-                      onChange={this.update('phoneNumber')}/>
-            </label>
-            <label>Address : 
-                <input type='text'
-                        value={this.state.address}
-                        onChange={this.update('address')}/>
-            </label>
+                      onChange={this.update('email')}
+                      id='update-e-input'/>
+              </div>
+
+              <div id='update-number'>
+                <p id='update-titles'>Phone number </p>
+                    <input type='text'
+                          value={this.state.phoneNumber}
+                          onChange={this.update('phoneNumber')}
+                          id='update-n-input'/>
+               
+              </div>
+
+              <div id='update-address'>
+                <p id='update-titles'>Address </p>
+                    <input type='text'
+                            value={this.state.address}
+                            onChange={this.update('address')}
+                            id='update-a-input'/>
+
+              </div>
+
         </div>
           {/* <input type='text'
             value={this.state.busienssOwner}
             onChange={this.update('busienssOwner')} /> */}
 
-          {this.renderErrors()}
-       <input id="update-button"type='submit' value="Update Settings"/>
+          <div id='update-submit'>
+            <input id="update-button"type='submit' value="Update Settings"/>            
+            {this.renderErrors()}
+          </div>
+
         </form>
       </div>
     )

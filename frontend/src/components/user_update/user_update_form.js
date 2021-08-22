@@ -17,10 +17,9 @@ class userUpdateForm extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    console.log(prevProps.user)
-    console.log(this.props.user)
+
     if(!prevProps.user && this.props.user){
-      console.log('HEy its eorking')
+
       this.setState(
         {
         _id: this.props.user._id,
@@ -80,7 +79,7 @@ class userUpdateForm extends React.Component {
   }
   
   render(){
-    console.log(this.state)
+
     if(!this.state._id) return null; 
     
     return(

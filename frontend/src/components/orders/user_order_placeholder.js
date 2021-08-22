@@ -14,7 +14,7 @@ class UserIndex extends React.Component {
 
   componentDidMount() { 
     this.props.fetchUserOrders() 
-    console.log(this.props.orders); 
+
   }
 
   update(field) {

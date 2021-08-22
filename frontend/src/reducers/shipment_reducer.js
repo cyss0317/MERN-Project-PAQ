@@ -15,16 +15,6 @@ const shipmentReducer = (oldState = {}, action) => {
       case CREATE_SHIPMENT:
         return Object.assign({}, oldState, {[action.shipment.data._id]: action.shipment.data})
       case RECEIVE_ALL_SHIPMENTS:
-        console.log(action.shipments.data)
-
-        // let users = action.shipments.data; 
-        // let newUserState = {}; 
-        // users.forEach(shipment => {
-
-        // })
-        
-        
-        
         // important
         let shipments = action.shipments.data
         let newState = { }

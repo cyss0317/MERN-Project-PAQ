@@ -1,6 +1,6 @@
 // import e from 'express';
 import React from 'react';
-import { ThisMonthInstance } from 'twilio/lib/rest/api/v2010/account/usage/record/thisMonth';
+
 
 class OrderForm extends React.Component {
   constructor(props){
@@ -18,7 +18,6 @@ class OrderForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.shipmentInfo = this.shipmentInfo.bind(this); 
-    this.updateBusinessId = this.updateBusinessId.bind(this); 
 
   }
   componentDidMount(){
@@ -41,19 +40,12 @@ class OrderForm extends React.Component {
     return values; 
   }
   
-  updateBusinessId(id){
-    this.setState({
-      businessOwnerId: id
-    })
-  }
-
 
   update(field){
-    // this.updatePrice(field)
     
     if (field === 'weight') {
       return e => this.setState({
-        price: `${Math.round( ((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
+        price: `${Math.round(((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
         weight: e.currentTarget.value
       })
     }
@@ -92,7 +84,6 @@ class OrderForm extends React.Component {
 
   renderErrors() {
     if (!this.props.errors) {
-      // console.log(this.props)
       return null
     } else {
       return (

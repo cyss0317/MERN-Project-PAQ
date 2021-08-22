@@ -12,7 +12,7 @@ class UserOrderItem extends React.Component {
             receiverName: this.props.order.receiverName,
             description: this.props.order.description,
             delivered: this.props.order.delivered,
-            besinessOwnderId: this.props.order.besinessOwnderId,
+            businessOwnerId: this.props.order.businessOwnerId,
         }
         // this.updateOrder = this.props.updateOrder.bind(this)
     }

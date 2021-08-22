@@ -12,14 +12,44 @@ class OrderShow extends React.Component {
             receiverName: this.props.order.receiverName,
             description: this.props.order.description,
             delivered: this.props.order.delivered,
-            besinessOwnderId: this.props.order.besinessOwnderId,
+            businessOwnerId: this.props.currentUserId,
+            shipmentId: this.props.shipmentId
         }
-        this.updateOrder = this.props.updateOrder.bind(this)
+
+        // this.onClickSubmit = this.props.onClickSubmit.bind(this)
+        this.onClickSubmit = this.onClickSubmit.bind(this)
+        this.deleteHandler = this.deleteHandler.bind(this)
+    }
+
+    deleteHandler(e){
+        e.preventDefault();
+        const answer = window.confirm('Are you sure you want to delete this order from the database?')
+        if (answer) {
+            // Save it!
+            console.log('Deleted the order successfully');
+            this.props.deleteOrder(this.props.orderId);
+            // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
+        } else {
+            // Do nothing!
+            console.log('');
+        }
     }
 
     onClickSubmit(e) {
+
         e.preventDefault();
-        this.props.updateOrder(this.state)
+        const answer = window.confirm('Are you sure you want to confirm this changes to this order?')
+        if (answer) {
+            // Save it!
+            console.log('Successfully edited');
+            this.props.updateOrder(this.state)
+            .then(order => this.props.fetchOrdersByShipmentId(this.props.shipmentId))
+        } else {
+            // Do nothing!
+            console.log("")
+        }
+
+        // .then(this.setState({}))
     }
 
 
@@ -36,11 +66,11 @@ class OrderShow extends React.Component {
                         <input id="not-delivered" type='text' readOnly value={this.state.weight} />
                         <input id="not-delivered" type='text' readOnly value={this.state.receiverName} />
                         <input id="not-delivered" type='text' readOnly value={this.state.description} />
-                        <input style={{ color: this.state.delivered === true ? "green" : "red" }} id="not-delivered" type='text' readOnly value={this.state.delivered === true ? ("FULL") : ("ADD MORE")} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>
                         </select>
+                        {/* <button  onClick={this.deleteHandler} >Delete</button> */}
                         {/* <input id="not-delivered" type='text' defaultV{this.state.id} </input> 
                         <input id="not-delivered" type='text' defaultV{this.state.departure} </input>
                         <input id="not-delivered" type='text' defaultV{JSON.stringify(this.state.weight)} </input>
@@ -57,7 +87,7 @@ class OrderShow extends React.Component {
                     {/* //                     <Link to="/" id='check-li'>Check</Link> */}
 
                     {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
-                    <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</a>
+
 
                 </div>
             )
@@ -65,8 +95,8 @@ class OrderShow extends React.Component {
             return (
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" value={this.state.id} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.price} />
+                        <input id="not-delivered" readOnly type="text" value={this.state.id} />
+                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={this.state.price} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("description", e)} value={this.state.description} />
@@ -77,11 +107,12 @@ class OrderShow extends React.Component {
                             <option align="center" value="false" >NOT DELIVERED</option>
                         </select>
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
+                        <button  onClick={this.deleteHandler} >Delete</button>
                     </form>
 
                     {/* <Link to="/" id='check-li'>Check</Link> */}
 
-                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</Link>
+
 
                 </div>
             )

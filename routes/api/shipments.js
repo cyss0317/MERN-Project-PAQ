@@ -97,7 +97,6 @@ router.get("/user/:userId", (req, res) => {
 // });
 
 router.get("/allShipments/:delivered", (req,res) => {
-  debugger
   Shipment.find({delivered: req.params.delivered})
   .populate('userId')
   .populate("order")

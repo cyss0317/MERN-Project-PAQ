@@ -5,7 +5,7 @@ import shipmentCSS from '../shipments/shipment.css'
 class UserOrderItem extends React.Component {
     constructor(props) {
         super(props)
-        console.log(this.props)
+        console.log("inside of the constructor", this.props)
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
@@ -22,10 +22,12 @@ class UserOrderItem extends React.Component {
     }
 
   onClickSubmit(e) {
-    console.log(this.state)
-    const order = Object.assign({}, this.state)
-    this.props.updateOrder(order)
-      .then(this.props.fetchUserOrders(this.state.customerId))
+      e.preventDefault()
+    // this.props.deleteOrder(this.state.id)
+
+    this.props.updateOrder(this.state)
+    //   .then(this.props.fetchUserOrders(this.state.customerId))
+    // .then(this.props.history.push(`/orders/user/${this.state.customerId}`))
   }
 
     update(field){
@@ -38,9 +40,9 @@ class UserOrderItem extends React.Component {
       })
     }
 
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    })
+    // return e => this.setState({
+    //   [field]: e.currentTarget.value
+    // })
     
   }
 
@@ -48,7 +50,7 @@ class UserOrderItem extends React.Component {
         this.setState({ [field]: e.currentTarget.value })
     }
     render() {
-        if (this.state.delivered == true) {
+        if (this.state.delivered === true) {
             return (
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
@@ -98,6 +100,7 @@ class UserOrderItem extends React.Component {
                             <option align="center" value="false" >NOT DELIVERED</option>
                         </select>
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
+                        <button className="all-buttons" onClick={this.props.deleteOrder}>Delete Order</button>
                     </form>
 
                 </div>
@@ -110,4 +113,4 @@ class UserOrderItem extends React.Component {
   
 
 
-export default UserOrderItem; 
+export default withRouter(UserOrderItem); 

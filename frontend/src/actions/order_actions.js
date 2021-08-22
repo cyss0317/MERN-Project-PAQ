@@ -79,10 +79,10 @@ export const createOrder = order => dispatch => (
     // .catch(err => console.log(err))
 )
 
-export const deleteOrder = order => dispatch => (
-  APIUtilOrder.deleteOrder()
+export const deleteOrder = orderId => dispatch => (
+  APIUtilOrder.deleteOrder(orderId)
     .then(
-      () => dispatch(removeOrder(order.id)),
+      () => dispatch(removeOrder(orderId)),
       errors => dispatch(receiveErrors(errors.response.data))
     )
 )

@@ -15,8 +15,8 @@ const mSTP = (state) => {
 const mDTP = (dispatch, ownProps) => {
 
   return {
-    fetchUserOrders: () => dispatch(fetchUserOrders(ownProps.match.params._id)),
-    updatedOrder: (order) => dispatch(updateOrder(order))
+    fetchUserOrders: (id) => dispatch(fetchUserOrders(ownProps.match.params._id)),
+    updateOrder: (order) => dispatch(updateOrder(order))
   }
 }
 

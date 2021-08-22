@@ -6,7 +6,7 @@ import { fetchAllShipments } from '../../actions/shipment_actions';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    currentUser: state.session.user._id
+    // currentUser: state.session.user._id
   };
 };
 

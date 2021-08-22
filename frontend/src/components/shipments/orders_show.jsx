@@ -14,7 +14,7 @@ class OrderShow extends React.Component {
             delivered: this.props.order.delivered,
             besinessOwnderId: this.props.order.besinessOwnderId,
         }
-        this.updateOrder = this.props.updateOrder.bind(this)
+        // this.updateOrder = this.props.updateOrder.bind(this)
     }
 
     onClickSubmit(e) {

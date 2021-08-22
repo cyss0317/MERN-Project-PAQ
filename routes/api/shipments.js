@@ -96,6 +96,15 @@ router.get("/user/:userId", (req, res) => {
 //     .catch(err => res.status(404).json(err))
 // });
 
+router.get("/allShipments/:delivered", (req,res) => {
+  debugger
+  Shipment.find({delivered: req.params.delivered})
+  .populate('userId')
+  .populate("order")
+  .exec()
+    .then(shipments => res.json(shipments))
+    .catch(err => res.status((404).json(err)))
+})
 
 
 module.exports = router;

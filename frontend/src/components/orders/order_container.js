@@ -6,6 +6,8 @@ import {
   removeOrder,
   createOrder } 
   from '../../actions/order_actions';
+
+import { fetchBusinessOwners } from '../../actions/users_actions'; 
 import OrderForm from './order_form';
 
 const mSTP = (state) => {
@@ -22,7 +24,8 @@ const mDTP = dispatch => ({
   receiveOrder: order => dispatch(receiveOrder(order)),
   receiveUserOrders: userOrders => dispatch(receiveUserOrders(userOrders)),
   removeOrder: () => dispatch(removeOrder()),
-  createOrder: createdOrder => dispatch(createOrder(createdOrder))
+  createOrder: createdOrder => dispatch(createOrder(createdOrder)),
+  fetchBusinessOwners: () => dispatch(fetchBusinessOwners())
 })
 
 export default connect (mSTP, mDTP)(OrderForm); 

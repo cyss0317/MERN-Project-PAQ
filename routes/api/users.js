@@ -170,18 +170,5 @@ router.patch('/:_id/settings', (req,res) => {
 
 
 
-router.get('/businessOwners', (req,res) => {
-  User.find({businessOwner: true}), (err, businessOwners) =>{
-    if(err){
-      res.json(err)
-    }else{
-      res.json(businessOwners)
-    }
-  }
-})
-
-
-
-
 
 module.exports = router;

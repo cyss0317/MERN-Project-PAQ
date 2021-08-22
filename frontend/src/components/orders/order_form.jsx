@@ -18,6 +18,10 @@ class OrderForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
+  componentDidMount(){
+    this.props.fetchBusinessOwners(); 
+  }
+  
 
 
   update(field){
@@ -120,6 +124,12 @@ class OrderForm extends React.Component {
             <div className="create-order-button-container">
               <button className="create-post-form-button">Reserve your spot</button>
             </div>
+
+            <div>
+              {/* {this.props.fetchBusinessOwners()} */}
+            </div>
+            
+            
           </form>
         </div>
       </div>

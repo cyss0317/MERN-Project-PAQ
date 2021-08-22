@@ -38,9 +38,9 @@ const UserSchema = new Schema({
         }
       }
     ],
-    deliveryMan:{
-      type: Schema.Types.ObjectId, ref: 'users'
-    }
+    // deliveryMan:{
+    //   type: Schema.Types.ObjectId, ref: 'users'
+    // }
 
 });
 

@@ -4,7 +4,7 @@ display: flex;
     height: 800px;
     width: 100%;
     /* margin-left: 40%; */
-    background-image: url(https://live.staticflickr.com/2774/4251463319_c47642aac2_b.jpg);
+    background-image: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/night_sky_plane.jpeg?raw=true);
     background-size: 108% 102%;
     background-position: -112px;
     /* -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0, 0)); */
@@ -90,7 +90,7 @@ width: 46%;
 #sign-side-photo{
     height: 100%;
     width: 100%;
-    background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/2-minneapolis-minnesota-city-view-walter-bibikow.jpg);
+    background-image: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/minesota_night.jpeg?raw=true);
     border-radius: 10px;
     background-size: 100% 143%;
     background-position: 0px -131px;

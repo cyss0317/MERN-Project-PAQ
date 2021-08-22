@@ -26,9 +26,10 @@ export const receiveAllShipments = (userId) => {
     return axios.get(`/api/shipments/user/${userId}`)
 }
 
-export const shipmentsByDeliveryStatus = (delivered) => (
-    axios.get(`/api/shipments/${delivered}`)
-)
+export const shipmentsByDeliveryStatus = (delivered) => {
+   return axios.get(`/api/shipments/allShipments/${delivered}`)
+}
+
 
 
 

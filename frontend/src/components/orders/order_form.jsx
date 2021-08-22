@@ -19,7 +19,7 @@ class OrderForm extends React.Component {
 
   }
   componentDidMount(){
-    this.props.fetchBusinessOwners(); 
+    this.props.fetchShipments(false); 
   }
   
 
@@ -125,9 +125,11 @@ class OrderForm extends React.Component {
               <button className="create-post-form-button">Reserve your spot</button>
             </div>
 
-            <div>
-              {/* {this.props.fetchBusinessOwners()} */}
-            </div>
+            <select>
+              {this.props.shipments.map(shipment => {
+               return <option value={shipment._id} > {shipment.userId.name} </option>
+              })}
+            </select>
             
             
           </form>

@@ -8,6 +8,6 @@ export const fetchUser = userId => (
   axios.get(`/api/users/${userId}`)
 ) 
 
-export const fetchBusinessOwners = () => (
-  axios.get('/api/users/businessOwners')
-)
+// export const fetchBusinessOwners = () => (
+//   axios.get('/api/users/businessOwners')
+// )

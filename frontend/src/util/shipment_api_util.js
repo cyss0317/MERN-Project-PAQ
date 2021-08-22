@@ -26,6 +26,11 @@ export const receiveAllShipments = (userId) => {
     return axios.get(`/api/shipments/user/${userId}`)
 }
 
+export const shipmentsByDeliveryStatus = (delivered) => (
+    axios.get(`/api/shipments/${delivered}`)
+)
+
+
 
 
 // get, post, patch

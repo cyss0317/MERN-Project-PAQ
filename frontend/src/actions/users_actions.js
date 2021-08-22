@@ -39,10 +39,10 @@ export const fetchUser = userId => dispatch => APIUtilUsers.fetchUser(userId)
       err => dispatch(receiveErrors(err.response.data))
     )
     
-export const fetchBusinessOwners = () => dispatch => APIUtilUsers.fetchBusinessOwners()
-    .then(
-      res => {
-        console.log(res)
-        dispatch(receiveBusinessOwners(res))},
-      err => dispatch(receiveErrors(err.response.data))
-    )
+// export const fetchBusinessOwners = () => dispatch => APIUtilUsers.fetchBusinessOwners()
+//     .then(
+//       res => {
+//         console.log(res)
+//         dispatch(receiveBusinessOwners(res))},
+//       err => dispatch(receiveErrors(err.response.data))
+//     )

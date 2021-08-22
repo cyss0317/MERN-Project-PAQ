@@ -65,10 +65,9 @@ class EditShipment extends React.Component{
 
 {/* //                     <Link to="/" id='check-li'>Check</Link> */}
 
-                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</Link>
-
+                    {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
                     {/* <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</a> */}
-
+                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</Link>           
                 </div>
             )
         }   else {

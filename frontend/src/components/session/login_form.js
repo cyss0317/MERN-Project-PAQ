@@ -14,7 +14,6 @@ class LoginForm extends React.Component {
       // address: '',
       // businessOwner: null,
       errors: {},
-      // userId: this.props.currentUser
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,14 +26,14 @@ class LoginForm extends React.Component {
   // }
 
   
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/dashboard');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push('/dashboard');
+  //   }
 
-    // Set or clear errors
-    this.setState({errors: nextProps.errors})
-  }
+  //   // Set or clear errors
+  //   this.setState({errors: nextProps.errors})
+  // }
 
   // Handle field updates (called in the render method)
   update(field) {

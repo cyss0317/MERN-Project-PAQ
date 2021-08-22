@@ -19,9 +19,18 @@ class EditShipment extends React.Component{
 
     onClickSubmit(e){
         e.preventDefault()
-        const shipment = Object.assign({}, this.state)
-        this.props.updateShipment(shipment)
-        .then(this.props.fetchAllShipments(this.props.shipments))
+        
+        const answer = window.confirm('Are you sure you want to make this changes to the database?')
+        if (answer) {
+            // Save it!
+            console.log('Successfully edited');
+            const shipment = Object.assign({}, this.state)
+            this.props.updateShipment(shipment)
+            .then(this.props.fetchAllShipments(this.props.shipments))
+        } else {
+            // Do nothing!
+            console.log('Something went wrong, try again');
+        }
     }
 
 
@@ -57,8 +66,8 @@ class EditShipment extends React.Component{
 {/* //                     <Link to="/" id='check-li'>Check</Link> */}
 
                     {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
-                    <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</a>
-
+                    {/* <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</a> */}
+                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</Link>           
                 </div>
             )
         }   else {

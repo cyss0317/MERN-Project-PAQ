@@ -4,7 +4,6 @@ export const getUserOrders = customerId => {
   return axios.get(`/api/orders/user/${customerId}`)
 };
 
-
 export const getOrder = id => {
   return axios.get(`/api/orders/${id}`)
 }
@@ -14,11 +13,11 @@ export const createOrder = data => {
 }
 
 export const updateOrder = data => {
-  return axios.patch(`/api/orders/user/${data.id}`, data)
+  return axios.patch(`/api/orders/${data.id}`, data)
 }
 
-export const deleteOrder = data => {
-  return axios.delete(`/api/orders/${data.id}`)
+export const deleteOrder = dataId => {
+  return axios.delete(`/api/orders/${dataId}`)
 }
 
 export const receiveOrdersByShipmentId = shipmentId => {

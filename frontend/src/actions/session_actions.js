@@ -47,17 +47,23 @@ export const login = user => dispatch => (
       const decoded = jwt_decode(token);
       dispatch(receiveCurrentUser(decoded))
   })
-  // .then( user => dispatch(fetchAllShipments(user.id)))
   .catch(err => {
-      dispatch(receiveErrors(err.responseJSON));
+      dispatch(receiveErrors(err.response.data));
+  })
+)
+
+export const signup = user => dispatch => (
+  APIUtil.signup(user).then(res => {
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
+      APIUtil.setAuthToken(token);
+      const decoded = jwt_decode(token);
+      dispatch(receiveCurrentUser(decoded))
+  })
+
+  .catch(err => {
+      dispatch(receiveErrors(err.response.data));
   })
 )
 
 
-export const signup = user => dispatch => (
-  APIUtil.signup(user).then(() => (
-      dispatch(receiveUserSignIn())
-  ), err => (
-      dispatch(receiveErrors(err.response.data))
-  ))
-);

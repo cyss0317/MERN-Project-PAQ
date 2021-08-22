@@ -62,3 +62,10 @@ export const updateShipment = shipment => dispatch =>
   )
 
 
+export const shipmentsByDeliveryStatus = delivered => dispatch => shipmentAPIUtil.shipmentsByDeliveryStatus(delivered)
+  .then(
+    shipments =>{ 
+      console.log(shipments)
+      dispatch(receiveAllShipments(shipments))},
+    err => dispatch(receiveErrors(err)) 
+  )

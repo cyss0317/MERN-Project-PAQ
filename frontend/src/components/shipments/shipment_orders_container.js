@@ -3,7 +3,7 @@ import ShipmentOrders from "./shipment_orders";
 import { fetchOrdersByShipmentId, deleteOrder, createOrder, updateOrder } from "../../actions/order_actions";
 
 const mSTP = (state, ownProps) => ({
-    currentUser: state.session.user,
+    currentUserId: state.session.user._id,
     // shipments: Object.values(state.shipments)[0],
     // shipments: Object.values(state.shipments),
     shipmentId: ownProps.match.params.shipmentId,

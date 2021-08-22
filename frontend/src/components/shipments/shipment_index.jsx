@@ -31,16 +31,26 @@ class ShipmentIndex extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        let shipment = {
-            departure: this.state.departure,
-            weight: this.state.weight,
-            delivered: this.state.delivered,
-            full: this.state.full,
-            userId: this.state.userId,
-        };
-        this.props.createNewShipment(shipment)
-        .then(this.props.fetchAllShipments(this.props.currentUserId))
-        .then(this.setState({departure: "", weight: ""}))
+        // let shipment = {
+        //     departure: this.state.departure,
+        //     weight: this.state.weight,
+        //     delivered: this.state.delivered,
+        //     full: this.state.full,
+        //     userId: this.state.userId,
+        // };
+        e.preventDefault();
+        const answer = window.confirm('Are you sure you want to save this shipment to the database?')
+        if (answer) {
+            // Save it!
+            console.log('Successfully created');
+            this.props.createNewShipment(this.state)
+            .then(this.props.fetchAllShipments(this.props.currentUserId))
+            .then(this.setState({departure: "", weight: ""}))
+
+        } else {
+            // Do nothing!
+            console.log('Something went wrong, try again');
+        }
         // .then( shipment =>  alert("Successfully Added"), 
         // err => alert(`${err}`))
     }

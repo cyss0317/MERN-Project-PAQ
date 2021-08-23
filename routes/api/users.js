@@ -44,7 +44,8 @@ router.post("/register", (req, res)=> {
                   email: user.email,
                   phoneNumber: user.phoneNumber,
                   address: user.address,
-                  owner: user.businessOwner
+                  businessOwner: user.businessOwner
+
                 }
                 jwt.sign(
                   payload,
@@ -116,7 +117,7 @@ router.post('/login', (req, res)=> {
             email: user.email,
             phoneNumber: user.phoneNumber,
             address: user.address,
-            owner: user.businessOwner
+            businessOwner: user.businessOwner
           }
           jwt.sign(
             payload,

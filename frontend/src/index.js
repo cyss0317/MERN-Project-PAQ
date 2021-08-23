@@ -8,6 +8,7 @@ import { logout } from './actions/session_actions';
 import { jwt } from 'twilio';
 import {createNewShipment, fetchShipment, updateShipment, fetchAllShipments} from "./actions/shipment_actions"
 import { fetchOrdersByShipmentId } from './actions/order_actions';
+import {fetchUser} from "./actions/users_actions"
 import axios from "axios"
 import { fetchUserOrders, createOrder} from './actions/order_actions'
 // import { jwt } from 'twilio';
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const decodedUser = jwt_decode(localStorage.jwtToken);
     const preloadedState = {session: { isAuthenticated: true, user: decodedUser},
     users: {
-      
+
     },
     orders: {
 

@@ -19,7 +19,9 @@ class NavBar extends React.Component {
   }
 
   getLinks() {
+
       if (this.props.loggedIn && this.props.user.businessOwner) {
+      // if (this.props.loggedIn && this.props.currentUser.businessOwner) {
 
         return (         
           <div id='log-div'>

@@ -128,7 +128,7 @@ updateWeight(){
               <div className="create-order-input">
 
                 <div className="create-order-label-box">
-                  <label className="create-order-label">Receiver Name:</label>
+                  <h2 className="create-order-label">Receiver Name</h2>
                 </div>
 
                 <input type="text"
@@ -137,24 +137,11 @@ updateWeight(){
                   className="create-order-user-input" />
 
               </div>
-              
-              <div className="create-order-input">
-
-                <div className="create-order-label-box">
-                  <label className="create-order-label">Description:</label>
-                </div>
-
-                <input type="textarea"
-                  value={this.state.description}
-                  onChange={this.update('description')}
-                  className="create-order-user-input" />
-
-              </div> 
 
               <div className="create-order-input">
 
                 <div className="create-order-label-box">
-                  <label className="create-order-label">Weight:</label>
+                  <h2 className="create-order-label">Weight</h2>
                 </div>
 
                 <input type="number"
@@ -163,20 +150,34 @@ updateWeight(){
                   className="create-order-user-input" />
 
               </div>
+
+              <div className="create-order-input">
+
+                <div className="create-order-label-box">
+                  <h2 className="create-order-label">Description</h2>
+                </div>
+
+                <textarea
+                  value={this.state.description}
+                  onChange={this.update('description')}
+                  className="create-order-user-input" />
+
+              </div> 
             </div>
             
             <div id='right-order'>
               <div className="create-order-input">
 
                 <div className="create-order-label-box">
-                  <label className="create-order-label">Price:</label>
+                  <h1 className="create-order-label">Total Price</h1>
                 </div>
 
                 <input type="number"
                   value={this.state.price}
                   onChange={this.update('price')}
                   readOnly="readOnly"
-                  className="create-order-user-input" />
+                  className="create-order-user-input" 
+                  id='price'/>
 
               </div>
 

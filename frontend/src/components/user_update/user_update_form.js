@@ -17,10 +17,9 @@ class userUpdateForm extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    console.log(prevProps.user)
-    console.log(this.props.user)
+
     if(!prevProps.user && this.props.user){
-      console.log('HEy its eorking')
+
       this.setState(
         {
         _id: this.props.user._id,
@@ -66,7 +65,7 @@ class userUpdateForm extends React.Component {
                   {this.props.errors[error]}
                 </li>
               ))}
-          </ul>
+          </ul> 
         ); 
     }
   }
@@ -80,35 +79,60 @@ class userUpdateForm extends React.Component {
   }
   
   render(){
-    console.log(this.state)
+
     if(!this.state._id) return null; 
     
     return(
-      <div>
+      <div id='update-div'>
         <form id="update-forms" onSubmit={this.handleSubmit}>
           <div id="update-input">
-            <label>Email : 
+
+              <div id='update-email'>
+                <p id='update-titles'>Email</p>
                 <input type='email'
                       value={this.state.email}
-                      onChange={this.update('email')}/>
-            </label>
-            <label>Phone number :
-                <input type='text'
-                      value={this.state.phoneNumber}
-                      onChange={this.update('phoneNumber')}/>
-            </label>
-            <label>Address : 
-                <input type='text'
-                        value={this.state.address}
-                        onChange={this.update('address')}/>
-            </label>
+                      onChange={this.update('email')}
+                      id='update-e-input'/>
+              </div>
+
+              <div id='update-number'>
+                <p id='update-titles'>Phone number </p>
+                    <input type='text'
+                          value={this.state.phoneNumber}
+                          onChange={this.update('phoneNumber')}
+                          id='update-n-input'/>
+               
+              </div>
+
+              <div id='update-address'>
+                <p id='update-titles'>Address </p>
+                    <input type='text'
+                            value={this.state.address}
+                            onChange={this.update('address')}
+                            id='update-a-input'/>
+
+              </div>
+
         </div>
           {/* <input type='text'
             value={this.state.busienssOwner}
             onChange={this.update('busienssOwner')} /> */}
 
-          {this.renderErrors()}
-       <input id="update-button"type='submit' value="Update Settings"/>
+          <div id='update-submit'>
+            <div id='update-sum'>
+              <p id='select-category'>Select the Category to Edit</p>
+              <small>Once you have edited the category please press the "Update Settings" button to implment changes</small>              
+            </div>
+
+            <div id='up-button'>
+              <input id="update-button"type='submit' value="Update Settings"/> 
+              <br />
+            </div>
+
+            {this.renderErrors()}
+              <small>User information can always be changed at any time</small>  
+          </div>
+
         </form>
       </div>
     )

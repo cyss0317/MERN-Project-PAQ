@@ -7,10 +7,12 @@ class Dashboard extends React.Component{
   constructor(props){
     super(props)
 
+
   }
+  
 
   render(){
-    return this.props.user.businessOwner ?
+    return this.props.user.owner ?
     (
       <div id='main-dash'>
         <div id='inner-dash'>

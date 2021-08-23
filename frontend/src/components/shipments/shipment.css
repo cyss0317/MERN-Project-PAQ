@@ -154,7 +154,7 @@ option{
     justify-content: flex-start;
     width: 100%;
     padding: 0px;
-    gap: 5px;
+    gap: 3px;
     padding-bottom: 5px;
 }
 
@@ -163,8 +163,10 @@ option{
     justify-content: flex-start;
     width: 100%;
     padding: 0px;
-    gap: 5px;
+    grid-gap: 5px;
+    gap: 2px;
     padding-bottom: 5px;
+    margin-left: 2px;
 }
 
 #check-li{

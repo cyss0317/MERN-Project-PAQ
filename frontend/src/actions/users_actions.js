@@ -25,7 +25,6 @@ export const updateUser = user =>  dispatch => APIUtilUsers.updateUser(user)
   .then(
     
       user => {
-        console.log(user) 
         dispatch(receiveUser(user.data))
       },
     

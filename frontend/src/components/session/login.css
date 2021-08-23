@@ -4,7 +4,7 @@ display: flex;
     height: 800px;
     width: 100%;
     /* margin-left: 40%; */
-    background-image: url(https://d3mvlb3hz2g78.cloudfront.net/wp-content/uploads/2011/06/thumb_720_450_airplane_shutterstock_68709988.jpg);
+    background-image: url(https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/blue_sky_plane.jpeg?raw=true);
     background-size: 106% 100%;
     background-position: -112px;
     -webkit-mask-box-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0));

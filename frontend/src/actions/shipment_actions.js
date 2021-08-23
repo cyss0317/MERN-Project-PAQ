@@ -65,12 +65,16 @@ export const updateShipment = shipment => dispatch =>
     .then( updatedShipment => dispatch(editShipment(updatedShipment)),
       err => dispatch(receiveErrors(err.response.data))
   )
+// export const updateShipment = shipment => dispatch =>
+//   shipmentAPIUtil.editShipment(shipment)
+//     .then( updatedShipment => dispatch(receiveShipment(updatedShipment)),
+//       err => dispatch(receiveErrors(err.response.data))
+//   )
 
 
 export const shipmentsByDeliveryStatus = delivered => dispatch => shipmentAPIUtil.shipmentsByDeliveryStatus(delivered)
   .then(
     shipments =>{ 
-      console.log(shipments)
       dispatch(receiveAllShipments(shipments))},
     err => dispatch(receiveErrors(err)) 
   )

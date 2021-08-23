@@ -6,7 +6,7 @@ class EditShipment extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            id: this.props.shipment._id,
+            _id: this.props.shipment._id,
             departure: this.props.shipment.departure,
             weight: this.props.shipment.weight,
             full: this.props.shipment.full,
@@ -21,7 +21,7 @@ class EditShipment extends React.Component{
         e.preventDefault()
         const shipment = Object.assign({}, this.state)
         this.props.updateShipment(shipment)
-        .then(this.props.fetchAllShipments(this.props.shipments))
+        // .then(this.props.fetchAllShipments(this.props.currentUserId))
     }
 
 
@@ -33,7 +33,7 @@ class EditShipment extends React.Component{
             return(
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
-                        <input  id="not-delivered" type='text' readOnly  value={this.state.id}/>
+                        <input  id="not-delivered" type='text' readOnly  value={this.state._id}/>
                         <input id="not-delivered" type='text'  readOnly value={this.state.departure}/>
                         <input id="not-delivered" type='text'  readOnly value={JSON.stringify(this.state.weight)}/>
                         <input style={{ color: this.state.full === true ? "green" : "red" }} id="not-delivered" type='text'  readOnly value={this.state.full === true ? ("FULL") : ("ADD MORE")} />
@@ -58,14 +58,14 @@ class EditShipment extends React.Component{
 
                     {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
                     {/* <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</a> */}
-                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</Link>           
+                    <Link to={`/shipments/orders/${this.state._id}`} id='check-li' >Check orders</Link>           
                 </div>
             )
         }   else {
             return(
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" value={this.state.id} />
+                        <input id="not-delivered" type="text" value={this.state._id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.departure} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight} />
                         {/* <input style={{ color: this.state.full === true ? "red" : "green" }} id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full === true ? ("FULL") : ("ADD MORE") } /> */}
@@ -83,7 +83,7 @@ class EditShipment extends React.Component{
 
                     {/* <Link to="/" id='check-li'>Check</Link> */}
 
-                    <Link to={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</Link>
+                    <Link to={`/shipments/orders/${this.state._id}`} id='check-li' >Check orders</Link>
 
                 </div>
             )

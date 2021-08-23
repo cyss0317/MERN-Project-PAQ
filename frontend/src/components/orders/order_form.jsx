@@ -100,7 +100,6 @@ class OrderForm extends React.Component {
 
 updateWeight(){
   let shipment = this.props.BOId[this.state.shipmentId]
-  console.log(shipment)
   let newWeight = (shipment.weight - this.state.weight)
   let updatedShipment = Object.assign({}, shipment, {weight: newWeight})
   this.props.updateShipment(updatedShipment) 

@@ -114,7 +114,8 @@ router.post('/login', (req, res)=> {
             name: user.name,
             email: user.email,
             phoneNumber: user.phoneNumber,
-            address: user.address
+            address: user.address,
+            businessOwner: user.businessOwner
           }
           jwt.sign(
             payload,

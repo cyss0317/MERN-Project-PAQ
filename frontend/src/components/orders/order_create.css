@@ -1,0 +1,16 @@
+.create-order-form-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-order-form-box{
+    display: flex;
+    background: #7a97bb;
+    width: 35%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

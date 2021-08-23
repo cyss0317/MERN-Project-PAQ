@@ -44,7 +44,7 @@ export const createNewShipment = shipment => dispatch =>
 
 export const fetchShipment = shipmentId => dispatch =>
   shipmentAPIUtil.receiveShipment(shipmentId)
-    .then( shipment => dispatch(editShipment(shipment)),
+    .then( shipment => dispatch(receiveShipment(shipment)),
       err => dispatch(receiveErrors(err.response.data))
     )
 
@@ -55,17 +55,26 @@ export const fetchAllShipments = userId => dispatch =>
     )
 
 
+// export const updateShipment = shipment => dispatch =>
+//   shipmentAPIUtil.editShipment(shipment)
+//     .then( updatedShipment => dispatch(editShipment(updatedShipment)),
+//       err => dispatch(receiveErrors(err.response.data))
+//   )
 export const updateShipment = shipment => dispatch =>
   shipmentAPIUtil.editShipment(shipment)
     .then( updatedShipment => dispatch(editShipment(updatedShipment)),
       err => dispatch(receiveErrors(err.response.data))
   )
+// export const updateShipment = shipment => dispatch =>
+//   shipmentAPIUtil.editShipment(shipment)
+//     .then( updatedShipment => dispatch(receiveShipment(updatedShipment)),
+//       err => dispatch(receiveErrors(err.response.data))
+//   )
 
 
 export const shipmentsByDeliveryStatus = delivered => dispatch => shipmentAPIUtil.shipmentsByDeliveryStatus(delivered)
   .then(
     shipments =>{ 
-      console.log(shipments)
       dispatch(receiveAllShipments(shipments))},
     err => dispatch(receiveErrors(err)) 
   )

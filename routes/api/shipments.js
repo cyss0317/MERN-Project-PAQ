@@ -65,6 +65,20 @@ router.patch("/:_id", (req, res)=> {
     }
   })
 });
+// router.patch("/:_id", (req, res)=> {
+  
+//   Shipment.findByIdAndUpdate( req.params._id ,
+//      { 
+//        weight: req.body.weight
+//        },
+//          {new: true}, (error, data) => {
+//     if(error){
+//       res.json(error)
+//     }else{
+//       res.json(data)
+//     }
+//   })
+// });
 
 
 router.get("/:id", (req, res) => {

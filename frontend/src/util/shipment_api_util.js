@@ -10,7 +10,7 @@ export const receiveShipment = (shipmentId) => {
 }
 
 export const editShipment = shipment => {
-    return axios.patch(`/api/shipments/${shipment.id}`,
+    return axios.patch(`/api/shipments/${shipment._id}`,
     shipment
     //  {
     //   departure: shipment.departure, 
@@ -26,9 +26,10 @@ export const receiveAllShipments = (userId) => {
     return axios.get(`/api/shipments/user/${userId}`)
 }
 
-export const shipmentsByDeliveryStatus = (delivered) => (
-    axios.get(`/api/shipments/${delivered}`)
-)
+export const shipmentsByDeliveryStatus = (delivered) => {
+   return axios.get(`/api/shipments/allShipments/${delivered}`)
+}
+
 
 
 

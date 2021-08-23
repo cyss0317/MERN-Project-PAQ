@@ -52,9 +52,7 @@ class MainPage extends React.Component {
 
         </div>
 
-        <footer>
-          Copyright &copy; 2021 PAQ 
-        </footer>
+       
       </div>
     );
   }

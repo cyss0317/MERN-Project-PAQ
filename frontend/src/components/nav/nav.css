@@ -90,6 +90,27 @@ display: flex;
     border-radius: 10px;
     transition: 1s;
 }
+#settings1{
+    width: 40px;
+    font-size: 35px;
+    border-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+#settings1:hover{
+    width: 40px;
+    font-size: 35px;
+    border-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    color: #112159;
+    background: white;
+    border-radius: 10px;
+    transition: 1s;
+}
 
 #ship-li{
     font: 400 13.3333px Arial;

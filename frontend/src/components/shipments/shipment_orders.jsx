@@ -10,9 +10,10 @@ class ShipmentOrders extends React.Component{
             receiverName: "",
             description: "",
             delivered: false,
-            businessOwnerId: this.props.currentUser.id,
+            businessOwnerId: this.props.currentUserId,
             shipmentId: this.props.shipmentId
         }
+    
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -36,9 +37,13 @@ class ShipmentOrders extends React.Component{
     }
 
     handleSubmit(e){
+        // const order = Object.assign({}, this.state )
         e.preventDefault();
+        
         this.props.createOrder(this.state)
-        .then(this.setState({ price: "", weight: "", recieverName: "", description: ""  }))
+        .then(order => console.log(order))
+        .then(order => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
+        .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName:"" }))
     }
 
     render(){
@@ -55,7 +60,7 @@ class ShipmentOrders extends React.Component{
                 <div id='table-main'>
                     <h1 id='table-title'>List of orders</h1>
                     <div id='create-div'>
-                        <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new shipment</button>
+                        <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                         <div id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
                                 <input type="text" value={this.state.price} placeholder="price" onChange={(e) => this.onChangeHandler("price", e)} id='c-input' />
@@ -86,7 +91,9 @@ class ShipmentOrders extends React.Component{
                         {
                             orders.map((order) => (
                                 <div>
-                                    <OrderShow updateOrder={this.props.updateOrder} key={order._id} order={order} />
+                                    <OrderShow updateOrder={this.props.updateOrder} shipmentId={this.props.shipmentId} 
+                                    fetchOrdersByShipmentId={this.props.fetchOrdersByShipmentId}
+                                    deleteOrder={this.props.deleteOrder} key={order._id} order={order} orderId={order._id} />
                                 </div>
                             ))
 

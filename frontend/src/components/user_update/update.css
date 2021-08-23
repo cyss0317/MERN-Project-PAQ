@@ -11,6 +11,11 @@
     align-content: center;
     width: 40%;
     height: 600px;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: -1px 1px 20px 3px #80808094;
+    padding: 15px;
+    margin-top: 50px;
 }
 
 #update-input{
@@ -24,16 +29,40 @@
 #update-submit{
     display: flex;
     width: 40%;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 49%;
+    background: #3163a8;
+    margin-top: 144px;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    box-shadow: 8px 10px 20px 0px #3163a8;
+
 }
 #update-button{
-    width: 100%;
-    height: 50%;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px;
+    color: #3163a8;
+    background: #fbfbfb;
 }
 
 #update-button:hover{
     cursor: pointer;
+    /* border-color: transparent; */
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px;
+    color: #fbfbfb;
+    background: #3163a8;
+    border-color: white;
+    transition: 1s;
 }
 
 #update-titles{
@@ -115,4 +144,17 @@ width: 100%;
     color: #6487b7;
     text-align: center;
     font-weight: bold;
+}
+
+#select-category{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#up-button{
+    height: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

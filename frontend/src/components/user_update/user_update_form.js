@@ -120,8 +120,18 @@ class userUpdateForm extends React.Component {
             onChange={this.update('busienssOwner')} /> */}
 
           <div id='update-submit'>
-            <input id="update-button"type='submit' value="Update Settings"/>            
+            <div id='update-sum'>
+              <p id='select-category'>Select the Category to Edit</p>
+              <small>Once you have edited the category please press the "Update Settings" button to implment changes</small>              
+            </div>
+
+            <div id='up-button'>
+              <input id="update-button"type='submit' value="Update Settings"/> 
+              <br />
+            </div>
+
             {this.renderErrors()}
+              <small>User information can always be changed at any time</small>  
           </div>
 
         </form>

@@ -21,7 +21,6 @@ class OrderForm extends React.Component {
   componentDidMount(){
     this.props.fetchShipments(false); 
   }
-  
 
 
   update(field){

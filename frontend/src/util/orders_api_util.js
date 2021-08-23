@@ -12,8 +12,8 @@ export const createOrder = data => {
   return axios.post('/api/orders/', data)
 }
 
-export const updateOrder = data => {
-  return axios.patch(`/api/orders/${data.id}`, data)
+export const updateOrder = order => {
+  return axios.patch(`/api/orders/${order.id}`, order)
 }
 
 export const deleteOrder = dataId => {

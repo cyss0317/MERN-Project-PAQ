@@ -19,16 +19,33 @@ class UserOrderItem extends React.Component {
         }
         this.update = this.update.bind(this);
         this.onClickSubmit = this.onClickSubmit.bind(this);
+        this.deleteHandler = this.deleteHandler.bind(this);
     }
 
   onClickSubmit(e) {
-      e.preventDefault()
-    // this.props.deleteOrder(this.state.id)
+    e.preventDefault();
+    const answer = window.confirm('Are you sure you want to save changes to this order?')
 
-    this.props.updateOrder(this.state)
+    if (answer) {
+        this.props.updateOrder(this.state)
+            .then(order => this.props.fetchUserOrders(this.state.customerId))
+    } else {
+        return;
+    }
     //   .then(this.props.fetchUserOrders(this.state.customerId))
     // .then(this.props.history.push(`/orders/user/${this.state.customerId}`))
   }
+
+    deleteHandler(e){
+        e.preventDefault();
+        const answer = window.confirm('Are you sure you want to delete this order?')
+        if (answer) {
+            this.props.deleteOrder(this.props.order._id);
+        } else {
+            return;
+        }
+        // this.updateOrder = this.props.updateOrder.bind(this)
+    }
 
     update(field){
     // this.updatePrice(field)
@@ -44,11 +61,12 @@ class UserOrderItem extends React.Component {
     //   [field]: e.currentTarget.value
     // })
     
-  }
+    }
 
     onChangeHandler(field, e) {
         this.setState({ [field]: e.currentTarget.value })
     }
+
     render() {
         if (this.state.delivered === true) {
             return (
@@ -89,20 +107,17 @@ class UserOrderItem extends React.Component {
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" type="text" value={this.state.id} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.price} />
+                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={this.state.price} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("description", e)} value={this.state.description} />
-                        {/* <input style={{ color: this.state.full === true ? "red" : "green" }} id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full === true ? ("FULL") : ("ADD MORE") } /> */}
-                        {/* <input style={{ color: this.state.delivered === true ? "green" : "red" }} id="not-deliveredR" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered === true ? ("DELIVERED") : ("NOT YET")} /> */}
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>
                         </select>
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
-                        <button className="all-buttons" onClick={this.props.deleteOrder}>Delete Order</button>
+                        <button className="all-buttons" onClick={this.deleteHandler} >Delete Order</button>
                     </form>
-
                 </div>
             )
         }

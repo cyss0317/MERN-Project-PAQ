@@ -15,6 +15,7 @@ const shipmentReducer = (oldState = {}, action) => {
       case CREATE_SHIPMENT:
         return Object.assign({}, oldState, {[action.shipment.data._id]: action.shipment.data})
       case RECEIVE_ALL_SHIPMENTS:
+
         // important
         let shipments = action.shipments.data
         let newState = { }

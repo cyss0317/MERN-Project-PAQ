@@ -1,6 +1,7 @@
 // import e from 'express';
 import React from 'react';
 
+
 class OrderForm extends React.Component {
   constructor(props){
     super(props);
@@ -16,52 +17,73 @@ class OrderForm extends React.Component {
     }
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.shipmentInfo = this.shipmentInfo.bind(this); 
+    this.updateWeight = this.updateWeight.bind(this);
 
   }
   componentDidMount(){
-    this.props.fetchShipments(false); 
+    this.props.fetchShipments(false)
+  }
+  
+  shipmentInfo(){
+    let info = this.props.shipments;
+
+    let values = []; 
+    for(let i =0; i < info.length ; i++){
+      values.push(
+        <option key={info[i]._id} value={info[i]._id}> 
+          {info[i].departure} 
+        </option>
+      ) 
+    }
+    return values; 
   }
   
 
-
   update(field){
-    // this.updatePrice(field)
     
     if (field === 'weight') {
       return e => this.setState({
-        price: `${e.currentTarget.value * 3.0}`,
+        price: `${Math.round(((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
         weight: e.currentTarget.value
       })
     }
 
+    if (field === 'shipmentId'){
+      return e => this.setState({
+        shipmentId: e.currentTarget.value,
+      })
+    }
+    
+
     return e => this.setState({
       [field]: e.currentTarget.value
     })
-    
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    let order = Object.assign({}, this.state)
+
+    let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
 
 
     this.props.createOrder(order)
+      .then(this.updateWeight())
     this.setState({
       price: '',
       weight: '',
       receiverName: '',
       description: '',
       delivered: 'false',
-      businessOwnerId: '611d498163cb3e32313888c4',
-      customerId: this.props.currentUserId,
-      shipmentId: '611d9947b20e38c3352eb419'
+      businessOwnerId: '',
+      customerId: '',
+      shipmentId: ''
     })
-    
+    this.props.history.push('/')
   }
 
   renderErrors() {
     if (!this.props.errors) {
-      // console.log(this.props)
       return null
     } else {
       return (
@@ -76,7 +98,20 @@ class OrderForm extends React.Component {
     }
   }
 
+updateWeight(){
+  let shipment = this.props.BOId[this.state.shipmentId]
+  let newWeight = (shipment.weight - this.state.weight)
+  let updatedShipment = Object.assign({}, shipment, {weight: newWeight})
+  this.props.updateShipment(updatedShipment) 
+}
+
+
+
+
+
   render() {
+    if(this.props.shipments.length === 0) return null; 
+    
     return (
       <div className="create-order-form-container">
         <div className="create-order-form-title">
@@ -125,10 +160,9 @@ class OrderForm extends React.Component {
               <button className="create-post-form-button">Reserve your spot</button>
             </div>
 
-            <select>
-              {this.props.shipments.map(shipment => {
-               return <option value={shipment._id} > {shipment.userId.name} </option>
-              })}
+            <select value={this.state.shipmentId} onChange={this.update('shipmentId')}>
+              <option defaultValue={''}> </option>
+               {this.shipmentInfo()}
             </select>
             
             

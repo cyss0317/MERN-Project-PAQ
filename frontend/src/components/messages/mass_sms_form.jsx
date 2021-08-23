@@ -53,7 +53,6 @@ class MassSMSForm extends React.Component {
 
 
   render(){
-    console.log(this.props)
     return(
       <div className='sms-container'>
         <h1 id='text-form-title1'>Notify All Customer</h1>

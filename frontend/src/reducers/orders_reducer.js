@@ -7,13 +7,12 @@ const OrdersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ORDERS:
-     
       return action.orders.data;
+
     case RECEIVE_ORDER:
       return nextState[action.order.data._id] = action.order.data; 
 
     case RECEIVE_USER_ORDERS:
-    
       let userOrders = action.orders
       userOrders.forEach((order) => {
         nextState[order._id] = order
@@ -31,6 +30,7 @@ const OrdersReducer = (state = {}, action) => {
     case REMOVE_ORDER:
       delete nextState[action.orderId];
       return nextState;
+      
     default: 
       return state;
   }

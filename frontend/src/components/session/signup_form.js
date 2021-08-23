@@ -19,6 +19,8 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.customerDemoUser = this.customerDemoUser.bind(this);
+    this.ownerDemoUser = this.ownerDemoUser.bind(this);
     this.clearedErrors = false;
   }
 
@@ -26,6 +28,15 @@ class SignupForm extends React.Component {
     // this.props.fetchUser(this.props.user._id); 
   }
   
+  customerDemoUser() {
+    const user = Object.assign({}, { email: "Demo_customer@PAQ.com", password: "password" })
+    this.props.login(user)
+  }
+
+  ownerDemoUser() {
+    const user = Object.assign({}, { email: "Demo_owner@PAQ.com", password: "password" })
+    this.props.login(user)
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
@@ -95,6 +106,11 @@ class SignupForm extends React.Component {
                 />
             <br/>
             <input type="submit" value="Continue" id="sign-submit" onClick={this.update('switch')}/>
+              <br />
+            <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
+            <br/>
+            <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
+
             {this.renderErrors()}
           <h4 id='already'>Already have an account? <Link to='/login'>‣ Log In</Link></h4>
           </div>

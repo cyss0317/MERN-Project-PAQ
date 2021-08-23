@@ -52,7 +52,7 @@ class UserOrderItem extends React.Component {
     
     if (field === 'weight') {
       return e => this.setState({
-        price: `${e.currentTarget.value * 3.0}`,
+        price: `${Math.round(((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
         weight: e.currentTarget.value
       })
     }

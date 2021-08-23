@@ -59,11 +59,13 @@ textarea{
 }
 
 .sms-input{
-  border: none; 
-  font-size: 16px; 
-  outline: none;
-  padding: 15px 15px; 
-  width: 53%; 
+    border: none;
+    font-size: 16px;
+    outline: none;
+    padding: 11px 11px;
+    width: 53%;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 #sms-form-container{

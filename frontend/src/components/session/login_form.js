@@ -18,6 +18,8 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.customerDemoUser = this.customerDemoUser.bind(this);
+    this.ownerDemoUser = this.ownerDemoUser.bind(this);
   }
 
   // componentDidMount(){
@@ -42,16 +44,30 @@ class LoginForm extends React.Component {
     });
   }
 
+  customerDemoUser(){
+    const user = Object.assign({}, { email: "Demo_customer@PAQ.com", password:"password"})
+    this.props.login(user)
+  }
+
+  ownerDemoUser(){
+    const user = Object.assign({}, { email: "Demo_owner@PAQ.com", password: "password" })
+    this.props.login(user)
+  }
+
+
   // Handle form submission
   handleSubmit(e) {
-    e.preventDefault();
+    if (e.currentTarget.value === "Submit"){
+      e.preventDefault();
+  
+      let user = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      this.props.login(user)
+    } else {
 
-    let user = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.login(user)
+    }
     // .catch(err => this.renderErrors(err))
       // .then( () => this.props.fetchAllShipments(this.state.userId)) 
       // .then(console.log(this.props.currentUser))
@@ -97,6 +113,10 @@ class LoginForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Submit" id="log-submit"/>
+            <br />
+            <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
+            <br />
+            <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
             {this.renderErrors()}
             <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
           </div>

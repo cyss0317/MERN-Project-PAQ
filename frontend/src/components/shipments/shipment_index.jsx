@@ -90,7 +90,7 @@ class ShipmentIndex extends React.Component{
                         <div  id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
                                 <input type="text" value={this.state.departure} placeholder="Departure" onChange={(e)=> this.onChangeHandler("departure", e)} id='c-input'/>
-                                <input type="text" value={`${Math.round(((this.state.weight) * 100) / 100).toFixed(2)}`} placeholder="Weight" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
+                                <input type="text" value={`${this.state.weight}`} placeholder="Weight(lb)" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
                                 <input type="submit" />
                             </form>
                         </div>
@@ -98,7 +98,7 @@ class ShipmentIndex extends React.Component{
                     <div id="table-columns">
                         <p id="p">Shipment number</p>
                         <p id="p1">Departure</p>
-                        <p id="p1">Weight</p>
+                        <p id="p1">Weight(lb)</p>
                         <p id="p1">Full</p>
                         <p id="p1">Delivered</p>
 
@@ -108,6 +108,7 @@ class ShipmentIndex extends React.Component{
                     </div>
                     {/* <div>
                         
+
                     </div> */}
 
                     <div>

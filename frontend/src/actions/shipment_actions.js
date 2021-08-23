@@ -55,6 +55,11 @@ export const fetchAllShipments = userId => dispatch =>
     )
 
 
+// export const updateShipment = shipment => dispatch =>
+//   shipmentAPIUtil.editShipment(shipment)
+//     .then( updatedShipment => dispatch(editShipment(updatedShipment)),
+//       err => dispatch(receiveErrors(err.response.data))
+//   )
 export const updateShipment = shipment => dispatch =>
   shipmentAPIUtil.editShipment(shipment)
     .then( updatedShipment => dispatch(editShipment(updatedShipment)),

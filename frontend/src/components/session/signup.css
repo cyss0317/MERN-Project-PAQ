@@ -67,7 +67,7 @@ width: 46%;
 }
 
 #sign-submit{
-    width: 25%;
+    width: 150px;
     height: 7%;
     border-radius: 23px;
     border-color: #ffffff00;
@@ -76,7 +76,6 @@ width: 46%;
     background: white;
 }
 #sign-submit:hover{
-    width: 25%;
     height: 7%;
     border-radius: 23px;
     border-color: #ffffff;

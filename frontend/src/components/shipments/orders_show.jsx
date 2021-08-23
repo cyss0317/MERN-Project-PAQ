@@ -63,8 +63,8 @@ class OrderShow extends React.Component {
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
                         <input id="not-delivered" type='text' readOnly value={this.state.id} />
-                        <input id="not-delivered" type='text' readOnly value={this.state.price} />
-                        <input id="not-delivered" type='text' readOnly value={this.state.weight} />
+                        <input id="not-delivered" type='text' readOnly value={`${Math.round(((this.state.price) * 100) / 100).toFixed(2)}`} />
+                        <input id="not-delivered" type='text' readOnly value={`${this.state.weight}`} />
                         <input id="not-delivered" type='text' readOnly value={this.state.receiverName} />
                         <input id="not-delivered" type='text' readOnly value={this.state.description} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
@@ -97,8 +97,8 @@ class OrderShow extends React.Component {
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" readOnly type="text" value={this.state.id} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={this.state.price} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight} />
+                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={`${Math.round(((this.state.price) * 100) / 100).toFixed(2)}`} />
+                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={`${Math.round(((this.state.weight) * 100) / 100).toFixed(2)}`}/>
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("description", e)} value={this.state.description} />
                         {/* <input style={{ color: this.state.full === true ? "red" : "green" }} id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full === true ? ("FULL") : ("ADD MORE") } /> */}

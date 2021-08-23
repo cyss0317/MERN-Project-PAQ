@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchShipment, updateShipment } from "../../actions/shipment_actions";
 import OrderShow from './orders_show'
 
 class ShipmentOrders extends React.Component{
@@ -13,7 +14,7 @@ class ShipmentOrders extends React.Component{
             businessOwnerId: this.props.currentUserId,
             shipmentId: this.props.shipmentId
         }
-    
+
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -21,8 +22,27 @@ class ShipmentOrders extends React.Component{
         this.props.fetchOrdersByShipmentId(this.props.shipmentId)
     }
 
+    // findAShipment(shipments, shipmentId){
+    //     shipments.filter((shipment) => {
+    //         shipment.id === 
+    //     })
+    // }
+    // updatePrice(field, e){
+    //     if (field === 'weight') {
+    //         return e => this.setState({
+    //             price: `${e.currentTarget.value * 3.0}`,
+    //             weight: e.currentTarget.value
+    //         })
+    //     }
+    // }
 
     onChangeHandler(field, e) {
+        if (field === 'weight') {
+            this.setState({
+                // price: `${e.currentTarget.value * 3.0}`,
+                price: `${Math.round(((e.currentTarget.value * 3.0) * 100) / 100).toFixed(2)}`
+            })
+        } 
         this.setState({ [field]: e.currentTarget.value });
     }
 
@@ -36,13 +56,25 @@ class ShipmentOrders extends React.Component{
         }
     }
 
+
+
     handleSubmit(e){
         // const order = Object.assign({}, this.state )
         e.preventDefault();
-        
+        console.log(this.props.shipments)
+        let oldShipment = this.props.shipments.find(shipment => shipment._id === this.props.shipmentId)
+        // let oldShipment = this.props.shipments
+        // debugger
         this.props.createOrder(this.state)
-        .then(order => console.log(order))
-        .then(order => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
+        .then( order => this.props.fetchShipment(this.props.shipmentId))
+        .then( order => this.props.updateShipment({
+            id: this.props.shipmentId,
+            departure: oldShipment.departure,
+            weight: (this.state.weight),
+            full: oldShipment.full,
+            delivered: oldShipment.delivered,
+        }))
+        .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
         .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName:"" }))
     }
 
@@ -63,8 +95,11 @@ class ShipmentOrders extends React.Component{
                         <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                         <div id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
-                                <input type="text" value={this.state.price} placeholder="price" onChange={(e) => this.onChangeHandler("price", e)} id='c-input' />
-                                <input type="text" value={this.state.weight} placeholder="weight(lb)" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input' />
+                                {/* onChange={(e) => this.onChangeHandler("price", e)} */}
+                                <input type="text" value={`$${this.state.price}`} placeholder="price" readOnly  id='c-input' />
+                                {/* price: `${Math.round(((e.currentTarget.value * 3.0) * 100) / 100).toFixed(2)}`, */}
+                                {/* <input type="text" value={`${Math.round(((this.state.price) * 100) / 100).toFixed(2)}`} placeholder="price" readOnly  id='c-input' /> */}
+                                <input type="text" value={`${this.state.weight}`} placeholder="weight(lb)" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input' />
                                 <input type="text" value={this.state.receiverName} placeholder="receiverName" onChange={(e) => this.onChangeHandler("receiverName", e)} id='c-input' />
                                 <input type="text" value={this.state.description} placeholder="description" onChange={(e) => this.onChangeHandler("description", e)} id='c-input' />
                                 <input id="create-button" type="submit" />

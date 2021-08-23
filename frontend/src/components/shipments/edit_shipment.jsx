@@ -11,7 +11,8 @@ class EditShipment extends React.Component{
             weight: this.props.shipment.weight,
             full: this.props.shipment.full,
             delivered: this.props.shipment.delivered,
-            orders: this.props.shipment.orders
+            userId: this.props.shipment._userId
+
         }
         this.onClickSubmit = this.onClickSubmit.bind(this)
 
@@ -26,7 +27,7 @@ class EditShipment extends React.Component{
             console.log('Successfully edited');
             const shipment = Object.assign({}, this.state)
             this.props.updateShipment(shipment)
-            .then(this.props.fetchAllShipments(this.props.shipments))
+            // .then(this.props.fetchAllShipments(this.props.currentUserId))
         } else {
             // Do nothing!
             console.log('Something went wrong, try again');
@@ -44,7 +45,7 @@ class EditShipment extends React.Component{
                     <form onSubmit={this.onClickSubmit} id="info-container">
                         <input  id="not-delivered" type='text' readOnly  value={this.state.id}/>
                         <input id="not-delivered" type='text'  readOnly value={this.state.departure}/>
-                        <input id="not-delivered" type='text'  readOnly value={JSON.stringify(this.state.weight)}/>
+                        <input id="not-delivered" type='text' readOnly value={`${Math.round(((this.state.weight) * 100) / 100).toFixed(2)}`}/>
                         <input style={{ color: this.state.full === true ? "green" : "red" }} id="not-delivered" type='text'  readOnly value={this.state.full === true ? ("FULL") : ("ADD MORE")} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
                             <option align="center" value="true" >DELIVERED</option>
@@ -76,7 +77,7 @@ class EditShipment extends React.Component{
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" type="text" value={this.state.id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.departure} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight} />
+                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={`${Math.round(((this.state.weight) * 100) / 100).toFixed(2)}`} />
                         {/* <input style={{ color: this.state.full === true ? "red" : "green" }} id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full === true ? ("FULL") : ("ADD MORE") } /> */}
                         {/* <input style={{ color: this.state.delivered === true ? "green" : "red" }} id="not-deliveredR" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered === true ? ("DELIVERED") : ("NOT YET")} /> */}
                         <select style={{ color: this.state.full === true ? "red" : "green" }} defaultValue={this.state.full} onChange={(e) => this.onChangeHandler("full", e)}id="not-deliveredR">

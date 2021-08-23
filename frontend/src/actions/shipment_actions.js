@@ -44,7 +44,7 @@ export const createNewShipment = shipment => dispatch =>
 
 export const fetchShipment = shipmentId => dispatch =>
   shipmentAPIUtil.receiveShipment(shipmentId)
-    .then( shipment => dispatch(editShipment(shipment)),
+    .then( shipment => dispatch(receiveShipment(shipment)),
       err => dispatch(receiveErrors(err.response.data))
     )
 

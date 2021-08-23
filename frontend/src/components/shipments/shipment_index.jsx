@@ -44,7 +44,7 @@ class ShipmentIndex extends React.Component{
             // Save it!
             console.log('Successfully created');
             this.props.createNewShipment(this.state)
-            .then(this.props.fetchAllShipments(this.props.currentUserId))
+            // .then(this.props.fetchAllShipments(this.props.currentUserId))
             .then(this.setState({departure: "", weight: ""}))
 
         } else {
@@ -90,7 +90,7 @@ class ShipmentIndex extends React.Component{
                         <div  id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
                                 <input type="text" value={this.state.departure} placeholder="Departure" onChange={(e)=> this.onChangeHandler("departure", e)} id='c-input'/>
-                                <input type="text" value={this.state.weight} placeholder="Weight" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
+                                <input type="text" value={`${Math.round(((this.state.weight) * 100) / 100).toFixed(2)}`} placeholder="Weight" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
                                 <input type="submit" />
                             </form>
                         </div>
@@ -117,7 +117,7 @@ class ShipmentIndex extends React.Component{
                                     updateShipment={this.props.updateShipment} 
                                     fetchOrdersByShipmentId={this.props.fetchOrdersByShipmentId}
                                     fetchAllShipments={this.props.fetchAllShipments}
-                                    shipments={shipments}
+                                    shipments={shipments} currentUserId={this.props.currentUserId}
                                     
                                     />
                             )

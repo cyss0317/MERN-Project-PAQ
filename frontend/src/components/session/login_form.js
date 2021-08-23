@@ -57,17 +57,13 @@ class LoginForm extends React.Component {
 
   // Handle form submission
   handleSubmit(e) {
-    if (e.currentTarget.value === "Submit"){
       e.preventDefault();
-  
       let user = {
         email: this.state.email,
         password: this.state.password
       };
       this.props.login(user)
-    } else {
-
-    }
+    
     // .catch(err => this.renderErrors(err))
       // .then( () => this.props.fetchAllShipments(this.state.userId)) 
       // .then(console.log(this.props.currentUser))

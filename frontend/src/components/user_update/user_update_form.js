@@ -65,7 +65,7 @@ class userUpdateForm extends React.Component {
                   {this.props.errors[error]}
                 </li>
               ))}
-          </ul>
+          </ul> 
         ); 
     }
   }

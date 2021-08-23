@@ -18,12 +18,11 @@ class OrderForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.shipmentInfo = this.shipmentInfo.bind(this); 
+    this.updateWeight = this.updateWeight.bind(this);
 
   }
   componentDidMount(){
-   
     this.props.fetchShipments(false)
-   
   }
   
   shipmentInfo(){
@@ -69,6 +68,7 @@ class OrderForm extends React.Component {
 
 
     this.props.createOrder(order)
+      .then(this.updateWeight())
     this.setState({
       price: '',
       weight: '',
@@ -79,7 +79,7 @@ class OrderForm extends React.Component {
       customerId: '',
       shipmentId: ''
     })
-    
+    this.props.history.push('/')
   }
 
   renderErrors() {
@@ -97,6 +97,18 @@ class OrderForm extends React.Component {
       );
     }
   }
+
+updateWeight(){
+  let shipment = this.props.BOId[this.state.shipmentId]
+  console.log(shipment)
+  let newWeight = (shipment.weight - this.state.weight)
+  let updatedShipment = Object.assign({}, shipment, {weight: newWeight})
+  this.props.updateShipment(updatedShipment) 
+}
+
+
+
+
 
   render() {
     if(this.props.shipments.length === 0) return null; 
@@ -151,10 +163,7 @@ class OrderForm extends React.Component {
 
             <select value={this.state.shipmentId} onChange={this.update('shipmentId')}>
               <option defaultValue={''}> </option>
-            {this.shipmentInfo()}
-              {/* {this.props.shipments.map(shipment => {
-               return <option value={shipment._id}> {shipment.departure} </option>
-              })} */}
+               {this.shipmentInfo()}
             </select>
             
             

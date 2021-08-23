@@ -6,17 +6,11 @@ import {
   removeOrder,
   createOrder } 
   from '../../actions/order_actions';
-import { shipmentsByDeliveryStatus } from '../../actions/shipment_actions';
+import { shipmentsByDeliveryStatus, updateShipment } from '../../actions/shipment_actions';
 
 import OrderForm from './order_form';
 
 const mSTP = (state) => {
-  // console.log(state.shipments)
-  // let user = Object.values(state.shipments);
-  // for(let i = 0; i < user.length; i++){
-  //   console.log(user[i].userId.name) 
-  // }
-
   return{
     errors:  state.errors.orders,
     orders: state.orders,
@@ -35,7 +29,7 @@ const mDTP = dispatch => ({
   removeOrder: () => dispatch(removeOrder()),
   createOrder: createdOrder => dispatch(createOrder(createdOrder)),
   fetchShipments: (delivered) => dispatch(shipmentsByDeliveryStatus(delivered)),
-  
+  updateShipment: shipment => dispatch(updateShipment(shipment))
 })
 
 export default connect (mSTP, mDTP)(OrderForm); 

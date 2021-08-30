@@ -62,22 +62,28 @@ class ShipmentOrders extends React.Component{
         // const order = Object.assign({}, this.state )
         e.preventDefault();
         console.log(this.props.shipments)
-        let oldShipment = this.props.shipments[this.props.shipmentId]
+        let oldShipment = this.props.shipments[this.props.shipmentId];
+        let fullOrNot = false;
         let newWeight = this.state.weight;
         let finalWeight = 0
-        if ( oldShipment.weight - newWeight > 0){
+        if ( oldShipment.full === true){
+            alert("It's already full")
+        } else if ( oldShipment.weight - newWeight > 0 ){
             finalWeight += oldShipment.weight - newWeight
+        } else if (oldShipment.weight - newWeight < 0.8) {
+            finalWeight += oldShipment.weight -newWeight
+            fullOrNot = true
         } else {
             alert("Over exceeded weight, please try again")
             return;
         }
-
+        console.log(fullOrNot)
         this.props.createOrder(this.state)
         .then( order => this.props.updateShipment({
             _id: this.props.shipmentId,
             departure: oldShipment.departure,
             weight: finalWeight,
-            full: oldShipment.full,
+            full: fullOrNot,
             delivered: oldShipment.delivered,
         }))
         .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
@@ -89,8 +95,11 @@ class ShipmentOrders extends React.Component{
         // if ( orders === undefined ){
         //     return null;
         // }
+
         
         if (orders.length !== 0){
+            console.log(shipments)
+            // debugger
             return (
                 <div id="main-container">
                     {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> */}
@@ -98,7 +107,8 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
-                        {/* <h3>Available Shipment Weight : {this.props.fetchShipment(this.props.shipmentId)}</h3> */}
+                        <h3>Departure Date : {this.props.shipments[this.props.shipmentId].departure}</h3>
+                        <h3>Available Shipment Weight : {Math.round(((this.props.shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3>
                         <div id='create-div'>
                             <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                             <div id="create-shipment">
@@ -153,7 +163,7 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
-                        {/* <h3>Available Shipment Weight : {this.props.fetchShipment(this.props.shipmentId)}</h3> */}
+                       
                         <div id='create-div'>
                             <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                             <div id="create-shipment">

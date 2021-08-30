@@ -95,8 +95,8 @@ class ShipmentIndex extends React.Component{
                             </form>
                         </div>
                     </div>
-                    <div id="table-columns">
-                        <p id="p">Shipment number</p>
+                    <div id="table-columns1">
+                        <p id="p1">Shipment number</p>
                         <p id="p1">Departure</p>
                         <p id="p1">Weight(lb)</p>
                         <p id="p1">Full</p>

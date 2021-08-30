@@ -45,7 +45,7 @@ class EditShipment extends React.Component{
         
     }
     render(){
-        if ( this.state.delivered == true ){
+        if ( this.state.delivered === true ){
             return(
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">

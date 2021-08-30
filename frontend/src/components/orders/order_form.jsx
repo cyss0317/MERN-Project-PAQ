@@ -33,7 +33,7 @@ class OrderForm extends React.Component {
     for(let i =0; i < info.length ; i++){
       values.push(
         <option key={info[i]._id} value={info[i]._id}> 
-          {info[i].departure} 
+          {`Departure: ${info[i].departure}, Available weight: ${Math.round((info[i].weight * 100) / 100).toFixed(2)}lb`}
         </option>
       ) 
     }
@@ -67,9 +67,14 @@ class OrderForm extends React.Component {
 
     let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
 
-
-    this.props.createOrder(order)
-      .then(this.updateWeight())
+    this.updateWeight() ? 
+      this.props.createOrder(order)
+        .then(alert("Order is successfully created")) 
+        .then(this.props.history.push('/'))
+      : 
+      alert("Over exceeded the available amount, please try again")
+    // this.props.createOrder(order)
+    //   .then(this.updateWeight())
     this.setState({
       price: '',
       weight: '',
@@ -80,7 +85,7 @@ class OrderForm extends React.Component {
       customerId: '',
       shipmentId: ''
     })
-    this.props.history.push('/')
+
   }
 
   renderErrors() {
@@ -100,10 +105,19 @@ class OrderForm extends React.Component {
   }
 
 updateWeight(){
+  // let shipment = this.props.BOId[this.state.shipmentId]
+  // let newWeight = (shipment.weight - this.state.weight)
+  // let updatedShipment = Object.assign({}, shipment, {weight: newWeight})
+  // this.props.updateShipment(updatedShipment) 
   let shipment = this.props.BOId[this.state.shipmentId]
   let newWeight = (shipment.weight - this.state.weight)
-  let updatedShipment = Object.assign({}, shipment, {weight: newWeight})
-  this.props.updateShipment(updatedShipment) 
+  // newWeight = newWeight > 0 ? newWeight : shipment.weight
+  if( newWeight > 0 ){
+    let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
+    this.props.updateShipment(updatedShipment)
+  } else {
+    return false
+  }
 }
 
 
@@ -111,8 +125,8 @@ updateWeight(){
 
 
   render() {
+
     if(this.props.shipments.length === 0) return null; 
-    
     return (
       <div className="create-order-form-container">
 
@@ -185,6 +199,11 @@ updateWeight(){
                 <option defaultValue={''} >Shipment Schedule</option>
                 {this.shipmentInfo()}
               </select>
+              {/* <select value={this.state.shipmentId} onChange={this.update('shipmentId')} id='option-select'>
+                <option defaultValue={''} >Shipment Schedule</option>
+                {this.shipmentInfo()}
+              </select> */}
+
 
               <div className="create-order-button-container">
 

@@ -46,7 +46,7 @@ class UserIndex extends React.Component {
 
           <div>
               {
-                  orders.map((order) => (
+                  orders.map((order, index) => (
                       <div>
                           <UserOrderItem updateOrder={updateOrder} deleteOrder={deleteOrder} fetchUserOrders={fetchUserOrders} key={order._id} order={order} />
                       </div>

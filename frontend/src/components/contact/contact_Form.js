@@ -7,6 +7,8 @@ class ContactForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.update = this.update.bind(this);
   }
+
+  
   
   update(field){
     return e => this.setState({

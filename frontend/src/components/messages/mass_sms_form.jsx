@@ -43,12 +43,20 @@ class MassSMSForm extends React.Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    
+    //  const success = () =>(
+    //     <div class="ui positive message"><div class="content">
+    //      <div class="header">Your message was sent Successfully! </div>
+    //     </div>
+    //   </div>
+    //  )
     const messages = Object.assign({}, this.state)
     this.props.massText(messages)
-      .then(this.setState({
-        body: ''
-      }))
+      .then( alert('Your message was sent successfully!')) 
+      .then(this.props.history.push('/'))
+      // .then(this.setState({
+      //   body: ''
+      // }))
+    
   }
 
 
@@ -69,6 +77,8 @@ class MassSMSForm extends React.Component {
           <button type='submit' className='sms-button'>Send Message</button>
           <br />
           <Link to='/notify' id='switch-form'>Notify One</Link>
+        
+
         </form>
       </div>
     )

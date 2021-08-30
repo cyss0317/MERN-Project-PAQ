@@ -8,7 +8,17 @@ food. A client can reserve a spot on the business owner's carry on by weight. Ai
 three bags up to 70 pounds each. As you can see this process can get overwhelming very quick with keeping track of
 the orders.
 
+### **Sign Up Demo**
 
+<iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p>
+
+### **Create Order Demo**
+
+<iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p>
+
+### **Create Shipment Demo**
+
+<iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p>
 
 ### **Description:**
 

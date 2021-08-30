@@ -183,6 +183,14 @@ option{
 #table-columns{
     display: flex;
     gap: 5px;
+    margin-left: 1px;
+}
+
+#table-columns1{
+    display: flex;
+    grid-gap: 5px;
+    gap: 4px;
+    margin-left: 3px;
 }
 
 #table-columns-order{
@@ -195,7 +203,7 @@ option{
     text-size-adjust: 100px;
     font-size: 25px;
     border: solid;
-    width: 12%;
+    width: 13%;
     text-align: center;
 }
 #p2{

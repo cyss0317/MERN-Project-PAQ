@@ -189,7 +189,8 @@ option{
 
 #table-columns-order{
     display: flex;
-    gap: 5px;
+    gap: 4px;
+    margin-left: 3px;
 }
 #table-columns1{
     display: flex;
@@ -211,7 +212,7 @@ option{
     font-size: 25px;
     border: solid;
     /* width: 226px; */
-    width: 13.1%;
+    width: 13%;
     text-align: center;
 }
 #p1{
@@ -248,7 +249,7 @@ select:hover{
     text-size-adjust: 100px;
     font-size: 25px;
     border: solid;
-    width: 13.2%;
+    width: 13%;
     text-align: center;
 }
 

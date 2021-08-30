@@ -263,7 +263,7 @@ select:hover{
 }
 
 #expand-button{
-    width: 236px;
+    width: 13.27%;
     height: 32px;
     font-size: 18px;
     font-weight: bold;
@@ -272,11 +272,14 @@ select:hover{
     background: transparent;
     border-color: white;
     border: solid;
+    margin-left: 3px;
 }
 
 #create-form{
     display: flex;
-    gap: 3px;
+    grid-gap: 3px;
+    gap: 2px;
+    margin-left: -2px;
 }
 
 #create-shipment{
@@ -292,11 +295,11 @@ select:hover{
 }
 
 #c-input{
-    width: 225px;
+    width: 247px;
     height: 26px;
     text-align: center;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: bold;  
 }
 
 #create-shipment {

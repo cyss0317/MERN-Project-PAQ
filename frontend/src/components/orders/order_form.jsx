@@ -1,5 +1,6 @@
 // import e from 'express';
 import React from 'react';
+import orderCreate from './order_create.css'
 
 
 class OrderForm extends React.Component {
@@ -114,60 +115,88 @@ updateWeight(){
     
     return (
       <div className="create-order-form-container">
+
         <div className="create-order-form-title">
           <div className="create-order-form-label">Create Order</div>
         </div>
-        <div className="create-order-form-box">
-          <form onSubmit={this.handleSubmit}>
-            <div className="create-order-input">
-              <div className="create-order-label-box">
-                <label className="create-order-label">Price:</label>
-              </div>
-              <input type="number"
-                value={this.state.price}
-                onChange={this.update('price')}
-                readOnly="readOnly"
-                className="create-order-user-input" />
-            </div>
-            <div className="create-order-input">
-              <div className="create-order-label-box">
-                <label className="create-order-label">Weight:</label>
-              </div>
-              <input type="number"
-                value={this.state.weight}
-                onChange={this.update('weight')}
-                className="create-order-user-input" />
-            </div>
-            <div className="create-order-input">
-              <div className="create-order-label-box">
-                <label className="create-order-label">Receiver Name:</label>
-              </div>
-              <input type="text"
-                value={this.state.receiverName}
-                onChange={this.update('receiverName')}
-                className="create-order-user-input" />
-            </div>
-            <div className="create-order-input">
-              <div className="create-order-label-box">
-                <label className="create-order-label">Description:</label>
-              </div>
-              <input type="textarea"
-                value={this.state.description}
-                onChange={this.update('description')}
-                className="create-order-user-input" />
-            </div>
-            <div className="create-order-button-container">
-              <button className="create-post-form-button">Reserve your spot</button>
-            </div>
 
-            <select value={this.state.shipmentId} onChange={this.update('shipmentId')}>
-              <option defaultValue={''}> </option>
-               {this.shipmentInfo()}
-            </select>
+        <div className="create-order-form-box">
+
+          <form onSubmit={this.handleSubmit} id='order-form'>
+
+            <div id='left-order'>
+              <div className="create-order-input">
+
+                <div className="create-order-label-box">
+                  <h2 className="create-order-label">Receiver Name</h2>
+                </div>
+
+                <input type="text"
+                  value={this.state.receiverName}
+                  onChange={this.update('receiverName')}
+                  className="create-order-user-input" />
+
+              </div>
+
+              <div className="create-order-input">
+
+                <div className="create-order-label-box">
+                  <h2 className="create-order-label">Weight</h2>
+                </div>
+
+                <input type="number"
+                  value={this.state.weight}
+                  onChange={this.update('weight')}
+                  className="create-order-user-input" />
+
+              </div>
+
+              <div className="create-order-input">
+
+                <div className="create-order-label-box">
+                  <h2 className="create-order-label">Description</h2>
+                </div>
+
+                <textarea
+                  value={this.state.description}
+                  onChange={this.update('description')}
+                  className="create-order-user-input" />
+
+              </div> 
+            </div>
             
+            <div id='right-order'>
+              <div className="create-order-input">
+
+                <div className="create-order-label-box">
+                  <h1 className="create-order-label">Total Price</h1>
+                </div>
+
+                <input type="number"
+                  value={this.state.price}
+                  onChange={this.update('price')}
+                  readOnly="readOnly"
+                  className="create-order-user-input" 
+                  id='price'/>
+
+              </div>
+
+              <select value={this.state.shipmentId} onChange={this.update('shipmentId')} id='option-select'>
+                <option defaultValue={''} >Shipment Schedule</option>
+                {this.shipmentInfo()}
+              </select>
+
+              <div className="create-order-button-container">
+
+                <button className="create-post-form-button">Reserve your spot</button>
+              
+              </div>
+            </div>
             
           </form>
+
         </div>
+
       </div>
     )
   }

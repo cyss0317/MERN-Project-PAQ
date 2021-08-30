@@ -6,6 +6,7 @@
     text-align: center;
     box-sizing: border-box;
     flex-direction: column;
+    margin-bottom: 150px;
 }
 
 .sms-form{
@@ -64,6 +65,7 @@ textarea{
   outline: none;
   padding: 15px 15px; 
   width: 53%; 
+  margin-bottom: 20px;
 }
 
 #sms-form-container{

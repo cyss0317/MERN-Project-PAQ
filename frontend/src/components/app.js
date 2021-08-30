@@ -17,7 +17,7 @@ import SignupFormContainer from './session/signup_form_container';
 import ShipmentContainer from './shipments/shipment_container'
 import ContactsPage from './contact_info/contacts_page';
 import UserUpdateContainer from './user_update/user_update_container'
-
+import Footer from '../components/nav/footer'; 
 const App = () => (
   <div>
     <NavBarContainer />
@@ -37,6 +37,9 @@ const App = () => (
         <Route exact path='/dashboard' component={DashboardContainer}/>
         <AuthRoute exact path="/" component={MainPage} />
     </Switch>
+    <footer>
+      <Footer />
+    </footer>
   </div>
 );
 

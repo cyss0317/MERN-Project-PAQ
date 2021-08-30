@@ -19,6 +19,7 @@ class ShipmentOrders extends React.Component{
     }
 
     componentDidMount(){
+        // this.props.fetchShipment(this.props.shipmentId)
         this.props.fetchOrdersByShipmentId(this.props.shipmentId)
         this.props.fetchAllShipments(this.props.currentUserId)
     }
@@ -63,12 +64,19 @@ class ShipmentOrders extends React.Component{
         console.log(this.props.shipments)
         let oldShipment = this.props.shipments[this.props.shipmentId]
         let newWeight = this.state.weight;
+        let finalWeight = 0
+        if ( oldShipment.weight - newWeight > 0){
+            finalWeight += oldShipment.weight - newWeight
+        } else {
+            alert("Over exceeded weight, please try again")
+            return;
+        }
 
         this.props.createOrder(this.state)
         .then( order => this.props.updateShipment({
             _id: this.props.shipmentId,
             departure: oldShipment.departure,
-            weight: (oldShipment.weight - newWeight),
+            weight: finalWeight,
             full: oldShipment.full,
             delivered: oldShipment.delivered,
         }))
@@ -90,6 +98,7 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
+                        {/* <h3>Available Shipment Weight : {this.props.fetchShipment(this.props.shipmentId)}</h3> */}
                         <div id='create-div'>
                             <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                             <div id="create-shipment">
@@ -144,6 +153,7 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
+                        {/* <h3>Available Shipment Weight : {this.props.fetchShipment(this.props.shipmentId)}</h3> */}
                         <div id='create-div'>
                             <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                             <div id="create-shipment">

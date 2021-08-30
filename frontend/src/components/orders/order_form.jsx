@@ -66,15 +66,21 @@ class OrderForm extends React.Component {
     e.preventDefault()
 
     let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
-
-    this.updateWeight() ? 
-      this.props.createOrder(order)
+    if (this.state.receiverName.length === 0){
+      alert("Please enter receiver's name")
+    } else if (this.updateWeight() !== false) { 
+      this.updateWeight()
+        this.props.createOrder(order)
         .then(alert("Order is successfully created")) 
         .then(this.props.history.push('/'))
-      : 
+    } else if (this.state.description.length === 0){
+      alert("Please write description")
+    } 
+    else{
       alert("Over exceeded the available amount, please try again")
     // this.props.createOrder(order)
     //   .then(this.updateWeight())
+    }
     this.setState({
       price: '',
       weight: '',
@@ -119,10 +125,6 @@ updateWeight(){
     return false
   }
 }
-
-
-
-
 
   render() {
 
@@ -195,10 +197,15 @@ updateWeight(){
 
               </div>
 
-              <select value={this.state.shipmentId} onChange={this.update('shipmentId')} id='option-select'>
-                <option defaultValue={''} >Shipment Schedule</option>
-                {this.shipmentInfo()}
-              </select>
+              <div>
+                <p>Departure</p>
+                <select value={this.state.shipmentId} onChange={this.update('shipmentId')} id='option-select'>
+                  <option defaultValue={''} >Shipment Schedule</option>
+                  {this.shipmentInfo()}
+                </select>
+                {/* <p>Availble weight</p>
+                <p>{this.props.BOId[this.state.shipmentId].weight}</p> */}
+              </div>
               {/* <select value={this.state.shipmentId} onChange={this.update('shipmentId')} id='option-select'>
                 <option defaultValue={''} >Shipment Schedule</option>
                 {this.shipmentInfo()}

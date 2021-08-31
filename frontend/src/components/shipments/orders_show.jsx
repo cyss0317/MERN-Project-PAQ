@@ -63,7 +63,7 @@ class OrderShow extends React.Component {
     render() {
         if (this.state.delivered === true) {
             return (
-                <div id="edit-container">
+                <div  id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
                         <input id="not-delivered" type='text' readOnly value={this.state.id} />
                         <input id="not-delivered" type='text' readOnly value={this.state.price} />
@@ -97,7 +97,7 @@ class OrderShow extends React.Component {
             )
         } else {
             return (
-                <div align="center" id="edit-container">
+                <div  align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" readOnly type="text" value={this.state.id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={this.state.price} />

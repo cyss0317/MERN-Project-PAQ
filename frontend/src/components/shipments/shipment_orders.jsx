@@ -46,13 +46,14 @@ class ShipmentOrders extends React.Component{
             this.setState({ [field]: e.currentTarget.value })
         
     }
-    expandFunction(currentStatus) {
-
-        // e.preventDefault();
+    expandFunction( e) {
+        
+        e.preventDefault();
         var x = document.getElementById("create-shipment");
         // if ( currentStatus === true) {
         //     alert("It's already full, you can't create orders")
-        // } else 
+        // } 
+        // else 
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -75,7 +76,7 @@ class ShipmentOrders extends React.Component{
         // } else 
         if ( oldShipment.weight - newWeight > 0 ){
             finalWeight += oldShipment.weight - newWeight
-        } else if (oldShipment.weight - newWeight < 0.8) {
+        } else if (oldShipment > 0 && oldShipment.weight - newWeight < 0) {
             finalWeight += oldShipment.weight -newWeight
             fullOrNot = true
         } else {
@@ -98,13 +99,12 @@ class ShipmentOrders extends React.Component{
     render(){
         // let currentStatus = this.props.shipments[this.props.shipmentId].full
         const { currentUser, shipments, orders } = this.props;
-        // if ( orders === undefined ){
-        //     return null;
-        // }
 
-        
-        if (orders.length !== 0){
-            console.log(shipments)
+
+            
+            if (orders.length !== 0){
+                console.log(shipments)
+                // debugger
             // debugger
             return (
                 <div id="main-container">
@@ -113,10 +113,10 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
-                        <h3>Departure Date : {this.props.shipments[this.props.shipmentId].departure}</h3>
-                        <h3>Available Shipment Weight : {Math.round(((this.props.shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3>
+                        <h3>Departure Date : {shipments[this.props.shipmentId].departure}</h3>
+                        <h3>Available Shipment Weight : {Math.round(((shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3>
                         <div id='create-div'>
-                            <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
+                            <button id="expand-button" className="all-buttons" onClick={(e) => this.expandFunction(e)}>Create a new order</button>
                             <div id="create-shipment">
                                 <form id="create-form" onSubmit={this.handleSubmit} >
                                     {/* onChange={(e) => this.onChangeHandler("price", e)} */}
@@ -149,7 +149,7 @@ class ShipmentOrders extends React.Component{
                         <div>
                             {
                                 orders.map((order) => (
-                                    <div>
+                                    <div key={order._id}>
                                         <OrderShow updateOrder={this.props.updateOrder} shipmentId={this.props.shipmentId} 
                                         fetchOrdersByShipmentId={this.props.fetchOrdersByShipmentId}
                                         deleteOrder={this.props.deleteOrder} key={order._id} order={order} orderId={order._id} />

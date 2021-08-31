@@ -118,21 +118,21 @@ class OrderForm extends React.Component {
 
   }
 
-  renderErrors() {
-    if (!this.props.errors) {
-      return null
-    } else {
-      return (
-        <ul className='errors'>
-          {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
-              {error}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  }
+  // renderErrors() {
+  //   if (!this.props.errors) {
+  //     return null
+  //   } else {
+  //     return (
+  //       <ul className='errors'>
+  //         {this.props.errors.map((error, i) => (
+  //           <li key={`error-${i}`}>
+  //             {error}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     );
+  //   }
+  // }
 
 updateWeight(){
   // let shipment = this.props.BOId[this.state.shipmentId]
@@ -226,7 +226,7 @@ updateWeight(){
                 <select value={this.state.shipmentId} onChange={this.update('shipmentId')} id='option-select'>
                   <option defaultValue={''} >Shipment Schedule</option>
                   {this.shipmentInfo()}
-                  {this.renderErrors()}
+                  {/* {this.renderErrors()} */}
                 </select>
                 {/* <p>Availble weight</p>
                 <p>{this.props.BOId[this.state.shipmentId].weight}</p> */}

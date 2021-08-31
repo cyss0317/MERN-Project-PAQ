@@ -14,6 +14,7 @@ const OrdersReducer = (state = {}, action) => {
 
     case RECEIVE_USER_ORDERS:
       let userOrders = action.orders
+
       userOrders.forEach((order) => {
         nextState[order._id] = order
       })

@@ -76,43 +76,53 @@ class OrderForm extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     })
+    
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
-    // if(!this.state.shipmentId){
+  weightCheck(){
+    if(this.state.weight > this.props.BOId[this.state.shipmentId].weight){
+      alert('Your shipment weight exceeds, the available weight')
+    } else{
+      this.handleSubmit()
+    }
+  }
 
-    // }
+  
+  
+
+  handleSubmit(e) {
+    // e.preventDefault()
+
     let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
 
 
     this.props.createOrder(order)
       .then(this.updateWeight())
-    let businessId = "";
-    if (this.state.shipmentId.length === 0) {
-      alert("Please pick a departure date")
-      return;
-    } else {
-      businessId = this.props.BOId[this.state.shipmentId].userId._id
-    }
+    // let businessId = "";
+    // if (this.state.shipmentId.length === 0) {
+    //   alert("Please pick a departure date")
+    //   return;
+    // } else {
+    //   businessId = this.props.BOId[this.state.shipmentId].userId._id
+    // }
 
     
     // let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
-    let order = Object.assign({}, this.state, {businessOwnerId: businessId })
-    if (this.state.receiverName.length === 0){
-      alert("Please enter receiver's name")
-    } else if (this.updateWeight() !== false) { 
-      this.updateWeight()
-        this.props.createOrder(order)
-        .then(alert("Order is successfully created")) 
-        .then(this.props.history.push('/'))
-    } else if (this.state.description.length === 0){
-      alert("Please write description")
-    }  else{
-      alert("Over exceeded the available amount, please try again")
-    // this.props.createOrder(order)
-    //   .then(this.updateWeight())
-    }
+    // let order = Object.assign({}, this.state, {businessOwnerId: businessId })
+    // if (this.state.receiverName.length === 0){
+    //   alert("Please enter receiver's name")
+    // } else if (this.updateWeight() !== false) { 
+    //   this.updateWeight()
+    //     this.props.createOrder(order)
+    //     .then(alert("Order is successfully created")) 
+    //     .then(this.props.history.push('/'))
+    // } else if (this.state.description.length === 0){
+    //   alert("Please write description")
+    // }  else{
+    //   alert("Over exceeded the available amount, please try again")
+    // // this.props.createOrder(order)
+    // //   .then(this.updateWeight())
+    // }
     this.setState({
       price: '',
       weight: '',
@@ -170,7 +180,7 @@ updateWeight(){
 
         <div className="create-order-form-box">
 
-          <form onSubmit={this.handleSubmit} id='order-form'>
+          <form  id='order-form'>
 
             <div id='left-order'>
               <div className="create-order-input">
@@ -246,7 +256,8 @@ updateWeight(){
 
               <div className="create-order-button-container">
 
-                <button className="create-post-form-button">Reserve your spot</button>
+                <button className="create-post-form-button" disabled={this.state.shipmentId === '' ? true : false }
+                  onClick={() => this.weightCheck()}>Reserve your spot</button>
               
               </div>
             </div>

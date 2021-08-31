@@ -265,7 +265,7 @@ select:hover{
 
 #expand-button{
     width: 13.27%;
-    height: 32px;
+    /* height: 32px; */
     font-size: 18px;
     font-weight: bold;
     color: white;

@@ -23,10 +23,16 @@ class OrderShow extends React.Component {
 
     deleteHandler(e){
         e.preventDefault();
+        let shipment = this.props.shipment;
+        let fullOrNot = false;
+        let newWeight = shipment.weight + this.props.order.weight;
         const answer = window.confirm('Are you sure you want to delete this order from the database?')
-        if (answer) {
+        if (answer ) {
             // Save it!
+            let newShipment = Object.assign({}, shipment, {full: fullOrNot, weight: newWeight})
+            
             console.log('Deleted the order successfully');
+            this.props.updateShipment(newShipment)
             this.props.deleteOrder(this.props.orderId);
             // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
         } else {
@@ -63,7 +69,7 @@ class OrderShow extends React.Component {
     render() {
         if (this.state.delivered === true) {
             return (
-                <div id="edit-container">
+                <div  id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
                         <input id="not-delivered" type='text' readOnly value={this.state.id} />
                         <input id="not-delivered" type='text' readOnly value={this.state.price} />
@@ -97,7 +103,7 @@ class OrderShow extends React.Component {
             )
         } else {
             return (
-                <div align="center" id="edit-container">
+                <div  align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" readOnly type="text" value={this.state.id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={this.state.price} />

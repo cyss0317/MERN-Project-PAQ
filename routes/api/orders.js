@@ -16,18 +16,11 @@ router.get("/test", (req, res) => {
 //might have to change the route
 router.get('/user/:userId', (req, res) => {
 
-  // Order.find({ customerId: req.params.user_id })
-  //   .sort ({ date: -1 })
-  //   .then(orders => res.json(orders))
-  //   .catch(err =>
-  //     res.status(404).json({ noordersfound: "No orders found from this user" }
-  //     )
-  //   );
-
   const order = Order.find({ customerId: req.params.userId})
   .sort({delivered: false})
   .populate("customerId")
   .populate("order")
+  .populate("shipmentId")
   .exec()
     .then(orders => res.json(orders))
     .catch(err => res.status(404).json(err))
@@ -39,7 +32,7 @@ router.get('/shipment/:shipmentId', (req, res) => {
     .sort({delivered: false})  
     .populate("customerId")
     .populate("businessOwnerId")
-    // .populate("shipmentId")
+    .populate("shipmentId")
     .exec()
     .then(orders => res.json(orders))
     .catch(err =>

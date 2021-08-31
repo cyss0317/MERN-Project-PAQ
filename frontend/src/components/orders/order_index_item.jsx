@@ -5,7 +5,7 @@ import shipmentCSS from '../shipments/shipment.css'
 class UserOrderItem extends React.Component {
     constructor(props) {
         super(props)
-        console.log("inside of the constructor", this.props)
+        // console.log("inside of the constructor", this.props)
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
@@ -40,6 +40,9 @@ class UserOrderItem extends React.Component {
         e.preventDefault();
         const answer = window.confirm('Are you sure you want to delete this order?')
         if (answer) {
+            let orderWeight = this.state.weight
+            let shipmentWeight = this.state.shipmentId
+            console.log("i am in the deleteHandler", shipmentWeight)
             this.props.deleteOrder(this.props.order._id);
         } else {
             return;

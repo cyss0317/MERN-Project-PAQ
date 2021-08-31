@@ -64,7 +64,9 @@ class OrderForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    // if(!this.state.shipmentId){
 
+    // }
     let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
 
 
@@ -115,7 +117,7 @@ updateWeight(){
     
     return (
       <div className="create-order-form-container">
-
+         {this.renderErrors()}
         <div className="create-order-form-title">
           <div className="create-order-form-label">Create Order</div>
         </div>

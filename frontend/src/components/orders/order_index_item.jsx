@@ -74,7 +74,7 @@ class UserOrderItem extends React.Component {
     render() {
         // debugger
         if (this.state.delivered === true) {
-            console.log(this.props.order)
+
             return (
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
@@ -109,7 +109,6 @@ class UserOrderItem extends React.Component {
                 </div>
             )
         } else {
-            console.log(this.props.order)
             return (
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">

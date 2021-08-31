@@ -39,6 +39,10 @@ class ShipmentIndex extends React.Component{
         //     userId: this.state.userId,
         // };
         e.preventDefault();
+        if (this.state.departure.length === 0 || typeof(this.state.weight) !== "number") {
+            alert("Please fill out every inputs")
+            return;
+        }
         const answer = window.confirm('Are you sure you want to save this shipment to the database?')
         if (answer) {
             // Save it!
@@ -95,8 +99,8 @@ class ShipmentIndex extends React.Component{
                             </form>
                         </div>
                     </div>
-                    <div id="table-columns">
-                        <p id="p">Shipment number</p>
+                    <div id="table-columns1">
+                        <p id="p1">Shipment number</p>
                         <p id="p1">Departure</p>
                         <p id="p1">Weight(lb)</p>
                         <p id="p1">Full</p>

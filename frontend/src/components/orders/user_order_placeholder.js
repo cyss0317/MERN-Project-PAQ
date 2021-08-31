@@ -67,7 +67,7 @@ class UserIndex extends React.Component {
   })
 
   return(
-    <div>
+    <div key={this.props.key}>
       {userOrders.map(order =>{
         return order 
       })}

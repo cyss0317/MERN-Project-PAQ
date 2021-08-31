@@ -5,7 +5,7 @@ import shipmentCSS from '../shipments/shipment.css'
 class UserOrderItem extends React.Component {
     constructor(props) {
         super(props)
-        console.log("inside of the constructor", this.props)
+        // console.log("inside of the constructor", this.props)
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
@@ -40,6 +40,9 @@ class UserOrderItem extends React.Component {
         e.preventDefault();
         const answer = window.confirm('Are you sure you want to delete this order?')
         if (answer) {
+            let orderWeight = this.state.weight
+            let shipmentWeight = this.state.shipmentId
+            console.log("i am in the deleteHandler", shipmentWeight)
             this.props.deleteOrder(this.props.order._id);
         } else {
             return;
@@ -106,11 +109,12 @@ class UserOrderItem extends React.Component {
             return (
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" value={this.state.id} />
-                        <input id="not-delivered" type="text"  value={this.state.price} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} />
+                        <input id="not-delivered" type="text" readOnly value={this.state.id} />
+                        <input id="not-delivered" type="text" readOnly value={this.state.price} />
+                        {/* <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} /> */}
+                        <input id="not-delivered" type="text" readOnly value={this.state.weight} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("description", e)} value={this.state.description} />
+                        <input id="not-delivered" type="text" readOnly value={this.state.description} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>

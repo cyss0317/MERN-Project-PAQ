@@ -73,8 +73,10 @@ class ShipmentOrders extends React.Component {
         // if ( oldShipment.full === true){
         //     alert("It's already full")
         // } else 
-
-        if (newWeight > 0) {
+        if(this.state.weight === 0 || this.state.receiverName.length === 0 || this.state.description.length === 0 ){
+            alert("please fill out every inputs")
+            return;
+        }else if (newWeight > 0) {
 
         }
         else if (newWeight === 0) {

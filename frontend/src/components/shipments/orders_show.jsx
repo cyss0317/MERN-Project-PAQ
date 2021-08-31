@@ -23,10 +23,16 @@ class OrderShow extends React.Component {
 
     deleteHandler(e){
         e.preventDefault();
+        let shipment = this.props.shipment;
+        let fullOrNot = false;
+        let newWeight = shipment.weight + this.props.order.weight;
         const answer = window.confirm('Are you sure you want to delete this order from the database?')
-        if (answer) {
+        if (answer ) {
             // Save it!
+            let newShipment = Object.assign({}, shipment, {full: fullOrNot, weight: newWeight})
+            
             console.log('Deleted the order successfully');
+            this.props.updateShipment(newShipment)
             this.props.deleteOrder(this.props.orderId);
             // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
         } else {
@@ -49,7 +55,7 @@ class OrderShow extends React.Component {
             // Do nothing!
             console.log("")
         }
-        
+
         // .then(this.setState({}))
     }
 

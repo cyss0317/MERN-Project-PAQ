@@ -10,6 +10,10 @@ class Dashboard extends React.Component{
 
   }
   
+  componentDidMount() {
+    this.props.fetchUserOrders(this.props.user._id);
+    this.props.fetchAllShipments(this.props.user._id)
+  }
 
   render(){
     return this.props.user.businessOwner ?
@@ -104,6 +108,32 @@ class Dashboard extends React.Component{
 
             </div >
 
+            <div id='welcome-div'>
+                <div id='user-name-div'>
+                    <h1>Welcome {this.props.user.name}</h1>
+                </div>
+                
+                <div id='user-info-dash'> 
+
+                
+                    <h2 id='dash-address'>Current address</h2>
+                    <h3>{this.props.user.address}</h3>
+
+
+
+                  <div id='packages-user-history'>
+                      
+                      <div id='pending-div'>
+                        <h1>{this.props.pending.length}</h1>
+                      </div>
+
+                      <div id='delivered-div'>
+                        <h1>{this.props.done.length}</h1>
+                      </div>
+
+                  </div>
+                </div>
+            </div>
           </div>
         </div>
       )

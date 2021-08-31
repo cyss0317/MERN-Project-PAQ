@@ -15,9 +15,10 @@ class ShipmentOrders extends React.Component{
             shipmentId: this.props.shipmentId
         }
 
+
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+    
     componentDidMount(){
         // this.props.fetchShipment(this.props.shipmentId)
         this.props.fetchOrdersByShipmentId(this.props.shipmentId)
@@ -45,10 +46,13 @@ class ShipmentOrders extends React.Component{
             this.setState({ [field]: e.currentTarget.value })
         
     }
+    expandFunction(currentStatus) {
 
-    expandFunction(e) {
-        e.preventDefault();
+        // e.preventDefault();
         var x = document.getElementById("create-shipment");
+        // if ( currentStatus === true) {
+        //     alert("It's already full, you can't create orders")
+        // } else 
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -66,9 +70,10 @@ class ShipmentOrders extends React.Component{
         let fullOrNot = false;
         let newWeight = this.state.weight;
         let finalWeight = 0
-        if ( oldShipment.full === true){
-            alert("It's already full")
-        } else if ( oldShipment.weight - newWeight > 0 ){
+        // if ( oldShipment.full === true){
+        //     alert("It's already full")
+        // } else 
+        if ( oldShipment.weight - newWeight > 0 ){
             finalWeight += oldShipment.weight - newWeight
         } else if (oldShipment.weight - newWeight < 0.8) {
             finalWeight += oldShipment.weight -newWeight
@@ -91,6 +96,7 @@ class ShipmentOrders extends React.Component{
     }
 
     render(){
+        // let currentStatus = this.props.shipments[this.props.shipmentId].full
         const { currentUser, shipments, orders } = this.props;
         // if ( orders === undefined ){
         //     return null;

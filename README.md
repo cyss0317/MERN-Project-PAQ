@@ -10,6 +10,18 @@ the orders.
 
 
 
+### **Sign Up Demo**
+
+<iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p>
+
+### **Create Order Demo**
+
+<iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p>
+
+### **Create Shipment Demo**
+
+<iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p>
+
 ### **Description:**
 
 The PAQ application is a shipping application that will help both the business owner and user.

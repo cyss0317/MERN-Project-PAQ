@@ -39,6 +39,10 @@ class ShipmentIndex extends React.Component{
         //     userId: this.state.userId,
         // };
         e.preventDefault();
+        if (this.state.departure.length === 0 || typeof(this.state.weight) !== "number") {
+            alert("Please fill out every inputs")
+            return;
+        }
         const answer = window.confirm('Are you sure you want to save this shipment to the database?')
         if (answer) {
             // Save it!

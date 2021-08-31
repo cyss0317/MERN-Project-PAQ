@@ -39,9 +39,10 @@ class UserOrderItem extends React.Component {
     deleteHandler(e){
         e.preventDefault();
         const answer = window.confirm('Are you sure you want to delete this order?')
+        let orderWeight = this.state.weight
+        let shipmentWeight = this.state.shipmentId
+
         if (answer) {
-            let orderWeight = this.state.weight
-            let shipmentWeight = this.state.shipmentId
             console.log("i am in the deleteHandler", shipmentWeight)
             this.props.deleteOrder(this.props.order._id);
         } else {
@@ -71,11 +72,13 @@ class UserOrderItem extends React.Component {
     }
 
     render() {
+        // debugger
         if (this.state.delivered === true) {
+            console.log(this.props.order)
             return (
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
-                        <input id="not-delivered" type='text' readOnly value={this.state.id} />
+                        <input id="not-delivered" type='text' readOnly value={this.props.order.shipmentId.departure} />
                         <input id="not-delivered" type='text' readOnly value={this.state.price} />
                         <input id="not-delivered" type='text' readOnly value={this.state.weight} />
                         <input id="not-delivered" type='text' readOnly value={this.state.receiverName} />
@@ -106,10 +109,11 @@ class UserOrderItem extends React.Component {
                 </div>
             )
         } else {
+            console.log(this.props.order)
             return (
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" readOnly value={this.state.id} />
+                        <input id="not-delivered" type="text" readOnly value={this.props.order.shipmentId.departure} />
                         <input id="not-delivered" type="text" readOnly value={this.state.price} />
                         {/* <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} /> */}
                         <input id="not-delivered" type="text" readOnly value={this.state.weight} />

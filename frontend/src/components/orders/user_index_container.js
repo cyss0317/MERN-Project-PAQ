@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUserOrders, updateOrder, deleteOrder } from '../../actions/order_actions';
+import { shipmentsByDeliveryStatus, updateShipment } from '../../actions/shipment_actions';
 import UserIndex from './user_index_form';
 
 const mSTP = (state) => {
@@ -13,11 +14,13 @@ const mSTP = (state) => {
 }
 
 const mDTP = (dispatch, ownProps) => {
-  console.log("i am in mDTP", mDTP)
+  // console.log("i am in mDTP", mDTP)
   return {
     fetchUserOrders: () => dispatch(fetchUserOrders(ownProps.match.params._id)),
     updateOrder: (order) => dispatch(updateOrder(order)),
     deleteOrder: order => dispatch(deleteOrder(order)),
+    fetchShipments: (delivered) => dispatch(shipmentsByDeliveryStatus(delivered)),
+    updateShipment: shipment => dispatch(updateShipment(shipment))
   }
 }
 

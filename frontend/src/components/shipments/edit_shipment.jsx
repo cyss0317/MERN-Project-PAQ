@@ -81,7 +81,7 @@ class EditShipment extends React.Component{
             return(
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" value={this.state._id} />
+                        <input id="not-delivered" type="text" readOnly value={this.state._id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("departure", e)} value={this.state.departure} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={`${this.state.weight}`} />
                         {/* <input style={{ color: this.state.full === true ? "red" : "green" }} id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full === true ? ("FULL") : ("ADD MORE") } /> */}

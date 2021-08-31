@@ -109,11 +109,12 @@ class UserOrderItem extends React.Component {
             return (
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" value={this.state.id} />
-                        <input id="not-delivered" type="text"  value={this.state.price} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} />
+                        <input id="not-delivered" type="text" readOnly value={this.state.id} />
+                        <input id="not-delivered" type="text" readOnly value={this.state.price} />
+                        {/* <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} /> */}
+                        <input id="not-delivered" type="text" readOnly value={this.state.weight} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
-                        <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("description", e)} value={this.state.description} />
+                        <input id="not-delivered" type="text" readOnly value={this.state.description} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>

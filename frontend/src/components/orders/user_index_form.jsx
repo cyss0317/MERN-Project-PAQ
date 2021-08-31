@@ -25,7 +25,12 @@ class UserIndex extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { orders, updateOrder, deleteOrder, fetchUserOrders, fetchShipments, updateShipment } = this.props; 
+=======
+    const { orders, updateOrder, deleteOrder, fetchUserOrders } = this.props; 
+    // debugger
+>>>>>>> main
     return( 
        
       <div id="main-container">
@@ -45,7 +50,7 @@ class UserIndex extends React.Component {
 
           <div>
               {
-                  orders.map((order) => (
+                  orders.map((order, index) => (
                       <div>
                           <UserOrderItem updateOrder={updateOrder} deleteOrder={deleteOrder} fetchUserOrders={fetchUserOrders}
                            fetchShipments={fetchShipments} updateShipment={updateShipment}key={order._id} order={order} />

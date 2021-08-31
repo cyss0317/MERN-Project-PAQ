@@ -41,7 +41,7 @@ display: flex;
     /* justify-content: space-between; */
     align-items: center;
     padding-right: 10px;
-    width: 15%;
+    /* width: 15%; */
 }
 
 #logout-button{
@@ -115,7 +115,7 @@ display: flex;
 #ship-li{
     font: 400 13.3333px Arial;
     text-decoration: none;
-    width: 121px;
+    /* width: 121px; */
     height: 30px;
     font-size: 20px;
     font-weight: bold;
@@ -125,7 +125,7 @@ display: flex;
     border-radius: 8px;
     text-transform: capitalize;
     text-align: center;
-    padding-top: 1px;
+    padding: 2px 5px 2px 5px;
     margin-right: 21px;
     display: flex;
     align-content: center;

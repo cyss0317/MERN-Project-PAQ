@@ -73,9 +73,9 @@ class LoginForm extends React.Component {
   renderErrors() {
     return(
       <ul id='errors'>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`} id='error'>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -99,21 +99,21 @@ class LoginForm extends React.Component {
                 onChange={this.update('email')}
                 placeholder="Email"
                 id='log-inputs'
-              />
+                />
             <br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
                 id='log-inputs'
-              />
+                />
             <br/>
             <input type="submit" value="Submit" id="log-submit"/>
             <br />
             <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
             <br />
             <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
-            {this.renderErrors()}
+                {this.renderErrors()}
             <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
           </div>
         </form>

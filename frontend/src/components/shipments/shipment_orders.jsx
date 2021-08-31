@@ -20,7 +20,7 @@ class ShipmentOrders extends React.Component{
     }
     
     componentDidMount(){
-        // this.props.fetchShipment(this.props.shipmentId)
+        this.props.fetchShipment(this.props.shipmentId)
         this.props.fetchOrdersByShipmentId(this.props.shipmentId)
         this.props.fetchAllShipments(this.props.currentUserId)
     }
@@ -41,7 +41,8 @@ class ShipmentOrders extends React.Component{
 
     onChangeHandler(field, e) {
             if (field === "weight") {
-                this.setState({ price: `${Math.round(((e.currentTarget.value * 3.0) * 100) / 100).toFixed(2)}` })
+                // this.setState({ price: `${Math.round(((e.currentTarget.value * 3.0) * 100) / 100).toFixed(2)}` })
+                this.setState({ price: `${Number.parseFloat(e.currentTarget * 3).toFixed(2)}` })
             }
             this.setState({ [field]: e.currentTarget.value })
         
@@ -98,7 +99,7 @@ class ShipmentOrders extends React.Component{
 
     render(){
         // let currentStatus = this.props.shipments[this.props.shipmentId].full
-        const { currentUser, shipments, orders } = this.props;
+        const { currentUser,shipment, shipments, orders } = this.props;
 
 
             
@@ -113,8 +114,9 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
-                        <h3>Departure Date : {shipments[this.props.shipmentId].departure}</h3>
-                        <h3>Available Shipment Weight : {Math.round(((shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3>
+                        <h3>Departure Date : {shipment.departure}</h3>
+                        {/* <h3>Available Shipment Weight : {Math.round(((shipment.weight) * 100) / 100).toFixed(2)} lb</h3> */}
+                        <h3>Available Shipment Weight : {Number.parseFloat(shipment.weight).toFixed(2)} lb</h3>
                         <div id='create-div'>
                             <button id="expand-button" className="all-buttons" onClick={(e) => this.expandFunction(e)}>Create a new order</button>
                             <div id="create-shipment">

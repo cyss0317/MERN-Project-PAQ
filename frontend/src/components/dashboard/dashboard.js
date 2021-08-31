@@ -132,12 +132,12 @@ class Dashboard extends React.Component{
                 <div id='packages-user-history'>
                     
                     <div id='pd-div'>
-                      <h3>Pending Deliveries</h3>
+                      <h3>Pending Orders</h3>
                       <p id='paq-num'>{this.props.pending.length}</p>
                     </div>
 
                     <div id='pd-div'>
-                      <h3>Finished Deliveries</h3>
+                      <h3>Delivered Orders</h3>
                       <p id='paq-num'>{this.props.done.length}</p>
                     </div>
 

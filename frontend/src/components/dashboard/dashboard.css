@@ -244,3 +244,26 @@
     transition: 1s;
 }
 
+#welcome-div{
+    margin-left: 4%;
+    border: solid;
+    padding: 0px;
+    border-radius: 25px;
+    width: 460px;
+    text-align: center;
+}
+
+#packages-user-history{
+    display: flex;
+    /* border: solid; */
+    border-radius: 3px;
+    justify-content: space-around;
+}
+
+#pd-div{
+    border: solid;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    text-align: center;
+}

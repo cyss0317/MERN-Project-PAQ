@@ -254,13 +254,16 @@
     color: white;
     flex-direction: column;
     justify-content: space-evenly;
-    background: linear-gradient(
+    background: linear-gradient( 
 217deg
-, #c3cdd8, rgb(0, 67, 255, 0.35) 70.71%), linear-gradient(
+ , #c3cdd8, rgb(0, 67, 255, 0.35) 70.71%), linear-gradient( 
 127deg
-, rgb(201 237 255), rgba(0,255,0,0) 70.71%), linear-gradient(
+ , rgb(201 237 255), rgba(0,255,0,0) 70.71%), linear-gradient( 
 336deg
-, #b6d1fd, rgba(17, 17, 151, 0) 70.71%)
+ , #b6d1fd, rgba(17, 17, 151, 0) 70.71%);
+    background-image: url(https://i.pinimg.com/originals/cc/44/7e/cc447e450b7ca52d4a5576aeb1332197.jpg);
+    background-size: 140% 115%;
+    background-position: -3px -69px;
 }
 
 #packages-user-history{

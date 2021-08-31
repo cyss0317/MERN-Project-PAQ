@@ -110,7 +110,7 @@ class Dashboard extends React.Component{
 
             <div id='welcome-div'>
                 <div id='user-name-div'>
-                    <h1>Welcome {this.props.user.name}</h1>
+                    <h1 id='w-div-t'>Welcome {this.props.user.name}</h1>
                 </div>
                 
                 <div id='user-info-dash'> 
@@ -121,7 +121,7 @@ class Dashboard extends React.Component{
 
                     <br />
 
-                    <h2>Contact Info</h2>
+                    <h2>User Contact Info</h2>
                     <h3>{this.props.user.email}</h3>
                     <h3>{this.props.user.phoneNumber}</h3>
 

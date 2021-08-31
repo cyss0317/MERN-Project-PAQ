@@ -75,9 +75,10 @@ class ShipmentOrders extends React.Component{
         // if ( oldShipment.full === true){
         //     alert("It's already full")
         // } else 
+        debugger
         if ( oldShipment.weight - newWeight > 0 ){
             finalWeight += oldShipment.weight - newWeight
-        } else if (oldShipment > 0 && oldShipment.weight - newWeight < 0) {
+        } else if (oldShipment > 0 && oldShipment.weight - newWeight < 0.49) {
             finalWeight += oldShipment.weight -newWeight
             fullOrNot = true
         } else {
@@ -104,7 +105,9 @@ class ShipmentOrders extends React.Component{
 
             
             if (orders.length !== 0){
-                console.log(shipments)
+                console.log("shipments",shipments)
+                // console.log("shipments departure",shipments[this.props.shipmentId].departure)
+                console.log("shipment",shipment)
                 // debugger
             // debugger
             return (
@@ -114,9 +117,9 @@ class ShipmentOrders extends React.Component{
 
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
-                        <h3>Departure Date : {shipment.departure}</h3>
+                        {/* <h3>Departure Date : {shipments[this.props.shipmentId].departure}</h3> */}
                         {/* <h3>Available Shipment Weight : {Math.round(((shipment.weight) * 100) / 100).toFixed(2)} lb</h3> */}
-                        <h3>Available Shipment Weight : {Number.parseFloat(shipment.weight).toFixed(2)} lb</h3>
+                        {/* <h3>Available Shipment Weight : {Number.parseFloat(shipments.weight).toFixed(2)} lb</h3> */}
                         <div id='create-div'>
                             <button id="expand-button" className="all-buttons" onClick={(e) => this.expandFunction(e)}>Create a new order</button>
                             <div id="create-shipment">

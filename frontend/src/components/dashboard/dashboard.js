@@ -119,22 +119,30 @@ class Dashboard extends React.Component{
                     <h2 id='dash-address'>Current address</h2>
                     <h3>{this.props.user.address}</h3>
 
+                    <br />
 
+                    <h2>Contact Info</h2>
+                    <h3>{this.props.user.email}</h3>
+                    <h3>{this.props.user.phoneNumber}</h3>
 
-                  <div id='packages-user-history'>
-                      
-                      <div id='pd-div'>
-                        <h3>Pending Deliveries</h3>
-                        <p id='paq-num'>{this.props.pending.length}</p>
-                      </div>
-
-                      <div id='pd-div'>
-                        <h3>Finished Deliveries</h3>
-                        <p id='paq-num'>{this.props.done.length}</p>
-                      </div>
-
-                  </div>
                 </div>
+
+
+
+                <div id='packages-user-history'>
+                    
+                    <div id='pd-div'>
+                      <h3>Pending Deliveries</h3>
+                      <p id='paq-num'>{this.props.pending.length}</p>
+                    </div>
+
+                    <div id='pd-div'>
+                      <h3>Finished Deliveries</h3>
+                      <p id='paq-num'>{this.props.done.length}</p>
+                    </div>
+
+                </div>
+
             </div>
           </div>
         </div>

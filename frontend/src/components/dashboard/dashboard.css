@@ -246,24 +246,41 @@
 
 #welcome-div{
     margin-left: 4%;
-    border: solid;
     padding: 0px;
     border-radius: 25px;
     width: 460px;
     text-align: center;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: linear-gradient(
+217deg
+, #c3cdd8, rgb(0, 67, 255, 0.35) 70.71%), linear-gradient(
+127deg
+, rgb(201 237 255), rgba(0,255,0,0) 70.71%), linear-gradient(
+336deg
+, #b6d1fd, rgba(17, 17, 151, 0) 70.71%)
 }
 
 #packages-user-history{
     display: flex;
     /* border: solid; */
     border-radius: 3px;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #pd-div{
     border: solid;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 15px;
     text-align: center;
+    height: 95px;
+}
+
+#paq-num{
+    font-size: 30px;
+    margin-top: -15px;
+    font-weight: bold;
 }

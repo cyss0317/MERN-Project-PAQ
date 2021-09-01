@@ -12,7 +12,7 @@ class Dashboard extends React.Component{
   
   componentDidMount() {
     this.props.fetchUserOrders(this.props.user._id);
-    this.props.fetchAllShipments(this.props.user._id)
+    this.props.fetchAllShipments(this.props.user._id);
   }
 
   render(){
@@ -59,7 +59,15 @@ class Dashboard extends React.Component{
               </div>
           </div>
 
-        </div >
+        </div>
+
+        <div id='welcome-div1'>
+              <div id='user-name-div'>
+                <h1 id='w-div-t'>Welcome {this.props.user.name}</h1>
+              </div>
+
+              
+        </div>
 
         </div>
       </div>

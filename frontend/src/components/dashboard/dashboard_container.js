@@ -10,6 +10,8 @@ const mSTP = ({shipments, session, users, orders }) => ({
   // owner: session.user.owner
   pending: Object.values(orders).filter(order => order.delivered === false),
   done: Object.values(orders).filter(order => order.delivered === true),
+  shipping: Object.values(shipments).filter(shipment => shipment.delivered === false),
+  shipped: Object.values(shipments).filter(shipment => shipment.delivered === true)
 })
 
 const mDTP = dispatch => ({

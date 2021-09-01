@@ -85,14 +85,18 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div id="main-log">
-        <div>
-          <form onSubmit={this.handleSubmit} id="log-form">
+
+          <div onSubmit={this.handleSubmit} id="log-form">
             
             <div id="log-side-photo">
               <img src="https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/mexico_day.jpeg?raw=true" id="log-photo"/>
+              <div id='demo-buttons'>
+                <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
+                <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
+              </div>
             </div>
             
-            <div id='log-inner'>
+            <form id='log-inner'>
               <h1 id='log-title'>Sign In</h1>
               <br/>
                 <input type="email"
@@ -113,12 +117,11 @@ class LoginForm extends React.Component {
               <br />
               {this.renderErrors()}
               <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
-            </div>
-          </form>
-        </div>
-            <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
 
-            <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
+
+            </form>
+          </div>
+
       </div>
     );
   }

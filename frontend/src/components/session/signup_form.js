@@ -107,9 +107,6 @@ class SignupForm extends React.Component {
             <br/>
             <input type="submit" value="Continue" id="sign-submit" onClick={this.update('switch')}/>
               <br />
-            <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
-            <br/>
-            <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
 
             {this.renderErrors()}
           <h4 id='already'>Already have an account? <Link to='/login'>‣ Log In</Link></h4>

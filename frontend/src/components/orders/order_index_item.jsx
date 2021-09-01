@@ -43,7 +43,7 @@ class UserOrderItem extends React.Component {
         let shipmentWeight = this.state.shipmentId
 
         if (answer) {
-            console.log("i am in the deleteHandler", shipmentWeight)
+
             console.log(this.props.order.shipmentId)
             let oldWeight = this.props.order.shipmentId.weight 
             let oldShipment = this.props.order.shipmentId 

@@ -24,6 +24,13 @@ class OrderForm extends React.Component {
   }
   componentDidMount(){
     this.props.fetchShipments(false)
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstLoad")) {
+        localStorage["firstLoad"] = true;
+        window.location.reload();
+      }
+      else localStorage.removeItem("firstLoad");
+    }
   }
 
   renderErrors() {
@@ -131,7 +138,7 @@ class OrderForm extends React.Component {
       // this.updateWeight()
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
       let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
-      console.log(order)
+
         this.props.createOrder(order)
         .then(order => this.props.updateShipment(updatedShipment))
         .then(alert("Order is successfully created")) 
@@ -139,7 +146,7 @@ class OrderForm extends React.Component {
     } else if (newWeight < 0.01){
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight, full: true })
       let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
-      console.log(order)
+
       this.props.createOrder(order)
         .then(order => this.props.updateShipment(updatedShipment))
         .then(alert("Order is successfully created"))

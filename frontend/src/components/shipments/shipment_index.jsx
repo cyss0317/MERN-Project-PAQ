@@ -53,7 +53,7 @@ class ShipmentIndex extends React.Component{
 
         } else {
             // Do nothing!
-            console.log('Something went wrong, try again');
+            return
         }
         // .then( shipment =>  alert("Successfully Added"), 
         // err => alert(`${err}`))

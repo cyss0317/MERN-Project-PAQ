@@ -80,7 +80,7 @@ class Dashboard extends React.Component{
                 </div>
 
               </div>
-                <h3>For More Info Click The Shipments Button</h3>
+                <h4>For More Info Click The Shipments Button</h4>
         </div>
 
         </div>

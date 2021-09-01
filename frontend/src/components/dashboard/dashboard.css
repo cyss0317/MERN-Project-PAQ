@@ -271,9 +271,9 @@
     background-color: #00528a;
     background-image: url(https://raw.githubusercontent.com/cyss0317/MERN-Project-PAQ/finalCss/frontend/src/css_images/back-plane.jpeg);
     background-size: 100% 50%;
-    background-position: 0px 368px;
+    background-position: 0px 397px;
     background-repeat: no-repeat;
-    /* gap: 20px; */
+    gap: 10px;
     padding-top: 12px;
 }
 

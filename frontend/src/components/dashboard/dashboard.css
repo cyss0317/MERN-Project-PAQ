@@ -254,16 +254,27 @@
     color: white;
     flex-direction: column;
     justify-content: space-evenly;
-    background: linear-gradient( 
-217deg
- , #c3cdd8, rgb(0, 67, 255, 0.35) 70.71%), linear-gradient( 
-127deg
- , rgb(201 237 255), rgba(0,255,0,0) 70.71%), linear-gradient( 
-336deg
- , #b6d1fd, rgba(17, 17, 151, 0) 70.71%);
-    background-image: url(https://i.pinimg.com/originals/cc/44/7e/cc447e450b7ca52d4a5576aeb1332197.jpg);
+    background-image: url(https://raw.githubusercontent.com/cyss0317/MERN-Project-PAQ/main/frontend/src/css_images/straight-up.jpeg);
     background-size: 140% 115%;
     background-position: -3px -69px;
+}
+#welcome-div1{
+    margin-left: 4%;
+    padding: 0px;
+    border-radius: 25px;
+    width: 460px;
+    text-align: center;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #00528a;
+    background-image: url(https://raw.githubusercontent.com/cyss0317/MERN-Project-PAQ/finalCss/frontend/src/css_images/back-plane.jpeg);
+    background-size: 100% 50%;
+    background-position: 0px 397px;
+    background-repeat: no-repeat;
+    gap: 10px;
+    padding-top: 12px;
 }
 
 #packages-user-history{
@@ -286,6 +297,11 @@
 #paq-num{
     font-size: 30px;
     margin-top: -15px;
+    font-weight: bold;
+}
+#paq-num1{
+    font-size: 30px;
+    margin-top: 5px;
     font-weight: bold;
 }
 

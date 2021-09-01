@@ -23,9 +23,9 @@ module.exports = function validateRegisterInput(data){
   // if(!Validator.equals(data.phoneNumber.length, 10)) {
   //   errors.phoneNumber = 'Phone number must include area code '
   // }
-//   if(!Validator.isEmail(data.email)){
-//     errors.email = 'Email is invalid';
-//   }
+  if(!Validator.isEmail(data.email)){
+    errors.email = 'Email is invalid';
+  }
 
   if(Validator.isEmpty(data.password)){
     errors.password = 'Password field is required';

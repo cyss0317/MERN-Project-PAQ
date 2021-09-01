@@ -37,21 +37,29 @@ class SMSForm extends React.Component {
     e.preventDefault();
     const message = Object.assign({}, this.state)
     this.props.sendMessage(message)
-    .then(this.setState(
-     {
-        to: '',
-        body: ''
-      },
-    ))
+    .then( alert('Your message was sent successfully!')) 
+    .then(this.props.history.push('/'))
+    // .then(this.setState(
+    //  {
+    //     to: '',
+    //     body: ''
+    //   },
+    // ))
   }
 
 
   render(){
     return(
       <div className='sms-container'>
+        <div style={{color: 'red', fontSize: '14px', fontWeight: '200'}}>
+          ***Disclaimer, due to Twilio services your phone number must be verified before 
+          being able to send out a message, I encourage you to use the mass text funtion to contact 
+          the developers. Best, the PAQ team***
+        </div>
+        
         <form onSubmit={this.handleSubmit} id="sms-form-container">
           {/* <label htmlFor='to'> To:</label> */}
-          <h1 id='text-form-title'>Notify Customer</h1>
+          <h1 id='text-form-title' style={{width: 'auto'}}>Notify Customer</h1>
           <div className='sms-form' >
             <input type='tel'
                     id='to'

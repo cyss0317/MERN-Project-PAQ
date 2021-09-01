@@ -25,12 +25,8 @@ class UserIndex extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
     const { orders, updateOrder, deleteOrder, fetchUserOrders, fetchShipments, updateShipment } = this.props; 
-=======
-    const { orders, updateOrder, deleteOrder, fetchUserOrders } = this.props; 
     // debugger
->>>>>>> main
     return( 
        
       <div id="main-container">

@@ -12,15 +12,21 @@ the orders.
 
 ### **Sign Up Demo**
 
-<iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p>
+<!-- ![Sign Up Demo](img src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270") -->
+<!-- <iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p> -->
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p>
 
 ### **Create Order Demo**
 
-<iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p>
+<!-- ![Create Order Demo](img src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270") -->
+<!-- <iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p> -->
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p>
 
 ### **Create Shipment Demo**
 
-<iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p>
+<!-- ![Create Shipment Demo](<img src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen />) -->
+<!-- <iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p> -->
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p>
 
 ### **Description:**
 

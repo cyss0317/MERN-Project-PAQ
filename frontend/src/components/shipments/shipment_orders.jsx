@@ -54,7 +54,7 @@ class ShipmentOrders extends React.Component {
             alert("It's already full, you can't add more orders")
             return;
         } else if ( currentDeliveredStatus === true){
-            alert("This shipment has been delivered, you can't add more oreders")
+            alert("This shipment has been delivered, you can't add more orders")
             return;
         }
         if (x.style.display === "none") {

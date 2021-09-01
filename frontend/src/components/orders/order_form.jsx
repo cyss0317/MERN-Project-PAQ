@@ -127,7 +127,7 @@ class OrderForm extends React.Component {
     } else if(this.state.weight.length === 0){
       alert("Please enter weight")
       return;
-    } else if (newWeight > 0 ) { 
+    } else if (newWeight > 0.01 ) { 
       // this.updateWeight()
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
       let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
@@ -136,7 +136,7 @@ class OrderForm extends React.Component {
         .then(order => this.props.updateShipment(updatedShipment))
         .then(alert("Order is successfully created")) 
         .then(this.props.history.push('/'))
-    } else if (newWeight === 0){
+    } else if (newWeight < 0.01){
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight, full: true })
       let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
       console.log(order)

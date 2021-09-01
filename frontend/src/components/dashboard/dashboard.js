@@ -66,7 +66,20 @@ class Dashboard extends React.Component{
                 <h1 id='w-div-t'>Welcome {this.props.user.name}</h1>
               </div>
 
-              
+                <h2>Current Shipments</h2>
+              <div id='packages-user-history'>
+                <div id='pd-div'>
+                  <h3>Pending Shipments</h3>
+                  <p id='paq-num'>{this.props.shipping.length}</p>
+                </div>
+
+                <div id='pd-div'>
+                  <h3>Shipments Done</h3>
+                  <p id='paq-num'>{this.props.shipped.length}</p>
+                </div>
+
+              </div>
+                <h3>For More Info Click The Shipments Button</h3>
         </div>
 
         </div>

@@ -254,7 +254,7 @@
     color: white;
     flex-direction: column;
     justify-content: space-evenly;
-    background-image: url(https://i.pinimg.com/originals/cc/44/7e/cc447e450b7ca52d4a5576aeb1332197.jpg);
+    background-image: url(https://raw.githubusercontent.com/cyss0317/MERN-Project-PAQ/main/frontend/src/css_images/straight-up.jpeg);
     background-size: 140% 115%;
     background-position: -3px -69px;
 }

@@ -73,9 +73,9 @@ class LoginForm extends React.Component {
   renderErrors() {
     return(
       <ul id='errors'>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`} id='error'>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -85,38 +85,43 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div id="main-log">
-        <form onSubmit={this.handleSubmit} id="log-form">
-          
-          <div id="log-side-photo">
-            <img src="https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/mexico_day.jpeg?raw=true" id="log-photo"/>
+
+          <div onSubmit={this.handleSubmit} id="log-form">
+            
+            <div id="log-side-photo">
+              <img src="https://github.com/cyss0317/MERN-Project-PAQ/blob/main/frontend/src/css_images/mexico_day.jpeg?raw=true" id="log-photo"/>
+              <div id='demo-buttons'>
+                <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
+                <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
+              </div>
+            </div>
+            
+            <form id='log-inner'>
+              <h1 id='log-title'>Sign In</h1>
+              <br/>
+                <input type="email"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  placeholder="Email"
+                  id='log-inputs'
+                />
+              <br/>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  placeholder="Password"
+                  id='log-inputs'
+                />
+              <br/>
+              <input type="submit" value="Submit" id="log-submit"/>
+              <br />
+              {this.renderErrors()}
+              <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
+
+
+            </form>
           </div>
-          
-          <div id='log-inner'>
-            <h1 id='log-title'>Sign In</h1>
-            <br/>
-              <input type="email"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-                id='log-inputs'
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-                id='log-inputs'
-              />
-            <br/>
-            <input type="submit" value="Submit" id="log-submit"/>
-            <br />
-            <button onClick={this.customerDemoUser} id="log-submit">Demo_customer</button>
-            <br />
-            <button onClick={this.ownerDemoUser} id="log-submit">Demo_owner</button>
-            {this.renderErrors()}
-            <h4 id='already1'>Don't have an account? <Link to='/signup'>‣ Sign Up</Link></h4>
-          </div>
-        </form>
+
       </div>
     );
   }

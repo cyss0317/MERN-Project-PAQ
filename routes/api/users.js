@@ -164,7 +164,6 @@ router.patch('/:_id/settings', (req,res) => {
       if(error){
         res.json(error)
       } else {
-        console.log(data)
         res.json(data)
       }
     }) 

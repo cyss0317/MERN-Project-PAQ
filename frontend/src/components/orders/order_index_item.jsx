@@ -39,11 +39,17 @@ class UserOrderItem extends React.Component {
     deleteHandler(e){
         e.preventDefault();
         const answer = window.confirm('Are you sure you want to delete this order?')
+        let orderWeight = this.state.weight
+        let shipmentWeight = this.state.shipmentId
+
         if (answer) {
-            let orderWeight = this.state.weight
-            let shipmentWeight = this.state.shipmentId
-            console.log("i am in the deleteHandler", shipmentWeight)
-            this.props.deleteOrder(this.props.order._id);
+
+            console.log(this.props.order.shipmentId)
+            let oldWeight = this.props.order.shipmentId.weight 
+            let oldShipment = this.props.order.shipmentId 
+            let newShipment = Object.assign({}, oldShipment, {weight: oldWeight + this.props.order.weight, full: false})
+            this.props.updateShipment(newShipment)
+                .then(this.props.deleteOrder(this.props.order._id));
         } else {
             return;
         }
@@ -71,13 +77,15 @@ class UserOrderItem extends React.Component {
     }
 
     render() {
+        // debugger
         if (this.state.delivered === true) {
+
             return (
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
-                        <input id="not-delivered" type='text' readOnly value={this.state.id} />
-                        <input id="not-delivered" type='text' readOnly value={this.state.price} />
-                        <input id="not-delivered" type='text' readOnly value={this.state.weight} />
+                        <input id="not-delivered" type='text' readOnly value={this.props.order.shipmentId.departure} />
+                        <input id="not-delivered" type='text' readOnly value={`$${Number.parseFloat(this.state.price).toFixed(2)}`} />
+                        <input id="not-delivered" type='text' readOnly value={`${Number.parseFloat(this.state.weight).toFixed(2)} lb`}  />
                         <input id="not-delivered" type='text' readOnly value={this.state.receiverName} />
                         <input id="not-delivered" type='text' readOnly value={this.state.description} />
                         
@@ -109,10 +117,10 @@ class UserOrderItem extends React.Component {
             return (
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
-                        <input id="not-delivered" type="text" readOnly value={this.state.id} />
-                        <input id="not-delivered" type="text" readOnly value={this.state.price} />
+                        <input id="not-delivered" type="text" readOnly value={this.props.order.shipmentId.departure} />
+                        <input id="not-delivered" type="text" readOnly value={`$${Number.parseFloat(this.state.price).toFixed(2)}`}  />
                         {/* <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} /> */}
-                        <input id="not-delivered" type="text" readOnly value={this.state.weight} />
+                        <input id="not-delivered" type="text" readOnly value={`${Number.parseFloat(this.state.weight).toFixed(2)} lb`} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" readOnly value={this.state.description} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">

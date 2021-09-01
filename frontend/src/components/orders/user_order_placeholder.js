@@ -61,13 +61,13 @@ class UserIndex extends React.Component {
   if (orders === undefined){
       return null;
   }
-  console.log(Object.values(orders))
+
   let userOrders = orders.map(order => {
     return Object.values(order)
   })
 
   return(
-    <div>
+    <div key={this.props.key}>
       {userOrders.map(order =>{
         return order 
       })}

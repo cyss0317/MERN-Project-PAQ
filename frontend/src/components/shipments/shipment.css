@@ -265,7 +265,7 @@ select:hover{
 
 #expand-button{
     width: 13.27%;
-    height: 32px;
+    /* height: 32px; */
     font-size: 18px;
     font-weight: bold;
     color: white;
@@ -296,7 +296,7 @@ select:hover{
 }
 
 #c-input{
-    width: 247px;
+    width: 246px;
     height: 26px;
     text-align: center;
     font-size: 18px;

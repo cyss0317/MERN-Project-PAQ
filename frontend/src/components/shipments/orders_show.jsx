@@ -8,7 +8,7 @@ class OrderShow extends React.Component {
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
-            weight: this.props.order.weight,
+            weight: Number.parseFloat(this.props.order.weight).toFixed(2),
             receiverName: this.props.order.receiverName,
             description: this.props.order.description,
             delivered: this.props.order.delivered,
@@ -21,17 +21,27 @@ class OrderShow extends React.Component {
         this.deleteHandler = this.deleteHandler.bind(this)
     }
 
+    // componentDidMount(){
+    //     this.props.fetchOrdersByShipmentId(this.props.shipmentId)
+    // }
+
     deleteHandler(e){
         e.preventDefault();
+        let shipment = this.props.shipment;
+        let fullOrNot = false;
+        let newWeight = shipment.weight + this.props.order.weight;
         const answer = window.confirm('Are you sure you want to delete this order from the database?')
-        if (answer) {
+        if (answer ) {
             // Save it!
-            console.log('Deleted the order successfully');
+            let newShipment = Object.assign({}, shipment, {full: fullOrNot, weight: newWeight})
+            
+
+            this.props.updateShipment(newShipment)
             this.props.deleteOrder(this.props.orderId);
             // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
         } else {
             // Do nothing!
-            console.log('');
+            return;
         }
         // this.updateOrder = this.props.updateOrder.bind(this)
     }
@@ -42,12 +52,12 @@ class OrderShow extends React.Component {
         const answer = window.confirm('Are you sure you want to confirm this changes to this order?')
         if (answer) {
             // Save it!
-            console.log('Successfully edited');
+
             this.props.updateOrder(this.state)
             .then(order => this.props.fetchOrdersByShipmentId(this.props.shipmentId))
         } else {
             // Do nothing!
-            console.log("")
+            return;
         }
 
         // .then(this.setState({}))
@@ -63,7 +73,7 @@ class OrderShow extends React.Component {
     render() {
         if (this.state.delivered === true) {
             return (
-                <div id="edit-container">
+                <div  id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
                         <input id="not-delivered" type='text' readOnly value={this.state.id} />
                         <input id="not-delivered" type='text' readOnly value={this.state.price} />
@@ -97,7 +107,7 @@ class OrderShow extends React.Component {
             )
         } else {
             return (
-                <div align="center" id="edit-container">
+                <div  align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" readOnly type="text" value={this.state.id} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("price", e)} value={this.state.price} />

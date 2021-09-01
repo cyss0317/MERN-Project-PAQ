@@ -36,6 +36,13 @@ class userUpdateForm extends React.Component {
   
   componentDidMount(){
     this.props.fetchUser()
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstLoad")) {
+        localStorage["firstLoad"] = true;
+        window.location.reload();
+      }
+      else localStorage.removeItem("firstLoad");
+    }
       // .then(() => {
       //   console.log(this.props) 
       //   this.state = {

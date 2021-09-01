@@ -110,3 +110,11 @@ display: flex;
     text-decoration: none;
     color: #f0ac11;
 }
+
+#demo-buttons{
+    position: relative;
+    display: flex;
+    margin-left: 119%;
+    margin-top: -65px;
+    gap: 15px;
+}

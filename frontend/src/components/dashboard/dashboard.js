@@ -10,6 +10,10 @@ class Dashboard extends React.Component{
 
   }
   
+  componentDidMount() {
+    this.props.fetchUserOrders(this.props.user._id);
+    this.props.fetchAllShipments(this.props.user._id);
+  }
 
   render(){
     return this.props.user.businessOwner ?
@@ -55,7 +59,29 @@ class Dashboard extends React.Component{
               </div>
           </div>
 
-        </div >
+        </div>
+
+        <div id='welcome-div1'>
+              <div id='user-name-div'>
+                <h1 id='w-div-t'>Welcome {this.props.user.name}</h1>
+              </div>
+
+              <h2>Current Shipments <p id='paq-num1'>{this.props.total.length}</p></h2>
+               
+              <div id='packages-user-history'>
+                <div id='pd-div'>
+                  <h3>Pending Shipments</h3>
+                  <p id='paq-num'>{this.props.shipping.length}</p>
+                </div>
+
+                <div id='pd-div'>
+                  <h3>Shipments Done</h3>
+                  <p id='paq-num'>{this.props.shipped.length}</p>
+                </div>
+
+              </div>
+                <h4>For More Info Click The Shipments Button</h4>
+        </div>
 
         </div>
       </div>
@@ -104,6 +130,42 @@ class Dashboard extends React.Component{
 
             </div >
 
+            <div id='welcome-div'>
+                <div id='user-name-div'>
+                    <h1 id='w-div-t'>Welcome {this.props.user.name}</h1>
+                </div>
+                
+                <div id='user-info-dash'> 
+
+
+                    <h2 id='dash-address'>Current address</h2>
+                    <h3>{this.props.user.address}</h3>
+
+                    <br />
+
+                    <h2>User Contact Info</h2>
+                    <h3>{this.props.user.email}</h3>
+                    <h3>{this.props.user.phoneNumber}</h3>
+
+                </div>
+
+
+
+                <div id='packages-user-history'>
+                    
+                    <div id='pd-div'>
+                      <h3>Pending Orders</h3>
+                      <p id='paq-num'>{this.props.pending.length}</p>
+                    </div>
+
+                    <div id='pd-div'>
+                      <h3>Delivered Orders</h3>
+                      <p id='paq-num'>{this.props.done.length}</p>
+                    </div>
+
+                </div>
+
+            </div>
           </div>
         </div>
       )

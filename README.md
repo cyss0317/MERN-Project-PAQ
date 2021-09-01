@@ -12,21 +12,15 @@ the orders.
 
 ### **Sign Up Demo**
 
-<!-- ![Sign Up Demo](img src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270") -->
-<!-- <iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p> -->
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="450" height="240" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p>
+<iframe src="https://media3.giphy.com/media/s4HsuRHmfXNWh6Phie/giphy.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ### **Create Order Demo**
 
-<!-- ![Create Order Demo](img src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270") -->
-<!-- <iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p> -->
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="450" height="240" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p>
+<iframe src="https://media3.giphy.com/media/RuDdrIlv2GEBGuEQM0/giphy.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ### **Create Shipment Demo**
 
-<!-- ![Create Shipment Demo](<img src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen />) -->
-<!-- <iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p> -->
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="450" height="240" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p>
+<iframe src="https://media0.giphy.com/media/Dqmb2OgfOucxq6p5Dd/giphy.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ### **Description:**
 

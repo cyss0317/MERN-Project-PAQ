@@ -84,14 +84,8 @@ class OrderForm extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     })
-    
   }
 
-  // weightCheck(){
-  //   if(this.state.weight > this.props.BOId[this.state.shipmentId].weight){
-  //     alert('Your shipment weight exceeds, the available weight')
-  //   } else{
-  //     this.handleSubmit()
   // updateWeight() {
   //   let shipment = this.props.BOId[this.state.shipmentId]
   //   let newWeight = (shipment.weight - this.state.weight)
@@ -104,41 +98,21 @@ class OrderForm extends React.Component {
   // }
 
 
-  // handleSubmit(e) {
-  //   e.preventDefault()
-
-
-  //   let businessId = "";
-  //   if (this.state.shipmentId.length === 0) {
-  //     alert("Please pick a departure date")
-  //     return;
-  //   } else if ( this.state.shipmentId === "I'm sorry"){
-  //     alert("I'm sorry, there are no available shipments")
-  //     this.props.history.push("/")
-  //     return;
-  //   } else {
-  //     businessId = this.props.BOId[this.state.shipmentId].userId._id
-  //   }
-  // }
-
-  
-  
-
   handleSubmit(e) {
-    // e.preventDefault()
-
-    let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
+    e.preventDefault()
 
 
-    this.props.createOrder(order)
-      .then(this.updateWeight())
-    // let businessId = "";
-    // if (this.state.shipmentId.length === 0) {
-    //   alert("Please pick a departure date")
-    //   return;
-    // } else {
-    //   businessId = this.props.BOId[this.state.shipmentId].userId._id
-    // }
+    let businessId = "";
+    if (this.state.shipmentId.length === 0) {
+      alert("Please pick a departure date")
+      return;
+    } else if ( this.state.shipmentId === "I'm sorry"){
+      alert("I'm sorry, there are no available shipments")
+      this.props.history.push("/")
+      return;
+    } else {
+      businessId = this.props.BOId[this.state.shipmentId].userId._id
+    }
 
     let shipment = this.props.BOId[this.state.shipmentId]
     let newWeight = (shipment.weight - this.state.weight)
@@ -146,24 +120,13 @@ class OrderForm extends React.Component {
     
     // let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
     // let order = Object.assign({}, this.state, {businessOwnerId: businessId })
-    // if (this.state.receiverName.length === 0){
-    //   alert("Please enter receiver's name")
-    // } else if (this.updateWeight() !== false) { 
-    //   this.updateWeight()
-    //     this.props.createOrder(order)
-    //     .then(alert("Order is successfully created")) 
-    //     .then(this.props.history.push('/'))
-    // } else if (this.state.description.length === 0){
-    //   alert("Please write description")
-    // }  else{
-    //   alert("Over exceeded the available amount, please try again")
-    // // this.props.createOrder(order)
-    // //   .then(this.updateWeight())
-    // }
     if (this.state.receiverName.length === 0){
       alert("Please enter receiver's name")
       return;
     // } else if (this.updateWeight() !== false) { 
+    } else if(this.state.weight.length === 0){
+      alert("Please enter weight")
+      return;
     } else if (newWeight > 0 ) { 
       // this.updateWeight()
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
@@ -226,14 +189,14 @@ class OrderForm extends React.Component {
     if(this.props.shipments.length === 0) return null; 
     return (
       <div className="create-order-form-container">
-         {this.renderErrors()}
+
         <div className="create-order-form-title">
           <div className="create-order-form-label">Create Order</div>
         </div>
 
         <div className="create-order-form-box">
 
-          <form onSubmit={this.handleSubmit}  id='order-form'>
+          <form onSubmit={this.handleSubmit} id='order-form'>
 
             <div id='left-order'>
               <div className="create-order-input">
@@ -309,8 +272,6 @@ class OrderForm extends React.Component {
 
               <div className="create-order-button-container">
 
-                {/* <button className="create-post-form-button" disabled={this.state.shipmentId === '' ? true : false }
-                  onClick={() => this.weightCheck()}>Reserve your spot</button> */}
                 <button className="create-post-form-button">Reserve your spot</button>
               
               </div>

@@ -46,12 +46,15 @@ class ShipmentOrders extends React.Component {
         this.setState({ [field]: e.currentTarget.value })
 
     }
-    expandFunction(currentStatus, e) {
+    expandFunction(currentFullStatus, currentDeliveredStatus, e) {
 
         // e.preventDefault();
         var x = document.getElementById("create-shipment");
-        if ( currentStatus === true) {
-            alert("It's already full, you can't create orders")
+        if ( currentFullStatus === true ) {
+            alert("It's already full, you can't add more orders")
+            return;
+        } else if ( currentDeliveredStatus === true){
+            alert("This shipment has been delivered, you can't add more orders")
             return;
         }
         if (x.style.display === "none") {
@@ -100,7 +103,8 @@ class ShipmentOrders extends React.Component {
     }
 
     render() {
-        let currentStatus = this.props.shipments[this.props.shipmentId].full
+        let currentFullStatus = this.props.shipments[this.props.shipmentId].full
+        let currentDeliveredStatus = this.props.shipments[this.props.shipmentId].delivered
         const { currentUser, shipments, orders } = this.props;
         // if ( orders === undefined ){
         //     return null;
@@ -121,7 +125,7 @@ class ShipmentOrders extends React.Component {
                         {/* <h3>Available Shipment Weight : {Math.round(((this.props.shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3> */}
                         <h3>Available Shipment Weight : {Number.parseFloat(this.props.shipments[this.props.shipmentId].weight).toFixed(2)} lb</h3>
                         <div id='create-div'>
-                            <button id="expand-button" className="all-buttons" onClick={ e => this.expandFunction(currentStatus, e)}>Create a new order</button>
+                            <button id="expand-button" className="all-buttons" onClick={ e => this.expandFunction(currentFullStatus, currentDeliveredStatus, e)}>Create a new order</button>
                             <div id="create-shipment">
                                 <form id="create-form" onSubmit={this.handleSubmit} >
                                     {/* onChange={(e) => this.onChangeHandler("price", e)} */}

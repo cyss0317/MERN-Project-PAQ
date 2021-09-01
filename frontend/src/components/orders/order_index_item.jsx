@@ -44,7 +44,12 @@ class UserOrderItem extends React.Component {
 
         if (answer) {
             console.log("i am in the deleteHandler", shipmentWeight)
-            this.props.deleteOrder(this.props.order._id);
+            console.log(this.props.order.shipmentId)
+            let oldWeight = this.props.order.shipmentId.weight 
+            let oldShipment = this.props.order.shipmentId 
+            let newShipment = Object.assign({}, oldShipment, {weight: oldWeight + this.props.order.weight, full: false})
+            this.props.updateShipment(newShipment)
+                .then(this.props.deleteOrder(this.props.order._id));
         } else {
             return;
         }

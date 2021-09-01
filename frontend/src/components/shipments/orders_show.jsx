@@ -8,7 +8,7 @@ class OrderShow extends React.Component {
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
-            weight: this.props.order.weight,
+            weight: Number.parseFloat(this.props.order.weight).toFixed(2),
             receiverName: this.props.order.receiverName,
             description: this.props.order.description,
             delivered: this.props.order.delivered,

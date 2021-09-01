@@ -12,15 +12,15 @@ the orders.
 
 ### **Sign Up Demo**
 
-<iframe src="https://media3.giphy.com/media/s4HsuRHmfXNWh6Phie/giphy.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://media3.giphy.com/media/s4HsuRHmfXNWh6Phie/giphy.gif" width="480" height="270" frameBorder="0" allowFullScreen></iframe>
 
 ### **Create Order Demo**
 
-<iframe src="https://media3.giphy.com/media/RuDdrIlv2GEBGuEQM0/giphy.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://media3.giphy.com/media/RuDdrIlv2GEBGuEQM0/giphy.gif" width="480" height="270" frameBorder="0" allowFullScreen></iframe>
 
 ### **Create Shipment Demo**
 
-<iframe src="https://media0.giphy.com/media/Dqmb2OgfOucxq6p5Dd/giphy.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://media0.giphy.com/media/Dqmb2OgfOucxq6p5Dd/giphy.gif" width="480" height="270" frameBorder="0" allowFullScreen></iframe>
 
 ### **Description:**
 

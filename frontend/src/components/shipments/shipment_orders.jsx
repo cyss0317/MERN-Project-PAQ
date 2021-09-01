@@ -50,7 +50,7 @@ class ShipmentOrders extends React.Component {
 
         // e.preventDefault();
         var x = document.getElementById("create-shipment");
-        if ( currentStatus === true) {
+        if (currentStatus === true) {
             alert("It's already full, you can't create orders")
             return;
         }
@@ -74,10 +74,10 @@ class ShipmentOrders extends React.Component {
         // if ( oldShipment.full === true){
         //     alert("It's already full")
         // } else 
-        if(this.state.weight === 0 || this.state.receiverName.length === 0 || this.state.description.length === 0 ){
+        if (this.state.weight === 0 || this.state.receiverName.length === 0 || this.state.description.length === 0) {
             alert("please fill out every inputs")
             return;
-        }else if (newWeight > 0) {
+        } else if (newWeight > 0) {
 
         }
         else if (newWeight === 0) {
@@ -100,6 +100,8 @@ class ShipmentOrders extends React.Component {
     }
 
     render() {
+
+        if ( !Object.keys(this.props.shipments).length ) return null;
         let currentStatus = this.props.shipments[this.props.shipmentId].full
         const { currentUser, shipments, orders } = this.props;
         // if ( orders === undefined ){
@@ -121,7 +123,7 @@ class ShipmentOrders extends React.Component {
                         {/* <h3>Available Shipment Weight : {Math.round(((this.props.shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3> */}
                         <h3>Available Shipment Weight : {Number.parseFloat(this.props.shipments[this.props.shipmentId].weight).toFixed(2)} lb</h3>
                         <div id='create-div'>
-                            <button id="expand-button" className="all-buttons" onClick={ e => this.expandFunction(currentStatus, e)}>Create a new order</button>
+                            <button id="expand-button" className="all-buttons" onClick={e => this.expandFunction(currentStatus, e)}>Create a new order</button>
                             <div id="create-shipment">
                                 <form id="create-form" onSubmit={this.handleSubmit} >
                                     {/* onChange={(e) => this.onChangeHandler("price", e)} */}
@@ -155,7 +157,7 @@ class ShipmentOrders extends React.Component {
                             {
                                 orders.map((order) => (
                                     <div key={order._id}>
-                                        <OrderShow updateOrder={this.props.updateOrder} shipment={this.props.shipments[this.props.shipmentId]}  updateShipment={this.props.updateShipment} shipmentId={this.props.shipmentId}
+                                        <OrderShow updateOrder={this.props.updateOrder} shipment={this.props.shipments[this.props.shipmentId]} updateShipment={this.props.updateShipment} shipmentId={this.props.shipmentId}
                                             fetchOrdersByShipmentId={this.props.fetchOrdersByShipmentId}
                                             deleteOrder={this.props.deleteOrder} key={order._id} order={order} orderId={order._id} />
                                     </div>

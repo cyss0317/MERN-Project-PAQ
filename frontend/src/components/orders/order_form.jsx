@@ -124,6 +124,9 @@ class OrderForm extends React.Component {
       alert("Please enter receiver's name")
       return;
     // } else if (this.updateWeight() !== false) { 
+    } else if(this.state.weight.length === 0){
+      alert("Please enter weight")
+      return;
     } else if (newWeight > 0 ) { 
       // this.updateWeight()
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight })

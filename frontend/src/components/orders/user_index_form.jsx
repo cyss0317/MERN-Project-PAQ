@@ -36,8 +36,8 @@ class UserIndex extends React.Component {
           <h1 id='table-title'>List of orders</h1>
           <div id="table-columns-order">
               <p id="p3">Departure</p>
-              <p id="p2">Price</p>
-              <p id="p2">Weight</p>
+              <p id="p2">Price($)</p>
+              <p id="p2">Weight(lb)</p>
               <p id="p2">ReceiverName</p>
               <p id="p2">Description</p>
               <p id="p2">delivered</p>

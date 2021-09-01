@@ -49,7 +49,8 @@ class OrderForm extends React.Component {
     for(let i =0; i < info.length ; i++){
       values.push(
         <option key={info[i]._id} value={info[i]._id}> 
-          {`${info[i].departure}, Available weight: ${Math.round((info[i].weight * 100) / 100).toFixed(2)}lb`}
+          {/* {`${info[i].departure}, Available weight: ${Math.round((info[i].weight * 100) / 100).toFixed(2)}lb`} */}
+          {`${info[i].departure}, Available weight: ${Number.parseFloat(info[i].weight).toFixed(2)} lb`}
         </option>
       ) 
     }

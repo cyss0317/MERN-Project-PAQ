@@ -79,8 +79,8 @@ class UserOrderItem extends React.Component {
                 <div id="edit-container">
                     <form onSubmit={this.onClickSubmit} id="info-container">
                         <input id="not-delivered" type='text' readOnly value={this.props.order.shipmentId.departure} />
-                        <input id="not-delivered" type='text' readOnly value={this.state.price} />
-                        <input id="not-delivered" type='text' readOnly value={this.state.weight} />
+                        <input id="not-delivered" type='text' readOnly value={`$${this.state.price}`} />
+                        <input id="not-delivered" type='text' readOnly value={`${this.state.weight} lb`}  />
                         <input id="not-delivered" type='text' readOnly value={this.state.receiverName} />
                         <input id="not-delivered" type='text' readOnly value={this.state.description} />
                         
@@ -113,9 +113,9 @@ class UserOrderItem extends React.Component {
                 <div align="center" id="edit-container">
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" type="text" readOnly value={this.props.order.shipmentId.departure} />
-                        <input id="not-delivered" type="text" readOnly value={this.state.price} />
+                        <input id="not-delivered" type="text" readOnly value={`$${this.state.price}`}  />
                         {/* <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} /> */}
-                        <input id="not-delivered" type="text" readOnly value={this.state.weight} />
+                        <input id="not-delivered" type="text" readOnly value={`${this.state.weight} lb`} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" readOnly value={this.state.description} />
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">

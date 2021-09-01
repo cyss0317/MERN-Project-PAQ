@@ -26,6 +26,7 @@ class UserIndex extends React.Component {
 
   render() {
     const { orders, updateOrder, deleteOrder, fetchUserOrders, fetchShipments, updateShipment } = this.props; 
+
     return( 
        
       <div id="main-container">

@@ -271,10 +271,10 @@
     background-color: #00528a;
     background-image: url(https://media.istockphoto.com/photos/commercial-jet-flying-over-clouds-picture-id155380716?k=20&m=155380716&s=170667a&w=0&h=mlXhrHowiTVbvQuxoF-JOD5-eD1NbaUrrdohG8zXvLI=);
     background-size: 100% 50%;
-    background-position: 0px 357px;
+    background-position: 0px 368px;
     background-repeat: no-repeat;
-    gap: 20px;
-    padding-top: 10px;
+    /* gap: 20px; */
+    padding-top: 12px;
 }
 
 #packages-user-history{
@@ -297,6 +297,11 @@
 #paq-num{
     font-size: 30px;
     margin-top: -15px;
+    font-weight: bold;
+}
+#paq-num1{
+    font-size: 30px;
+    margin-top: 5px;
     font-weight: bold;
 }
 

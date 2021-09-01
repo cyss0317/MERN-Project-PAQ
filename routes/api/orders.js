@@ -16,18 +16,11 @@ router.get("/test", (req, res) => {
 //might have to change the route
 router.get('/user/:userId', (req, res) => {
 
-  // Order.find({ customerId: req.params.user_id })
-  //   .sort ({ date: -1 })
-  //   .then(orders => res.json(orders))
-  //   .catch(err =>
-  //     res.status(404).json({ noordersfound: "No orders found from this user" }
-  //     )
-  //   );
-
   const order = Order.find({ customerId: req.params.userId})
   .sort({delivered: false})
   .populate("customerId")
   .populate("order")
+  .populate("shipmentId")
   .exec()
     .then(orders => res.json(orders))
     .catch(err => res.status(404).json(err))
@@ -39,7 +32,7 @@ router.get('/shipment/:shipmentId', (req, res) => {
     .sort({delivered: false})  
     .populate("customerId")
     .populate("businessOwnerId")
-    // .populate("shipmentId")
+    .populate("shipmentId")
     .exec()
     .then(orders => res.json(orders))
     .catch(err =>
@@ -62,11 +55,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/',
 (req, res) => {
-  // const { errors, isValid } = validateOrderInput(req.body);
+  const { errors, isValid } = validateOrderInput(req.body);
   
-  //   if (!isValid) {
-  //     return res.status(400).json(errors);
-  //   }
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
 
     const newOrder = new Order({
       price: req.body.price,
@@ -77,12 +70,32 @@ router.post('/',
       businessOwnerId: req.body.businessOwnerId,
       customerId: req.body.customerId,
       shipmentId: req.body.shipmentId
-    });
+    })
+    newOrder.save().then((order,error) => {
+      if(error){
+        return res.json(error)
+      }else{
+        res.json(order);
+      }
+    }) 
+  })
+    //   if(newOrder.save()){
+    //     res.json({
+    //       success:true 
+    //     })
+    //   } else {
+    //     return res.status(400).json({shipmentId: 'Please indicate a shipping data'})
+    //   }
+    // })
     
+  // if(newOrder.save()){
+  //   return order => res.json(order)
+  // }else{
+  //  return err => res.json(err)
+  // }    
 
-    newOrder.save().then(order => res.json(order));
-  }
-);
+    
+// );
 
 router.delete('/:id', (req, res) => {
   Order.findOneAndRemove({_id: req.params.id}, (err) => {

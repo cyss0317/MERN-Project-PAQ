@@ -19,7 +19,7 @@ class OrderForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.shipmentInfo = this.shipmentInfo.bind(this); 
-    this.updateWeight = this.updateWeight.bind(this);
+    // this.updateWeight = this.updateWeight.bind(this);
 
   }
   componentDidMount(){
@@ -47,13 +47,20 @@ class OrderForm extends React.Component {
 
     let values = []; 
     for(let i =0; i < info.length ; i++){
+      if(info[i].full === false && info[i].delivered === false && info[i].weight !== 0){
       values.push(
         <option key={info[i]._id} value={info[i]._id}> 
-          {`${info[i].departure}, Available weight: ${Math.round((info[i].weight * 100) / 100).toFixed(2)}lb`}
+          {/* {`${info[i].departure}, Available weight: ${Math.round((info[i].weight * 100) / 100).toFixed(2)}lb`} */}
+          {`${info[i].departure}, Available weight: ${Number.parseFloat(info[i].weight).toFixed(2)} lb`}
         </option>
       ) 
     }
-    return values; 
+    }
+    if( values.length !== 0){
+      return values; 
+    } else {
+      return <option value={"I'm sorry"}>I'm sorry, no shipments available</option>
+    }
   }
   
 
@@ -61,7 +68,8 @@ class OrderForm extends React.Component {
     
     if (field === 'weight') {
       return e => this.setState({
-        price: `${Math.round(((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
+        // price: `${Math.round(((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
+        price: `${Number.parseFloat(e.currentTarget.value * 3.0).toFixed(2) }`,
         weight: e.currentTarget.value
       })
     }
@@ -78,30 +86,70 @@ class OrderForm extends React.Component {
     })
   }
 
+  // updateWeight() {
+  //   let shipment = this.props.BOId[this.state.shipmentId]
+  //   let newWeight = (shipment.weight - this.state.weight)
+  //   if (newWeight > 0) {
+  //     let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
+  //     this.props.updateShipment(updatedShipment)
+  //   } else {
+  //     return false
+  //   }
+  // }
+
+
   handleSubmit(e) {
     e.preventDefault()
+
+
     let businessId = "";
     if (this.state.shipmentId.length === 0) {
       alert("Please pick a departure date")
+      return;
+    } else if ( this.state.shipmentId === "I'm sorry"){
+      alert("I'm sorry, there are no available shipments")
+      this.props.history.push("/")
       return;
     } else {
       businessId = this.props.BOId[this.state.shipmentId].userId._id
     }
 
+    let shipment = this.props.BOId[this.state.shipmentId]
+    let newWeight = (shipment.weight - this.state.weight)
+
     
     // let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
-    let order = Object.assign({}, this.state, {businessOwnerId: businessId })
+    // let order = Object.assign({}, this.state, {businessOwnerId: businessId })
     if (this.state.receiverName.length === 0){
       alert("Please enter receiver's name")
-    } else if (this.updateWeight() !== false) { 
-      this.updateWeight()
+      return;
+    // } else if (this.updateWeight() !== false) { 
+    } else if(this.state.weight.length === 0){
+      alert("Please enter weight")
+      return;
+    } else if (newWeight > 0 ) { 
+      // this.updateWeight()
+      let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
+      let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
+      console.log(order)
         this.props.createOrder(order)
+        .then(order => this.props.updateShipment(updatedShipment))
         .then(alert("Order is successfully created")) 
+        .then(this.props.history.push('/'))
+    } else if (newWeight === 0){
+      let updatedShipment = Object.assign({}, shipment, { weight: newWeight, full: true })
+      let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
+      console.log(order)
+      this.props.createOrder(order)
+        .then(order => this.props.updateShipment(updatedShipment))
+        .then(alert("Order is successfully created"))
         .then(this.props.history.push('/'))
     } else if (this.state.description.length === 0){
       alert("Please write description")
+      return;
     }  else{
       alert("Over exceeded the available amount, please try again")
+      return
     // this.props.createOrder(order)
     //   .then(this.updateWeight())
     }
@@ -134,21 +182,7 @@ class OrderForm extends React.Component {
   //   }
   // }
 
-updateWeight(){
-  // let shipment = this.props.BOId[this.state.shipmentId]
-  // let newWeight = (shipment.weight - this.state.weight)
-  // let updatedShipment = Object.assign({}, shipment, {weight: newWeight})
-  // this.props.updateShipment(updatedShipment) 
-  let shipment = this.props.BOId[this.state.shipmentId]
-  let newWeight = (shipment.weight - this.state.weight)
-  // newWeight = newWeight > 0 ? newWeight : shipment.weight
-  if( newWeight > 0 ){
-    let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
-    this.props.updateShipment(updatedShipment)
-  } else {
-    return false
-  }
-}
+
 
   render() {
 

@@ -35,9 +35,9 @@ class UserIndex extends React.Component {
       <div id='table-main'>
           <h1 id='table-title'>List of orders</h1>
           <div id="table-columns-order">
-              <p id="p3">Order number</p>
-              <p id="p2">Price</p>
-              <p id="p2">Weight</p>
+              <p id="p3">Departure</p>
+              <p id="p2">Price($)</p>
+              <p id="p2">Weight(lb)</p>
               <p id="p2">ReceiverName</p>
               <p id="p2">Description</p>
               <p id="p2">delivered</p>
@@ -45,13 +45,12 @@ class UserIndex extends React.Component {
 
           <div>
               {
-                  orders.map((order, index) => (
-                      <div>
-                          <UserOrderItem updateOrder={updateOrder} deleteOrder={deleteOrder} fetchUserOrders={fetchUserOrders}
-                           fetchShipments={fetchShipments} updateShipment={updateShipment}key={order._id} order={order} />
-                      </div>
-                  ))
-
+                orders.map((order, index) => (
+                  <div key={order._id}>
+                        <UserOrderItem updateOrder={updateOrder} deleteOrder={deleteOrder} fetchUserOrders={fetchUserOrders}
+                          fetchShipments={fetchShipments} updateShipment={updateShipment} key={order._id} order={order} />
+                    </div>
+                ))
               }
           </div>
       </div>

@@ -5,11 +5,8 @@ import { updateShipment, fetchShipment, fetchAllShipments } from "../../actions/
 
 const mSTP = (state, ownProps) => ({
     currentUserId: state.session.user._id,
-    // shipments: Object.values(state.shipments)[0],
-    // shipments: Object.values(state.shipments),
     shipment: state.shipments[ownProps.match.params.shipmentId],
     shipments: state.shipments,
-    // shipment: Object.values(state.shipments).findById(ownProps.match.params.shipmentId),
     shipmentId: ownProps.match.params.shipmentId,
     orders: Object.values(state.orders)
 })

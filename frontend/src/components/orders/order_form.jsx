@@ -1,4 +1,4 @@
-// import e from 'express';
+
 import React from 'react';
 import orderCreate from './order_create.css'
 
@@ -19,7 +19,6 @@ class OrderForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.shipmentInfo = this.shipmentInfo.bind(this);
-    // this.updateWeight = this.updateWeight.bind(this);
 
   }
   componentDidMount() {
@@ -57,7 +56,7 @@ class OrderForm extends React.Component {
       if (info[i].full === false && info[i].delivered === false && info[i].weight !== 0) {
         values.push(
           <option key={info[i]._id} value={info[i]._id}>
-            {/* {`${info[i].departure}, Available weight: ${Math.round((info[i].weight * 100) / 100).toFixed(2)}lb`} */}
+
             {`${info[i].departure}, Available weight: ${Number.parseFloat(info[i].weight).toFixed(2)} lb`}
           </option>
         )
@@ -75,7 +74,6 @@ class OrderForm extends React.Component {
 
     if (field === 'weight') {
       return e => this.setState({
-        // price: `${Math.round(((e.currentTarget.value * 3.0) * 100 )/ 100 ).toFixed(2) }`,
         price: `${Number.parseFloat(e.currentTarget.value * 3.0).toFixed(2)}`,
         weight: e.currentTarget.value
       })
@@ -93,16 +91,7 @@ class OrderForm extends React.Component {
     })
   }
 
-  // updateWeight() {
-  //   let shipment = this.props.BOId[this.state.shipmentId]
-  //   let newWeight = (shipment.weight - this.state.weight)
-  //   if (newWeight > 0) {
-  //     let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
-  //     this.props.updateShipment(updatedShipment)
-  //   } else {
-  //     return false
-  //   }
-  // }
+
 
 
   handleSubmit(e) {
@@ -125,17 +114,15 @@ class OrderForm extends React.Component {
     let newWeight = (shipment.weight - this.state.weight)
 
 
-    // let order = Object.assign({}, this.state, {businessOwnerId: this.props.BOId[this.state.shipmentId].userId._id })
-    // let order = Object.assign({}, this.state, {businessOwnerId: businessId })
+
     if (this.state.receiverName.length === 0) {
       alert("Please enter receiver's name")
-      return;
-      // } else if (this.updateWeight() !== false) { 
+      return; 
     } else if (this.state.weight.length === 0) {
       alert("Please enter weight")
       return;
     } else if (newWeight > 0.1) {
-      // this.updateWeight()
+
       let updatedShipment = Object.assign({}, shipment, { weight: newWeight })
       let order = Object.assign({}, this.state, { businessOwnerId: businessId, weight: this.state.weight })
 
@@ -157,8 +144,6 @@ class OrderForm extends React.Component {
     } else {
       alert("Over exceeded the available amount, please try again")
       return
-      // this.props.createOrder(order)
-      //   .then(this.updateWeight())
     }
     this.setState({
       price: '',
@@ -172,23 +157,6 @@ class OrderForm extends React.Component {
     })
 
   }
-
-  // renderErrors() {
-  //   if (!this.props.errors) {
-  //     return null
-  //   } else {
-  //     return (
-  //       <ul className='errors'>
-  //         {this.props.errors.map((error, i) => (
-  //           <li key={`error-${i}`}>
-  //             {error}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     );
-  //   }
-  // }
-
 
 
   render() {

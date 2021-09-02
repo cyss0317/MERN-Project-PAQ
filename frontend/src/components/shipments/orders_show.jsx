@@ -15,8 +15,6 @@ class OrderShow extends React.Component {
             businessOwnerId: this.props.currentUserId,
             shipmentId: this.props.shipmentId
         }
-
-        // this.onClickSubmit = this.props.onClickSubmit.bind(this)
         this.onClickSubmit = this.onClickSubmit.bind(this)
         this.deleteHandler = this.deleteHandler.bind(this)
     }
@@ -28,16 +26,12 @@ class OrderShow extends React.Component {
         let newWeight = shipment.weight + this.props.order.weight;
         const answer = window.confirm('Are you sure you want to delete this order from the database?')
         if (answer ) {
-            // Save it!
             let newShipment = Object.assign({}, shipment, {full: fullOrNot, weight: newWeight})
             this.props.updateShipment(newShipment)
             this.props.deleteOrder(this.props.orderId);
-            // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
         } else {
-            // Do nothing!
             return;
         }
-        // this.updateOrder = this.props.updateOrder.bind(this)
     }
 
     onClickSubmit(e) {
@@ -45,15 +39,11 @@ class OrderShow extends React.Component {
         e.preventDefault();
         const answer = window.confirm('Are you sure you want to confirm this changes to this order?')
         if (answer) {
-            // Save it!
             this.props.updateOrder(this.state)
             .then(order => this.props.fetchOrdersByShipmentId(this.props.shipmentId))
         } else {
-            // Do nothing!
             return;
         }
-
-        // .then(this.setState({}))
     }
 
 
@@ -77,23 +67,10 @@ class OrderShow extends React.Component {
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>
                         </select>
-                        {/* <button  onClick={this.deleteHandler} >Delete</button> */}
-                        {/* <input id="not-delivered" type='text' defaultV{this.state.id} </input> 
-                        <input id="not-delivered" type='text' defaultV{this.state.departure} </input>
-                        <input id="not-delivered" type='text' defaultV{JSON.stringify(this.state.weight)} </input>
-                        <input id="not-delivered" type='text' defaultV{JSON.stringify(this.state.full)} </input>
-                        <input id="not-deliveredG" type='text' defaultV>{JSON.stringify(this.state.delivered)} </input>  */}
-                        {/* <p id="delivered">{this.state.id} </p>   
-                        <p id="delivered">{this.state.departure}</p>    
-                        <p id="delivered">{JSON.stringify(this.state.weight)}</p>   
-                        <p id="delivered">{JSON.stringify(this.state.full)}</p>   
-                        <p id="delivered">{JSON.stringify(this.state.delivered)}</p>   
-                        <p id="delivered"></p>    */}
+    
                     </form>
 
-                    {/* //                     <Link to="/" id='check-li'>Check</Link> */}
 
-                    {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
 
 
                 </div>
@@ -107,8 +84,6 @@ class OrderShow extends React.Component {
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e)} value={this.state.weight}/>
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("description", e)} value={this.state.description} />
-                        {/* <input style={{ color: this.state.full === true ? "red" : "green" }} id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("full", e)} value={this.state.full === true ? ("FULL") : ("ADD MORE") } /> */}
-                        {/* <input style={{ color: this.state.delivered === true ? "green" : "red" }} id="not-deliveredR" type="text" onChange={(e) => this.onChangeHandler("delivered", e)} value={this.state.delivered === true ? ("DELIVERED") : ("NOT YET")} /> */}
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>
@@ -116,9 +91,6 @@ class OrderShow extends React.Component {
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
                         <button  onClick={this.deleteHandler} >Delete</button>
                     </form>
-
-                    {/* <Link to="/" id='check-li'>Check</Link> */}
-
 
 
                 </div>

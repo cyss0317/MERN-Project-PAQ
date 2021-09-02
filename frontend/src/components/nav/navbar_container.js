@@ -7,9 +7,7 @@ const mapStateToProps = ({state, session, history}) => ({
   loggedIn: session.isAuthenticated,
   history: history,
   user: session.user,
-  //testing
   currentUser: state
-  // currentUserId: session.user._id 
 });
 
 const mDTP = dispatch => ({

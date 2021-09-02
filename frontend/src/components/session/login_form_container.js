@@ -6,14 +6,12 @@ import { fetchAllShipments } from '../../actions/shipment_actions';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    // currentUser: state.session.user._id
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     login: user => dispatch(login(user)),
-    // fetchAllShipments: userId => dispatch(fetchAllShipments(userId))
   }
 }
 

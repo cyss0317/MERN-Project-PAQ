@@ -31,8 +31,7 @@ class UserOrderItem extends React.Component {
     } else {
         return;
     }
-    //   .then(this.props.fetchUserOrders(this.state.customerId))
-    // .then(this.props.history.push(`/orders/user/${this.state.customerId}`))
+
   }
 
     deleteHandler(e){
@@ -50,11 +49,9 @@ class UserOrderItem extends React.Component {
         } else {
             return;
         }
-        // this.updateOrder = this.props.updateOrder.bind(this)
     }
 
     update(field){
-    // this.updatePrice(field)
     
     if (field === 'weight') {
       return e => this.setState({
@@ -88,23 +85,7 @@ class UserOrderItem extends React.Component {
                             <option align="center" value="true" >DELIVERED</option>
                             <option align="center" value="false" >NOT DELIVERED</option>
                         </select>
-                        {/* <input id="not-delivered" type='text' defaultV{this.state.id} </input> 
-                        <input id="not-delivered" type='text' defaultV{this.state.departure} </input>
-                        <input id="not-delivered" type='text' defaultV{JSON.stringify(this.state.weight)} </input>
-                        <input id="not-delivered" type='text' defaultV{JSON.stringify(this.state.full)} </input>
-                        <input id="not-deliveredG" type='text' defaultV>{JSON.stringify(this.state.delivered)} </input>  */}
-                        {/* <p id="delivered">{this.state.id} </p>   
-                        <p id="delivered">{this.state.departure}</p>    
-                        <p id="delivered">{JSON.stringify(this.state.weight)}</p>   
-                        <p id="delivered">{JSON.stringify(this.state.full)}</p>   
-                        <p id="delivered">{JSON.stringify(this.state.delivered)}</p>   
-                        <p id="delivered"></p>    */}
                     </form>
-
-                    {/* //                     <Link to="/" id='check-li'>Check</Link> */}
-
-                    {/* <Link  to={{pathna`/shipments/orders/${this.state.id}`, state:{}}} >Check</Link> */}
-                    {/* <a href={`/shipments/orders/${this.state.id}`} id='check-li' >Check orders</a> */}
 
                 </div>
             )
@@ -114,7 +95,6 @@ class UserOrderItem extends React.Component {
                     <form align="center" onSubmit={this.onClickSubmit} id="not-delivered-info-container">
                         <input id="not-delivered" type="text" readOnly value={this.props.order.shipmentId.departure} />
                         <input id="not-delivered" type="text" readOnly value={`$${Number.parseFloat(this.state.price).toFixed(2)}`}  />
-                        {/* <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("weight", e), this.update("weight")} value={this.state.weight} /> */}
                         <input id="not-delivered" type="text" readOnly value={`${Number.parseFloat(this.state.weight).toFixed(2)} lb`} />
                         <input id="not-delivered" type="text" onChange={(e) => this.onChangeHandler("receiverName", e)} value={this.state.receiverName} />
                         <input id="not-delivered" type="text" readOnly value={this.state.description} />

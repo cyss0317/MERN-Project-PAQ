@@ -6,23 +6,18 @@ import navbarCss from './nav.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    // this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.logoutUser = this.logoutUser.bind(this)
 
   }
 
   logoutUser() {
-      // e.preventDefault();
       this.props.logout()
       this.props.history.push('/') 
   }
 
   getLinks() {
-
       if (this.props.loggedIn && this.props.user.businessOwner) {
-      // if (this.props.loggedIn && this.props.currentUser.businessOwner) {
-
         return (         
           <div id='log-div'>
                 <Link to={`/shipments/user/${this.props.user._id}`} id='ship-li'>Shipments</Link>

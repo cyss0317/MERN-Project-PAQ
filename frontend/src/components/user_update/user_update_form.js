@@ -29,7 +29,7 @@ class userUpdateForm extends React.Component {
         businessOwner: true 
       }
       ) 
-      // this.forceUpdate()
+
     }
   }
   

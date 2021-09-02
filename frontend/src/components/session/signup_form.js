@@ -24,9 +24,6 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentDidMount(){
-    // this.props.fetchUser(this.props.user._id); 
-  }
   
   customerDemoUser() {
     const user = Object.assign({}, { email: "Demo_customer@PAQ.com", password: "password" })
@@ -81,7 +78,6 @@ class SignupForm extends React.Component {
 
   render() {
 
-    // if(!this.props.user) return null; 
     return this.state.switch === '' ?
     (
        <div className="signup-form-container">

@@ -17,7 +17,6 @@ class EditOrderForm extends React.Component {
   }
 
   update(field) {
-    // this.updatePrice(field)
 
     if (field === 'weight') {
       return e => this.setState({
@@ -32,24 +31,10 @@ class EditOrderForm extends React.Component {
 
   }
 
-  // updateFields(field) {
-  //   this.updatePrice(field)
-  //   this.update(field)
-  // }
-
   handleSubmit(e) {
     e.preventDefault()
     let order = Object.assign({}, this.state)
-
-    // this.setState(prevState => {
-    //   return {
-    //     price: this.state.weight * 3
-    //   }
-    // })
-
     this.props.createOrder(order);
-    //not sure if we are going to have a modal for form
-    // .then(() => this.props.closeModal())
   }
 
   renderErrors() {

@@ -10,9 +10,6 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      // phoneNumber: '',
-      // address: '',
-      // businessOwner: null,
       errors: {},
     };
 
@@ -22,22 +19,7 @@ class LoginForm extends React.Component {
     this.ownerDemoUser = this.ownerDemoUser.bind(this);
   }
 
-  // componentDidMount(){
 
-  //   this.props.fetchAllShipments(this.state.userId)
-  // }
-
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.currentUser === true) {
-  //     this.props.history.push('/dashboard');
-  //   }
-
-  //   // Set or clear errors
-  //   this.setState({errors: nextProps.errors})
-  // }
-
-  // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value

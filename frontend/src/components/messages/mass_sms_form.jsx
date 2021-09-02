@@ -18,12 +18,7 @@ class MassSMSForm extends React.Component {
     })
   }
 
-  // phoneNumbers(){
-    
-  //   this.setState({
-  //     numbers: numbers 
-  //   })
-  // }
+
 
   renderErrors(){
     if(!this.props.errors){

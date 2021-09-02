@@ -4,7 +4,6 @@ import { RECEIVE_SHIPMENT,
     RECEIVE_ALL_SHIPMENTS} from "../actions/shipment_actions";
 
 
-// takes care of the action and oldstate
 const shipmentReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     const nextState = Object.assign({}, oldState);
@@ -15,15 +14,13 @@ const shipmentReducer = (oldState = {}, action) => {
       case CREATE_SHIPMENT:
         return Object.assign({}, oldState, {[action.shipment.data._id]: action.shipment.data})
       case RECEIVE_ALL_SHIPMENTS:
-
-        // important
         let shipments = action.shipments.data
         let newState = { }
-        // shipments.map((shipment) => {})
+
         shipments.forEach((shipment) => {
           newState[shipment._id]= shipment
         })
-        // return action.shipments
+
         return newState;
       case EDIT_SHIPMENT:
         nextState[action.shipment.data._id]= action.shipment.data

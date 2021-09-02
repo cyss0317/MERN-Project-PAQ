@@ -11,7 +11,6 @@ class UserIndex extends React.Component {
       receiverName: this.props.receiverName,
       description: this.props.description
     }
-    // this.fetchUserOrders = this.fetchUserOrders.bind(this);
   }
 
   componentDidMount() { 
@@ -29,9 +28,6 @@ class UserIndex extends React.Component {
     return( 
        
       <div id="main-container">
-      {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> */}
-
-
       <div id='table-main'>
           <h1 id='table-title'>List of orders</h1>
           <div id="table-columns-order">

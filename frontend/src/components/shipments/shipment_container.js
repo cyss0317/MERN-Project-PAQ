@@ -4,11 +4,9 @@ import { createNewShipment, fetchShipment, updateShipment, fetchAllShipments } f
 import { fetchOrdersByShipmentId } from "../../actions/order_actions";
 
 const mSTP = (state, ownProps) => ({
-    // shipments: Object.values(state.shipments)[0],
     shipments: Object.values(state.shipments),
     currentUser: state.session.user,
     currentUserId: ownProps.match.params.userId
-    // need to think about how to automatically add orders 
 })
 
 const mDTP = dispatch => ({
@@ -17,7 +15,6 @@ const mDTP = dispatch => ({
     updateShipment: shipment => dispatch(updateShipment(shipment)),
     fetchAllShipments: userId => dispatch(fetchAllShipments(userId)),
     fetchOrdersByShipmentId: shipmentId => dispatch(fetchOrdersByShipmentId(shipmentId))
-    // need order's thunk actions 
 })
 
 export default connect(mSTP, mDTP)(ShipmentIndex)

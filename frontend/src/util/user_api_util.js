@@ -7,7 +7,3 @@ export const updateUser = (user) => (
 export const fetchUser = userId => (
   axios.get(`/api/users/${userId}`)
 ) 
-
-// export const fetchBusinessOwners = () => (
-//   axios.get('/api/users/businessOwners')
-// )

@@ -31,31 +31,19 @@ class ShipmentIndex extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        // let shipment = {
-        //     departure: this.state.departure,
-        //     weight: this.state.weight,
-        //     delivered: this.state.delivered,
-        //     full: this.state.full,
-        //     userId: this.state.userId,
-        // };
-        e.preventDefault();
         if (this.state.departure.length === 0 || typeof(this.state.weight) === "") {
             alert("Please fill out every inputs")
             return;
         }
         const answer = window.confirm('Are you sure you want to save this shipment to the database?')
         if (answer) {
-            // Save it!
             this.props.createNewShipment(this.state)
-            // .then(this.props.fetchAllShipments(this.props.currentUserId))
             .then(this.setState({departure: "", weight: ""}))
 
         } else {
-            // Do nothing!
             return;
         }
-        // .then( shipment =>  alert("Successfully Added"), 
-        // err => alert(`${err}`))
+
     }
 
     onChangeHandler(field, e){

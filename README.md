@@ -12,15 +12,15 @@ the orders.
 
 ### **Sign Up Demo**
 
-<iframe src="https://giphy.com/embed/s4HsuRHmfXNWh6Phie" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s4HsuRHmfXNWh6Phie">via GIPHY</a></p>
+![Signup_Demo_GIF](https://user-images.githubusercontent.com/80975847/131747740-46b08ae7-04af-42e3-8e2d-832b523eb6e3.gif)
 
 ### **Create Order Demo**
 
-<iframe src="https://giphy.com/embed/RuDdrIlv2GEBGuEQM0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/RuDdrIlv2GEBGuEQM0">via GIPHY</a></p>
+![Create_Order_Demo_GIF](https://user-images.githubusercontent.com/80975847/131747763-33236548-eebd-4002-abe7-3f7daec8050d.gif)
 
 ### **Create Shipment Demo**
 
-<iframe src="https://giphy.com/embed/Dqmb2OgfOucxq6p5Dd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Dqmb2OgfOucxq6p5Dd">via GIPHY</a></p>
+![Create_Shipment_Demo_GIF](https://user-images.githubusercontent.com/80975847/131747782-3839031d-b309-4a64-999d-43217eb57961.gif)
 
 ### **Description:**
 

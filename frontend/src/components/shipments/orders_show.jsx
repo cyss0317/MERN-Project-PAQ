@@ -8,7 +8,7 @@ class OrderShow extends React.Component {
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
-            weight: Number.parseFloat(this.props.order.weight).toFixed(2),
+            weight: this.props.order.weight,
             receiverName: this.props.order.receiverName,
             description: this.props.order.description,
             delivered: this.props.order.delivered,
@@ -21,10 +21,6 @@ class OrderShow extends React.Component {
         this.deleteHandler = this.deleteHandler.bind(this)
     }
 
-    // componentDidMount(){
-    //     this.props.fetchOrdersByShipmentId(this.props.shipmentId)
-    // }
-
     deleteHandler(e){
         e.preventDefault();
         let shipment = this.props.shipment;
@@ -35,13 +31,13 @@ class OrderShow extends React.Component {
             // Save it!
             let newShipment = Object.assign({}, shipment, {full: fullOrNot, weight: newWeight})
             
-
+            console.log('Deleted the order successfully');
             this.props.updateShipment(newShipment)
             this.props.deleteOrder(this.props.orderId);
             // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
         } else {
             // Do nothing!
-            return;
+            console.log('');
         }
         // this.updateOrder = this.props.updateOrder.bind(this)
     }
@@ -52,12 +48,12 @@ class OrderShow extends React.Component {
         const answer = window.confirm('Are you sure you want to confirm this changes to this order?')
         if (answer) {
             // Save it!
-
+            console.log('Successfully edited');
             this.props.updateOrder(this.state)
             .then(order => this.props.fetchOrdersByShipmentId(this.props.shipmentId))
         } else {
             // Do nothing!
-            return;
+            console.log("")
         }
 
         // .then(this.setState({}))

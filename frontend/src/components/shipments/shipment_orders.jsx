@@ -46,15 +46,12 @@ class ShipmentOrders extends React.Component {
         this.setState({ [field]: e.currentTarget.value })
 
     }
-    expandFunction(currentFullStatus, currentDeliveredStatus, e) {
+    expandFunction(currentStatus, e) {
 
         // e.preventDefault();
         var x = document.getElementById("create-shipment");
-        if ( currentFullStatus === true ) {
-            alert("It's already full, you can't add more orders")
-            return;
-        } else if ( currentDeliveredStatus === true){
-            alert("This shipment has been delivered, you can't add more orders")
+        if ( currentStatus === true) {
+            alert("It's already full, you can't create orders")
             return;
         }
         if (x.style.display === "none") {
@@ -69,6 +66,7 @@ class ShipmentOrders extends React.Component {
     handleSubmit(e) {
         // const order = Object.assign({}, this.state )
         e.preventDefault();
+        console.log(this.props.shipments)
         let oldShipment = this.props.shipments[this.props.shipmentId];
         let fullOrNot = false;
         let newWeight = oldShipment.weight - this.state.weight;
@@ -79,48 +77,38 @@ class ShipmentOrders extends React.Component {
         if(this.state.weight === 0 || this.state.receiverName.length === 0 || this.state.description.length === 0 ){
             alert("please fill out every inputs")
             return;
-        }else if (newWeight > 0.05) {
-            this.props.createOrder(this.state)
-                .then(order => this.props.updateShipment({
-                    _id: this.props.shipmentId,
-                    departure: oldShipment.departure,
-                    weight: newWeight,
-                    full: false,
-                    delivered: false,
-                }))
-                .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
-                .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
+        }else if (newWeight > 0) {
+
         }
-        else if (0.05 < newWeight <= 0.00) {
-            this.props.createOrder(this.state)
-                .then(order => this.props.updateShipment({
-                    _id: this.props.shipmentId,
-                    departure: oldShipment.departure,
-                    weight: newWeight,
-                    full: true,
-                    delivered: false,
-                }))
-                .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
-                .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
+        else if (newWeight === 0) {
+            fullOrNot = true
         } else {
             alert("Over exceeded weight, please try again")
             return;
         }
+        console.log(fullOrNot)
+        this.props.createOrder(this.state)
+            .then(order => this.props.updateShipment({
+                _id: this.props.shipmentId,
+                departure: oldShipment.departure,
+                weight: newWeight,
+                full: fullOrNot,
+                delivered: oldShipment.delivered,
+            }))
+            .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
+            .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
     }
 
     render() {
-
-        if ( !Object.keys(this.props.shipments).length ) return null;
-        let currentFullStatus = this.props.shipments[this.props.shipmentId].full
-        let currentDeliveredStatus = this.props.shipments[this.props.shipmentId].delivered
+        let currentStatus = this.props.shipments[this.props.shipmentId].full
         const { currentUser, shipments, orders } = this.props;
         // if ( orders === undefined ){
         //     return null;
         // }
 
 
-
         if (orders.length !== 0) {
+            console.log(shipments)
             // debugger
             return (
                 <div id="main-container">
@@ -133,7 +121,7 @@ class ShipmentOrders extends React.Component {
                         {/* <h3>Available Shipment Weight : {Math.round(((this.props.shipments[this.props.shipmentId].weight) * 100) / 100).toFixed(2)} lb</h3> */}
                         <h3>Available Shipment Weight : {Number.parseFloat(this.props.shipments[this.props.shipmentId].weight).toFixed(2)} lb</h3>
                         <div id='create-div'>
-                            <button id="expand-button" className="all-buttons" onClick={ e => this.expandFunction(currentFullStatus, currentDeliveredStatus, e)}>Create a new order</button>
+                            <button id="expand-button" className="all-buttons" onClick={ e => this.expandFunction(currentStatus, e)}>Create a new order</button>
                             <div id="create-shipment">
                                 <form id="create-form" onSubmit={this.handleSubmit} >
                                     {/* onChange={(e) => this.onChangeHandler("price", e)} */}

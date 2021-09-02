@@ -84,7 +84,7 @@ router.patch("/:_id", (req, res)=> {
 router.get("/:id", (req, res) => {
   const shipment = Shipment.findById(req.params.id)
     .populate("userId")
-    .populate("orders")
+    .populate("order")
     .exec()
     .then( shipment => res.json(shipment))
     .catch( err => res.status(404).json(err))

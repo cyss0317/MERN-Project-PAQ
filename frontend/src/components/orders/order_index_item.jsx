@@ -78,6 +78,8 @@ class UserOrderItem extends React.Component {
 
     render() {
         // debugger
+        if (this.props.order.shipmentId === undefined) return null;
+
         if (this.state.delivered === true) {
 
             return (

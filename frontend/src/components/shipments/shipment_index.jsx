@@ -10,7 +10,7 @@ class ShipmentIndex extends React.Component{
         super(props)
         this.state = {
             departure:'',
-            weight:'',
+            weight: '',
             full: false,
             delivered: false,
             userId: this.props.currentUserId,
@@ -39,7 +39,9 @@ class ShipmentIndex extends React.Component{
         //     userId: this.state.userId,
         // };
         e.preventDefault();
-        if (this.state.departure.length === 0 || typeof(this.state.weight) !== "number") {
+        if (this.state.departure.length === 0 || typeof(this.state.weight) === "") {
+            debugger
+            console.log(this.state)
             alert("Please fill out every inputs")
             return;
         }
@@ -94,7 +96,7 @@ class ShipmentIndex extends React.Component{
                         <div  id="create-shipment">
                             <form id="create-form" onSubmit={this.handleSubmit} >
                                 <input type="text" value={this.state.departure} placeholder="Departure" onChange={(e)=> this.onChangeHandler("departure", e)} id='c-input'/>
-                                <input type="text" value={`${this.state.weight}`} placeholder="Weight(lb)" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
+                                <input type="text" value={this.state.weight} placeholder="Weight(lb)" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input'/>
                                 <input type="submit" />
                             </form>
                         </div>

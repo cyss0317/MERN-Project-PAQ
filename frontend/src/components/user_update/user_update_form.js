@@ -36,6 +36,12 @@ class userUpdateForm extends React.Component {
   
   componentDidMount(){
     this.props.fetchUser()
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstLoad")) {
+        localStorage["firstLoad"] = true;
+        window.location.reload();
+      }
+      else localStorage.removeItem("firstLoad");
       // .then(() => {
       //   console.log(this.props) 
       //   this.state = {
@@ -44,7 +50,7 @@ class userUpdateForm extends React.Component {
       //   address: this.props.user.address,
       //   email: this.props.user.email }
       // } )
-
+    }
   }
 
   update(field) {

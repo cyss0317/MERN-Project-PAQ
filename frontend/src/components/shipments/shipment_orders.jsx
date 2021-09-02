@@ -65,11 +65,9 @@ class ShipmentOrders extends React.Component {
     }
 
 
-
     handleSubmit(e) {
         // const order = Object.assign({}, this.state )
         e.preventDefault();
-        console.log(this.props.shipments)
         let oldShipment = this.props.shipments[this.props.shipmentId];
         let fullOrNot = false;
         let newWeight = oldShipment.weight - this.state.weight;
@@ -77,32 +75,42 @@ class ShipmentOrders extends React.Component {
         // if ( oldShipment.full === true){
         //     alert("It's already full")
         // } else 
-        if(this.state.weight === 0 || this.state.receiverName.length === 0 || this.state.description.length === 0 ){
+        if (this.state.weight === 0 || this.state.receiverName.length === 0 || this.state.description.length === 0) {
             alert("please fill out every inputs")
             return;
-        }else if (newWeight > 0) {
-
+        } else if (newWeight > 0.05) {
+            this.props.createOrder(this.state)
+                .then(order => this.props.updateShipment({
+                    _id: this.props.shipmentId,
+                    departure: oldShipment.departure,
+                    weight: newWeight,
+                    full: false,
+                    delivered: false,
+                }))
+                .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
+                .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
+                console.log("1",newWeight)
         }
         else if (newWeight === 0) {
-            fullOrNot = true
+            console.log("2",newWeight)
+            this.props.createOrder(this.state)
+                .then(order => this.props.updateShipment({
+                    _id: this.props.shipmentId,
+                    departure: oldShipment.departure,
+                    weight: newWeight,
+                    full: true,
+                    delivered: false,
+                }))
+                .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
+                .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
         } else {
             alert("Over exceeded weight, please try again")
             return;
         }
-        console.log(fullOrNot)
-        this.props.createOrder(this.state)
-            .then(order => this.props.updateShipment({
-                _id: this.props.shipmentId,
-                departure: oldShipment.departure,
-                weight: newWeight,
-                full: fullOrNot,
-                delivered: oldShipment.delivered,
-            }))
-            .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
-            .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
     }
-
     render() {
+
+        if ( !Object.keys(this.props.shipments).length ) return null;
         let currentFullStatus = this.props.shipments[this.props.shipmentId].full
         let currentDeliveredStatus = this.props.shipments[this.props.shipmentId].delivered
         const { currentUser, shipments, orders } = this.props;

@@ -49,7 +49,7 @@ export const fetchUserOrders = id => dispatch => (
       userOrders => dispatch(receiveUserOrders(userOrders.data)),
       errors => dispatch(receiveErrors(errors.response.data))
     )
-    // .catch(err => console.log(err))
+
 );
 
 export const fetchOrder = id => dispatch => (
@@ -58,7 +58,7 @@ export const fetchOrder = id => dispatch => (
       order => dispatch(receiveOrder(order)),
       errors => dispatch(receiveErrors(errors.response.data))
     )
-    // .catch(err => console.log(err))
+
 );
 
 export const fetchOrdersByShipmentId = shipmentId => dispatch => (
@@ -67,16 +67,13 @@ export const fetchOrdersByShipmentId = shipmentId => dispatch => (
       orders => dispatch(receiveOrdersByShipmentId(orders)),
       errors => dispatch(receiveErrors(errors.response.data))
     )
-  // .catch(err => console.log(err))
 );
 
 export const createOrder = order => dispatch => (
   APIUtilOrder.createOrder(order)
     .then(createdOrder => dispatch(receiveOrder(createdOrder)),
-        // err => dispatch(receiveErrors(err.response.data))
-      // errors => dispatch(receiveErrors(errors.response.data))
     )
-    // .catch(err => console.log(err))
+
 )
 
 export const deleteOrder = orderId => dispatch => (

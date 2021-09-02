@@ -144,11 +144,7 @@ router.get("/test", (req, res) => {
 
 
 router.patch('/:_id/settings', (req,res) => {
-  // const { errors, isValid } = validateLoginInput(req.body);
 
-  // if(!isValid) {
-  //   return res.status(500).json(errors); 
-  // }
 
   
     User.findByIdAndUpdate(req.params._id,
@@ -164,7 +160,6 @@ router.patch('/:_id/settings', (req,res) => {
       if(error){
         res.json(error)
       } else {
-        console.log(data)
         res.json(data)
       }
     }) 

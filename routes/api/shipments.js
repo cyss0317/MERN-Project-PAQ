@@ -36,21 +36,11 @@ router.delete("/:id", (req, res) => {
     .then ( () => res.json({message: "Successfully deleted"}))
     .catch( err => res.status(404).json(err))
 
-  // const { id } = req.body.id;
-  // res.send(req.body.id)
-  // .then(res => console.log(res))
-
-  // console.log(id);
-  // if ( Shipment.findOne({id: id})){
-  //   Shipment.findOneAndDelete({id: id})
-  // } else{
-  //   return res.status(404).json({})
-  // }
 })
 
 router.patch("/:_id", (req, res)=> {
   Shipment.findOneAndUpdate({ _id: req.params._id },
-  // Shipment.findByIdAndUpdate( req.params._id ,
+
      { departure: req.body.departure,
        weight: req.body.weight,
        full: req.body.full, 
@@ -65,20 +55,6 @@ router.patch("/:_id", (req, res)=> {
     }
   })
 });
-// router.patch("/:_id", (req, res)=> {
-  
-//   Shipment.findByIdAndUpdate( req.params._id ,
-//      { 
-//        weight: req.body.weight
-//        },
-//          {new: true}, (error, data) => {
-//     if(error){
-//       res.json(error)
-//     }else{
-//       res.json(data)
-//     }
-//   })
-// });
 
 
 router.get("/:id", (req, res) => {
@@ -110,13 +86,7 @@ router.get("/user/:userId", (req, res) => {
     .catch(err => res.status(404).json(err))
 
 })
-// router.get('/user/:id', (req, res) => {
-//   Shipment.findAll()
-//     .then( shipments => shipments.findBy({userId: req.params.userId }))
-//     .sort({ date: -1 })
-//     .then(shipments => res.json(shipments))
-//     .catch(err => res.status(404).json(err))
-// });
+
 
 router.get("/allShipments/:delivered", (req,res) => {
   Shipment.find({delivered: req.params.delivered})

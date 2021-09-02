@@ -54,8 +54,6 @@ class LoginForm extends React.Component {
     this.props.login(user)
   }
 
-
-  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
     let user = {
@@ -63,13 +61,8 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
     this.props.login(user)
-
-    // .catch(err => this.renderErrors(err))
-    // .then( () => this.props.fetchAllShipments(this.state.userId)) 
-    // .then(console.log(this.props.currentUser))
   }
 
-  // Render the  if there are any
   renderErrors() {
     return (
       <ul id='errors'>

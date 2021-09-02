@@ -5,7 +5,6 @@ import shipmentCSS from '../shipments/shipment.css'
 class UserOrderItem extends React.Component {
     constructor(props) {
         super(props)
-        // console.log("inside of the constructor", this.props)
         this.state = {
             id: this.props.order._id,
             price: this.props.order.price,
@@ -43,8 +42,6 @@ class UserOrderItem extends React.Component {
         let shipmentWeight = this.state.shipmentId
 
         if (answer) {
-            console.log("i am in the deleteHandler", shipmentWeight)
-            console.log(this.props.order.shipmentId)
             let oldWeight = this.props.order.shipmentId.weight 
             let oldShipment = this.props.order.shipmentId 
             let newShipment = Object.assign({}, oldShipment, {weight: oldWeight + this.props.order.weight, full: false})
@@ -66,10 +63,6 @@ class UserOrderItem extends React.Component {
       })
     }
 
-    // return e => this.setState({
-    //   [field]: e.currentTarget.value
-    // })
-    
     }
 
     onChangeHandler(field, e) {
@@ -77,7 +70,7 @@ class UserOrderItem extends React.Component {
     }
 
     render() {
-        // debugger
+
         if (this.props.order.shipmentId === undefined) return null;
 
         if (this.state.delivered === true) {

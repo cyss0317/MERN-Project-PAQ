@@ -6,9 +6,6 @@ module.exports = function validateRegisterForShipment(data) {
     let errors = {};
 
     data.departure = validText(data.departure) ? data.departure : ""
-    // data.weight = validText(data.weight) ? data.email : ""
-    // data.full = validText(data.full) ? data.full : ""
-    // data.userId = validText(data.userId) ? data.userId : ""
 
 
     if (Validator.isEmpty(data.departure)) {

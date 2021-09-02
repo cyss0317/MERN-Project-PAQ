@@ -31,7 +31,7 @@ router.post('/', (req,res) => {
          });
 });
 
-// multiple messages 
+
 
 router.post('/massText', (req,res) => {
   const { errors, isValid } = validateMessages(req.body);
@@ -54,24 +54,6 @@ router.post('/massText', (req,res) => {
         .catch(err => console.log(err))
 })
 
-// router.post('/massText', (req,res) => {
-//   res.header('Content-Type', 'application/json');
-//   req.body.numbers.forEach(number => {
-//     client.messages
-//           .create({
-//                body: req.body.body,
-//                from: phoneNumber,
-//                to: `+1${number}`
-//          })
-//          .then(() => {
-//            res.send(JSON.stringify({ success: true}));
-//          })
-//          .catch(err => {
-//            console.log(err);
-//            res.send(JSON.stringify({success: false}));
-//          });
-//   })
-  
-// });
+
 
 module.exports = router; 

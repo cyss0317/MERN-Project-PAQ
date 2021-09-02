@@ -32,13 +32,10 @@ const ShipmentSchema = new Schema({
     orders: {
         order: {
             type: Schema.Types.ObjectId, ref: "order"
-            // [OrderShema]
         }
     },
 
-    // order: {
-    //     type: Schema.Types.ObjectId, ref: "order"
-    // },
+
 
     date: {
         type: Date,

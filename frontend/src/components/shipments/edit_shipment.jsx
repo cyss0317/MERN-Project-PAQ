@@ -23,16 +23,11 @@ class EditShipment extends React.Component{
         
         const answer = window.confirm('Are you sure you want to make this changes to the database?')
         if (answer) {
-            // Save it!
-            console.log('Successfully edited');
             const shipment = Object.assign({}, this.state)
-            console.log(this.props)
-            console.log(shipment)
             this.props.updateShipment(shipment)
             .then(this.props.fetchAllShipments(this.props.currentUserId))
         } else {
-            // Do nothing!
-            console.log('Something went wrong, try again');
+                return;
         }
     }
 

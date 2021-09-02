@@ -4,17 +4,14 @@ import { shipmentsByDeliveryStatus, updateShipment } from '../../actions/shipmen
 import UserIndex from './user_index_form';
 
 const mSTP = (state) => {
-  // console.log("in the mSTP", state)
   return ({
     errors: state.errors.orders,
-    // orders: Object.values(state.orders),
     orders: Object.values(state.orders),
     currentUserId: state.session.user._id
   })
 }
 
 const mDTP = (dispatch, ownProps) => {
-  // console.log("i am in mDTP", mDTP)
   return {
     fetchUserOrders: () => dispatch(fetchUserOrders(ownProps.match.params._id)),
     updateOrder: (order) => dispatch(updateOrder(order)),

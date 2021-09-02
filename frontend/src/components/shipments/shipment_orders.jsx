@@ -89,10 +89,8 @@ class ShipmentOrders extends React.Component {
                 }))
                 .then(shipment => this.props.fetchOrdersByShipmentId(this.state.shipmentId))
                 .then(this.setState({ price: "", weight: "", recieverName: "", description: "", receiverName: "" }))
-                console.log("1",newWeight)
         }
         else if (newWeight === 0) {
-            console.log("2",newWeight)
             this.props.createOrder(this.state)
                 .then(order => this.props.updateShipment({
                     _id: this.props.shipmentId,
@@ -114,19 +112,13 @@ class ShipmentOrders extends React.Component {
         let currentFullStatus = this.props.shipments[this.props.shipmentId].full
         let currentDeliveredStatus = this.props.shipments[this.props.shipmentId].delivered
         const { currentUser, shipments, orders } = this.props;
-        // if ( orders === undefined ){
-        //     return null;
-        // }
+
 
 
         if (orders.length !== 0) {
-            console.log(shipments)
-            // debugger
+
             return (
                 <div id="main-container">
-                    {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> */}
-
-
                     <div id='table-main'>
                         <h1 id='table-title'>List of orders</h1>
                         <h3>Departure Date : {this.props.shipments[this.props.shipmentId].departure}</h3>
@@ -156,12 +148,8 @@ class ShipmentOrders extends React.Component {
                             <p id="p2">delivered</p>
 
 
-                            {/* <Link to="/shipment/create">Create a shipment</Link>
-                            <Route path="/shipment/create" component={ShipmentCreate}></Route> */}
                         </div>
-                        {/* <div>
-                            
-                        </div> */}
+
 
                         <div>
                             {
@@ -181,7 +169,6 @@ class ShipmentOrders extends React.Component {
         } else {
             return (
                 <div id="main-container">
-                    {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> */}
 
 
                     <div id='table-main'>
@@ -191,10 +178,7 @@ class ShipmentOrders extends React.Component {
                             <button id="expand-button" className="all-buttons" onClick={this.expandFunction}>Create a new order</button>
                             <div id="create-shipment">
                                 <form id="create-form" onSubmit={this.handleSubmit} >
-                                    {/* onChange={(e) => this.onChangeHandler("price", e)} */}
                                     <input type="text" value={`$${this.state.price}`} placeholder="price" readOnly id='c-input' />
-                                    {/* price: `${Math.round(((e.currentTarget.value * 3.0) * 100) / 100).toFixed(2)}`, */}
-                                    {/* <input type="text" value={`${Math.round(((this.state.price) * 100) / 100).toFixed(2)}`} placeholder="price" readOnly  id='c-input' /> */}
                                     <input type="text" value={this.state.weight} placeholder="weight(lb)" onChange={(e) => this.onChangeHandler("weight", e)} id='c-input' />
                                     <input type="text" value={this.state.receiverName} placeholder="receiverName" onChange={(e) => this.onChangeHandler("receiverName", e)} id='c-input' />
                                     <input type="text" value={this.state.description} placeholder="description" onChange={(e) => this.onChangeHandler("description", e)} id='c-input' />
@@ -211,8 +195,6 @@ class ShipmentOrders extends React.Component {
                             <p id="p2">delivered</p>
 
 
-                            {/* <Link to="/shipment/create">Create a shipment</Link>
-                            <Route path="/shipment/create" component={ShipmentCreate}></Route> */}
                         </div>
 
                         <h1>You don't have any orders for this shipment</h1>

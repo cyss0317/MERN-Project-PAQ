@@ -42,14 +42,6 @@ class userUpdateForm extends React.Component {
         window.location.reload();
       }
       else localStorage.removeItem("firstLoad");
-      // .then(() => {
-      //   console.log(this.props) 
-      //   this.state = {
-      //   id: this.props.user._id,
-      //   phoneNumber: this.props.user.phoneNumber,
-      //   address: this.props.user.address,
-      //   email: this.props.user.email }
-      // } )
     }
   }
 

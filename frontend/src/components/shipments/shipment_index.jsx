@@ -40,22 +40,19 @@ class ShipmentIndex extends React.Component{
         // };
         e.preventDefault();
         if (this.state.departure.length === 0 || typeof(this.state.weight) === "") {
-            debugger
-            console.log(this.state)
             alert("Please fill out every inputs")
             return;
         }
         const answer = window.confirm('Are you sure you want to save this shipment to the database?')
         if (answer) {
             // Save it!
-            console.log('Successfully created');
             this.props.createNewShipment(this.state)
             // .then(this.props.fetchAllShipments(this.props.currentUserId))
             .then(this.setState({departure: "", weight: ""}))
 
         } else {
             // Do nothing!
-            console.log('Something went wrong, try again');
+            return;
         }
         // .then( shipment =>  alert("Successfully Added"), 
         // err => alert(`${err}`))

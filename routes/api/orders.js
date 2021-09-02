@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-// const jwt = require('jsonwebtoken');
 require('../../config/passport')(passport);
 const validateOrderInput = require('../../validation/order');
 const {response} = require('express');
@@ -13,7 +12,6 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the order route" })
 })
 
-//might have to change the route
 router.get('/user/:userId', (req, res) => {
 
   const order = Order.find({ customerId: req.params.userId})
@@ -26,7 +24,7 @@ router.get('/user/:userId', (req, res) => {
     .catch(err => res.status(404).json(err))
 });
 
-// find by shipmentId
+
 router.get('/shipment/:shipmentId', (req, res) => {
   const orders = Order.find({ shipmentId: req.params.shipmentId})
     .sort({delivered: false})  
@@ -55,11 +53,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/',
 (req, res) => {
-  // const { errors, isValid } = validateOrderInput(req.body);
-  
-  //   if (!isValid) {
-  //     return res.status(400).json(errors);
-  //   }
+
 
     const newOrder = new Order({
       price: req.body.price,

@@ -5,7 +5,6 @@ const Shipment = require("./Shipment")
 const UserSchema = new Schema({
     businessOwner: {
       type: Boolean,
-      // required: true
     },
     address: {
       type: String,

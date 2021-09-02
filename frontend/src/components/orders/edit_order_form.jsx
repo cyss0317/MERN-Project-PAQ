@@ -54,7 +54,6 @@ class EditOrderForm extends React.Component {
 
   renderErrors() {
     if (!this.props.errors) {
-      // console.log(this.props)
       return null
     } else {
       return (

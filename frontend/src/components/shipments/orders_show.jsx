@@ -30,14 +30,12 @@ class OrderShow extends React.Component {
         if (answer ) {
             // Save it!
             let newShipment = Object.assign({}, shipment, {full: fullOrNot, weight: newWeight})
-            
-            console.log('Deleted the order successfully');
             this.props.updateShipment(newShipment)
             this.props.deleteOrder(this.props.orderId);
             // this.props.fetchOrdersByShipmentId(this.props.shipmentId);
         } else {
             // Do nothing!
-            console.log('');
+            return;
         }
         // this.updateOrder = this.props.updateOrder.bind(this)
     }
@@ -48,12 +46,11 @@ class OrderShow extends React.Component {
         const answer = window.confirm('Are you sure you want to confirm this changes to this order?')
         if (answer) {
             // Save it!
-            console.log('Successfully edited');
             this.props.updateOrder(this.state)
             .then(order => this.props.fetchOrdersByShipmentId(this.props.shipmentId))
         } else {
             // Do nothing!
-            console.log("")
+            return;
         }
 
         // .then(this.setState({}))

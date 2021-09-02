@@ -58,12 +58,24 @@ display: flex;
     border-color: transparent;
 }
 
+#demo-users{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#demo-users button{
+    margin-bottom: 8px;
+}
+
 #log-title{
     font-weight: bold;
     font-size: 50px;
-    margin-top: 1%;
-    margin-bottom: 15%;
+    min-width: 250px;
+    width: 70%;
     color: white;
+    text-align: center;
 }
 
 #log-submit{
@@ -112,9 +124,12 @@ display: flex;
 }
 
 #demo-buttons{
-    position: relative;
-    display: flex;
-    margin-left: 119%;
-    margin-top: -65px;
-    gap: 15px;
+
 } 
+
+#signin-demo{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}

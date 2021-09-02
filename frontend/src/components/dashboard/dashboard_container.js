@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
 import Dashboard from './dashboard'
-import {fetchUser} from '../../actions/users_actions'
+import { fetchUser } from '../../actions/users_actions'
 import { fetchUserOrders } from '../../actions/order_actions';
 import { fetchAllShipments } from '../../actions/shipment_actions';
 
-const mSTP = ({shipments, session, users, orders }) => ({
+const mSTP = ({ shipments, session, users, orders }) => ({
   // shipments: shipments.userId[session.user.id]
   user: session.user,
   // owner: session.user.owner
   pending: Object.values(orders).filter(order => order.delivered === false),
   done: Object.values(orders).filter(order => order.delivered === true),
+  shipping: Object.values(shipments).filter(shipment => shipment.delivered === false),
+  shipped: Object.values(shipments).filter(shipment => shipment.delivered === true),
+  total: Object.values(shipments)
 })
 
 const mDTP = dispatch => ({

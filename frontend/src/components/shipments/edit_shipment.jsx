@@ -90,9 +90,10 @@ class EditShipment extends React.Component{
                             <option style={{color: "red"}} value="true" >FULL</option>
                             <option style={{ color: "green" }} value="false" >ADD MORE</option>
                         </select>
+                        {/* <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR"> */}
                         <select align="center" style={{ color: this.state.delivered === true ? "green" : "red" }} defaultValue={this.state.delivered} onChange={(e) => this.onChangeHandler("delivered", e)} id="not-deliveredR">
-                            <option align="center" value="true" >DELIVERED</option>
-                            <option align="center" value="false" >NOT DELIVERED</option>
+                            <option align="center" style={{ color: "green" }} value="true" >DELIVERED</option>
+                            <option align="center" style={{ color: "red" }} value="false" >NOT DELIVERED</option>
                         </select>
                         <input className="all-buttons" id="submit-buttons" type="submit" value="Submit changes" />
                         <Link to={`/shipments/orders/${this.state._id}`} id='check-li' >Check orders</Link>

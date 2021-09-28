@@ -12,7 +12,7 @@ display: flex;
 }
 
 .signup-form{
-width: 46%;
+    width: 46%;
     height: 65%;
     background-size: 100% 145%;
     display: flex;

@@ -69,19 +69,20 @@ class Dashboard extends React.Component {
               <h2>Current Shipments <p id='paq-num1'>{this.props.total.length}</p></h2>
 
               <div id='packages-user-history'>
-                <div id='pd-div'>
+                <div id='pd-div1'>
                   <h3>Pending Shipments</h3>
                   <p id='paq-num'>{this.props.shipping.length}</p>
                 </div>
 
-                <div id='pd-div'>
+                <div id='pd-div1'>
                   <h3>Shipments Done</h3>
                   <p id='paq-num'>{this.props.shipped.length}</p>
                 </div>
 
               </div>
               <h4>For More Info Click The Shipments Button</h4>
-              
+
+              <img id='owner-plane' src="https://github.com/cyss0317/MERN-Project-PAQ/blob/finalCss/frontend/src/css_images/ownerPlane.jpeg?raw=true"/>
             </div>
 
           </div>
